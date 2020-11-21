@@ -1,8 +1,10 @@
-package com.example.shiftplanner;
+package com.example.shiftplanner.Manager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.shiftplanner.R;
 
 public class GiveRestrictions extends AppCompatActivity {
 

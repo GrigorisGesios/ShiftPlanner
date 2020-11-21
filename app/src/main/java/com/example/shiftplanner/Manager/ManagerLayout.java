@@ -1,4 +1,4 @@
-package com.example.shiftplanner;
+package com.example.shiftplanner.Manager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.shiftplanner.R;
 
 public class ManagerLayout extends AppCompatActivity {
 

@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.shiftplanner.Employee.EmployeeLayout;
+import com.example.shiftplanner.Manager.ManagerLayout;
+
 public class MainActivity extends AppCompatActivity {
 
     Button btnManager, btnEmployee;

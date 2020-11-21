@@ -1,14 +1,16 @@
-package com.example.shiftplanner;
+package com.example.shiftplanner.Employee;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class PlanFinalSchedule extends AppCompatActivity {
+import com.example.shiftplanner.R;
+
+public class GiveRequirements extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_plan_final_schedule);
+        setContentView(R.layout.activity_give_requirements);
     }
 }
