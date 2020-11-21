@@ -9,6 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ShiftPlanner">
+        <activity android:name=".PlanFinalSchedule"></activity>
+        <activity android:name=".ReviewRequirements" />
+        <activity android:name=".GiveRestrictions" />
+        <activity android:name=".ManagerLayout" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
