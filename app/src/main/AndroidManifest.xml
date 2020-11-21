@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ShiftPlanner">
-        <activity android:name=".PlanFinalSchedule"></activity>
+        <activity android:name=".ViewFinalSchedule"></activity>
+        <activity android:name=".GiveRequirements" />
+        <activity android:name=".EmployeeLayout" />
+        <activity android:name=".PlanFinalSchedule" />
         <activity android:name=".ReviewRequirements" />
         <activity android:name=".GiveRestrictions" />
         <activity android:name=".ManagerLayout" />
