@@ -18,7 +18,7 @@ public class ParseJ
     private Context context;
     HashMap<String,String> workers = new HashMap<String, String>();
     ArrayList<HashMap<String,String>> workerslist = new ArrayList<>();
-    String value,name,fname,id;
+    String value,name,id;
 
     public ParseJ(Context context)
     {
