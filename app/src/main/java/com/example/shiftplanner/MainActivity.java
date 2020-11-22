@@ -7,6 +7,9 @@ import android.widget.TextView;
 
 import org.json.JSONException;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -18,13 +21,16 @@ public class MainActivity extends AppCompatActivity {
         TextView onomaTView;
         ParseJ parsetest = new ParseJ(this);
 
+
+
+
         try {
-            firstname = parsetest.RetName();
+            parsetest.RetName();
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        onomaTView = (TextView) findViewById(R.id.onomatest);
-        onomaTView.setText("ONOMA:" + firstname);
+        //onomaTView = (TextView) findViewById(R.id.onomatest);
+        //onomaTView.setText("ONOMA:" + firstname);
     }
 }

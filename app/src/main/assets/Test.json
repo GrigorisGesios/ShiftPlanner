@@ -1,6 +1,23 @@
 {
-   "Person":
+   "Workers":
+   [
    {
-   "Name": "John"
+   "ID":"0001",
+   "firstname": "Γιώργος",
+   "lastname": "Παπαδόπουλος",
+   "profession": "Ταμίας"
+   },
+   {
+   "ID":"0002",
+   "firstname": "Βαγγέλης",
+   "lastname": "Αγγελόπουλος",
+   "profession": "Καθαριστής"
+   },
+   {
+   "ID":"0003",
+   "firstname": "Πέτρος",
+   "lastname": "Μαλλιάρης",
+   "profession": "Ταμίας"
    }
+   ]
 }
