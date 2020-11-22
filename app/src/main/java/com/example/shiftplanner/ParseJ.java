@@ -27,22 +27,24 @@ public class ParseJ
 
         public void RetName() throws JSONException {
         JSONObject obj = new JSONObject(loadJSONFromAsset());
-        JSONArray jarr = (JSONArray) obj.get("Workers");
+        JSONArray jarr = (JSONArray) obj.get("requirement");
 
         for(int i=0;i<jarr.length();i++)
         {
             JSONObject jin = jarr.getJSONObject(i);
             String id = jin.getString("ID");
-            String fname = jin.getString("firstname");
-            String lname = jin.getString("lastname");
-            String proff = jin.getString("profession");
+            String pref = jin.getString("protimisi");
+            String shiftP = jin.getString("vardiaP");
+            String denial = jin.getString("oxi");
+            String shiftD = jin.getString("vardiaO");
 
             HashMap<String,String> worker = new HashMap<>();
 
             worker.put("ID",id);
-            worker.put("firstname",fname);
-            worker.put("lastname",lname);
-            worker.put("proffesion",proff);
+            worker.put("protimisi",pref);
+            worker.put("vardiaP",shiftP);
+            worker.put("oxi",denial);
+            worker.put("vardiaD",shiftD);
 
             workerslist.add(worker);
         }
