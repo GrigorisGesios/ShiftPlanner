@@ -25,6 +25,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //ΚΩΔΙΚΑΣ ΓΙΑ ΕΚΤΕΛΕΣΗ ΤΩΝ ΜΕΘΟΔΩΝ ΑΠΟ PARSEJ
+        /*ParseJ parsT = new ParseJ(this);
+
+        try {
+            parsT.parseReq();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            parsT.parseEmp();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            parsT.parseWorkers();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }*/
+
+
         btnManager = (Button) findViewById(R.id.btnManager);
         btnEmployee = (Button) findViewById(R.id.btnEmployee);
 

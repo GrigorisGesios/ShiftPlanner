@@ -18,8 +18,10 @@ import java.util.Iterator;
 public class ParseJ
 {
     private Context context;
-    ArrayList<HashMap<String,String>> workerslist = new ArrayList<>();
 
+    ArrayList<HashMap<String,String>> reqlist = new ArrayList<>();
+    ArrayList<HashMap<String,String>> emplist = new ArrayList<>();
+    ArrayList<HashMap<String,String>> workerslist = new ArrayList<>();
 
 
     public ParseJ(Context context)
@@ -27,11 +29,9 @@ public class ParseJ
         this.context = context;
     }
 
-        public void parseTest1() throws JSONException {
-        JSONObject obj = new JSONObject(loadJSONFromAsset("Test.json"));
+        public void parseReq() throws JSONException {
+        JSONObject obj = new JSONObject(loadJSONFromAsset("Requirements.json"));
         JSONArray jarr = (JSONArray) obj.get("requirement");
-
-
         for(int i=0;i<jarr.length();i++)
         {
             JSONObject jin = jarr.getJSONObject(i);
@@ -41,20 +41,67 @@ public class ParseJ
             String denial = jin.getString("oxi");
             String shiftD = jin.getString("vardiaO");
 
-            HashMap<String,String> worker = new HashMap<>();
+            HashMap<String,String> workerreq = new HashMap<>();
 
-            worker.put("ID",id);
-            worker.put("Προτίμηση",pref);
-            worker.put("Βάρδια Π",shiftP);
-            worker.put("Όχι",denial);
-            worker.put("Βάρδια Ο",shiftD);
+            workerreq.put("ID",id);
+            workerreq.put("Προτίμηση",pref);
+            workerreq.put("Βάρδια Π",shiftP);
+            workerreq.put("Όχι",denial);
+            workerreq.put("Βάρδια Ο",shiftD);
 
-            workerslist.add(worker);
+            reqlist.add(workerreq);
         }
-
-            Log.d("workerslist",workerslist.toString());
-
+            Log.d("Λίστα Requirements",reqlist.toString());
     }
+
+    public void parseWorkers() throws JSONException {
+        JSONObject obj = new JSONObject(loadJSONFromAsset("Workers.json"));
+        JSONArray jarr = (JSONArray) obj.get("employee");
+        for(int i=0;i<jarr.length();i++)
+        {
+            JSONObject jin = jarr.getJSONObject(i);
+            String fname = jin.getString("firstname");
+            String proff = jin.getString("idikotita");
+            String empID = jin.getString("ID");
+            String lname = jin.getString("lastname");
+
+            HashMap<String,String> employee = new HashMap<>();
+
+            employee.put("Όνομα",fname);
+            employee.put("Επίθετο",lname);
+            employee.put("Ειδικότητα",proff);
+            employee.put("ID",empID);
+
+            workerslist.add(employee);
+        }
+        Log.d("Λίστα Employee",workerslist.toString());
+    }
+
+    public void parseEmp() throws JSONException {
+        JSONObject obj = new JSONObject(loadJSONFromAsset("Employers.json"));
+        JSONArray jarr = (JSONArray) obj.get("employer");
+        for(int i=0;i<jarr.length();i++)
+        {
+            JSONObject jin = jarr.getJSONObject(i);
+            String fname = jin.getString("firstname");
+            String proff = jin.getString("idikotita");
+            String empID = jin.getString("ID");
+            String lname = jin.getString("lastname");
+
+            HashMap<String,String> employer = new HashMap<>();
+
+            employer.put("Όνομα",fname);
+            employer.put("Επίθετο",lname);
+            employer.put("Ειδικότητα",proff);
+            employer.put("ID",empID);
+
+            emplist.add(employer);
+        }
+        Log.d("Λίστα Employer",emplist.toString());
+    }
+
+
+
 
     public String loadJSONFromAsset(String jsonname)
     {
