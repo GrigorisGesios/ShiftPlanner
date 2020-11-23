@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ShiftPlanner</string>
+    <string name="testview">TextView</string>
 </resources>
