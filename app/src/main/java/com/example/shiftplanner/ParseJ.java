@@ -2,6 +2,7 @@ package com.example.shiftplanner;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -11,23 +12,25 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 
 public class ParseJ
 {
     private Context context;
-    HashMap<String,String> workers = new HashMap<String, String>();
     ArrayList<HashMap<String,String>> workerslist = new ArrayList<>();
-    String value,name,id;
+
+
 
     public ParseJ(Context context)
     {
         this.context = context;
     }
 
-        public void RetName() throws JSONException {
-        JSONObject obj = new JSONObject(loadJSONFromAsset());
+        public void parseTest1() throws JSONException {
+        JSONObject obj = new JSONObject(loadJSONFromAsset("Test.json"));
         JSONArray jarr = (JSONArray) obj.get("requirement");
+
 
         for(int i=0;i<jarr.length();i++)
         {
@@ -41,22 +44,24 @@ public class ParseJ
             HashMap<String,String> worker = new HashMap<>();
 
             worker.put("ID",id);
-            worker.put("protimisi",pref);
-            worker.put("vardiaP",shiftP);
-            worker.put("oxi",denial);
-            worker.put("vardiaD",shiftD);
+            worker.put("Προτίμηση",pref);
+            worker.put("Βάρδια Π",shiftP);
+            worker.put("Όχι",denial);
+            worker.put("Βάρδια Ο",shiftD);
 
             workerslist.add(worker);
         }
+
             Log.d("workerslist",workerslist.toString());
+
     }
 
-    public String loadJSONFromAsset()
+    public String loadJSONFromAsset(String jsonname)
     {
         String json = null;
         try
         {
-            InputStream is = context.getAssets().open("Test.json");
+            InputStream is = context.getAssets().open(jsonname);
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
