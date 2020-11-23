@@ -19,9 +19,9 @@ public class ParseJ
 {
     private Context context;
 
-    ArrayList<HashMap<String,String>> reqlist = new ArrayList<>();
-    ArrayList<HashMap<String,String>> emplist = new ArrayList<>();
-    ArrayList<HashMap<String,String>> workerslist = new ArrayList<>();
+    ArrayList<Requirements> reqlist = new ArrayList<>();
+    ArrayList<Employers> emplist = new ArrayList<>();
+    ArrayList<Workers> workerslist = new ArrayList<>();
 
 
     public ParseJ(Context context)
@@ -29,75 +29,65 @@ public class ParseJ
         this.context = context;
     }
 
-        public void parseReq() throws JSONException {
+
+
+    public ArrayList<Requirements> parseReq() throws JSONException {
         JSONObject obj = new JSONObject(loadJSONFromAsset("Requirements.json"));
         JSONArray jarr = (JSONArray) obj.get("requirement");
         for(int i=0;i<jarr.length();i++)
         {
             JSONObject jin = jarr.getJSONObject(i);
-            String id = jin.getString("ID");
-            String pref = jin.getString("protimisi");
+            String requirementsID = jin.getString("ID");
+            String requirementsPref = jin.getString("protimisi");
             String shiftP = jin.getString("vardiaP");
             String denial = jin.getString("oxi");
             String shiftD = jin.getString("vardiaO");
 
-            HashMap<String,String> workerreq = new HashMap<>();
+            Requirements req = new Requirements(requirementsID,requirementsPref,shiftP,denial,shiftD);
 
-            workerreq.put("ID",id);
-            workerreq.put("Προτίμηση",pref);
-            workerreq.put("Βάρδια Π",shiftP);
-            workerreq.put("Όχι",denial);
-            workerreq.put("Βάρδια Ο",shiftD);
-
-            reqlist.add(workerreq);
+            reqlist.add(req);
         }
-            Log.d("Λίστα Requirements",reqlist.toString());
+        return reqlist;
+        //Log.d("Λίστα Requirements",reqlist.toString());
     }
 
-    public void parseWorkers() throws JSONException {
+    public ArrayList<Workers> parseWorkers() throws JSONException {
         JSONObject obj = new JSONObject(loadJSONFromAsset("Workers.json"));
         JSONArray jarr = (JSONArray) obj.get("employee");
         for(int i=0;i<jarr.length();i++)
         {
             JSONObject jin = jarr.getJSONObject(i);
             String fname = jin.getString("firstname");
-            String proff = jin.getString("idikotita");
-            String empID = jin.getString("ID");
+            String wprof = jin.getString("idikotita");
+            String wID = jin.getString("ID");
             String lname = jin.getString("lastname");
 
-            HashMap<String,String> employee = new HashMap<>();
+            Workers work = new Workers(fname,lname,wID,wprof);
 
-            employee.put("Όνομα",fname);
-            employee.put("Επίθετο",lname);
-            employee.put("Ειδικότητα",proff);
-            employee.put("ID",empID);
-
-            workerslist.add(employee);
+            workerslist.add(work);
         }
-        Log.d("Λίστα Employee",workerslist.toString());
+        return workerslist;
+        //Log.d("Λίστα Employee",workerslist.toString());
     }
 
-    public void parseEmp() throws JSONException {
+    public ArrayList<Employers> parseEmp() throws JSONException {
         JSONObject obj = new JSONObject(loadJSONFromAsset("Employers.json"));
         JSONArray jarr = (JSONArray) obj.get("employer");
         for(int i=0;i<jarr.length();i++)
         {
             JSONObject jin = jarr.getJSONObject(i);
             String fname = jin.getString("firstname");
-            String proff = jin.getString("idikotita");
+            String prof = jin.getString("idikotita");
             String empID = jin.getString("ID");
             String lname = jin.getString("lastname");
 
-            HashMap<String,String> employer = new HashMap<>();
+            Employers emp = new Employers(fname,lname,empID,prof);
 
-            employer.put("Όνομα",fname);
-            employer.put("Επίθετο",lname);
-            employer.put("Ειδικότητα",proff);
-            employer.put("ID",empID);
-
-            emplist.add(employer);
+            emplist.add(emp);
         }
-        Log.d("Λίστα Employer",emplist.toString());
+        //Log.d("Λίστα Employer",emplist.toString());
+
+        return emplist;
     }
 
 
@@ -121,5 +111,60 @@ public class ParseJ
             return null;
         }
         return json;
+    }
+
+
+    public void ShowEmployers(TextView tView) throws JSONException {
+        ArrayList<Employers> list = parseEmp();
+        StringBuilder sb = new StringBuilder();
+        for(int i=0;i<list.size();i++)
+        {
+            sb.append(list.get(i).getFirstName());
+            sb.append(" ");
+            sb.append(list.get(i).getEmployerProff());
+            sb.append(" ");
+            sb.append(list.get(i).getEmployerID());
+            sb.append(" ");
+            sb.append(list.get(i).getLastName());
+            sb.append("\n");
+        }
+        //Log.d("Λίστα Employer",sb.toString());
+        tView.setText(sb.toString());
+    }
+
+    public void ShowWorkers(TextView tView) throws JSONException {
+        ArrayList<Workers> list =  parseWorkers();
+        StringBuilder sb = new StringBuilder();
+        for(int i=0;i<list.size();i++)
+        {
+            sb.append(list.get(i).getFirstName());
+            sb.append(" ");
+            sb.append(list.get(i).getWorkersProf());
+            sb.append(" ");
+            sb.append(list.get(i).getWorkersID());
+            sb.append(" ");
+            sb.append(list.get(i).getLastName());
+            sb.append("\n");
+        }
+        //Log.d("Λίστα Employer",sb.toString());
+        tView.setText(sb.toString());
+    }
+
+    public void ShowRequirements(TextView tView) throws JSONException {
+        ArrayList<Requirements> list =  parseReq();
+        StringBuilder sb = new StringBuilder();
+        for(int i=0;i<list.size();i++)
+        {
+            sb.append(list.get(i).getRequirementsID());
+            sb.append(" ");
+            sb.append(list.get(i).getPreference());
+            sb.append(" ");
+            sb.append(list.get(i).getVardiaP());
+            sb.append(" ");
+            sb.append(list.get(i).getVardiaO());
+            sb.append("\n");
+        }
+        //Log.d("Λίστα Employer",sb.toString());
+        tView.setText(sb.toString());
     }
 }

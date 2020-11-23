@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Layout;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -19,6 +20,7 @@ import com.example.shiftplanner.Manager.ManagerLayout;
 public class MainActivity extends AppCompatActivity {
 
     Button btnManager, btnEmployee;
+    TextView textView1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,23 +28,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //ΚΩΔΙΚΑΣ ΓΙΑ ΕΚΤΕΛΕΣΗ ΤΩΝ ΜΕΘΟΔΩΝ ΑΠΟ PARSEJ
-        /*ParseJ parsT = new ParseJ(this);
+        ParseJ parsT = new ParseJ(this);
 
         try {
+            parsT.parseEmp();
+            parsT.parseWorkers();
             parsT.parseReq();
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        try {
-            parsT.parseEmp();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        try {
-            parsT.parseWorkers();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }*/
+        //ΚΩΔΙΚΑΣ ΓΙΑ ΕΚΤΕΛΕΣΗ ΤΩΝ ΜΕΘΟΔΩΝ ΑΠΟ PARSEJ
 
 
         btnManager = (Button) findViewById(R.id.btnManager);
