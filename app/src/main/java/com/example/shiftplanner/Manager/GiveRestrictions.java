@@ -11,6 +11,6 @@ public class GiveRestrictions extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_review_restrictions);
+        setContentView(R.layout.activity_give_restrictions);
     }
 }
