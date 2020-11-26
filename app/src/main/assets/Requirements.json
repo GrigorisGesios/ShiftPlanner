@@ -1,54 +1,52 @@
 {
-  "requirement":
-  [
-  {
-  "ID": "1",
-  "protimisi": "Deutera",
-  "vardiaP": "1",
-  "oxi": "Paraskeuh",
-  "vardiaO": "3",
- },
- {
-  "ID": "2",
-  "protimisi": "Tetarth",
-  "vardiaP": "2",
-  "oxi": "Kuriakh",
-  "vardiaO": "1",
- },
- {
-  "ID": "3",
-  "protimisi": "Savvato",
-  "vardiaP": "1",
-  "oxi": "Trith",
-  "vardiaO": "1",
- },
- {
-  "ID": "4",
-  "protimisi": "Trith",
-  "vardiaP": "3",
-  "oxi": "Deutera",
-  "vardiaO": "2",
- },
- {
-  "ID": "5",
-  "protimisi": "Kuriakh",
-  "vardiaP": "2",
-  "oxi": "Pempth",
-  "vardiaO": "2",
- },
- {
-  "ID": "6",
-  "protimisi": "Pempth",
-  "vardiaP": "3",
-  "oxi": "Savvato",
-  "vardiaO": "2",
- },
- {
-  "ID": "7",
-  "protimisi": "Paraskeuh",
-  "vardiaP": "1",
-  "oxi": "Paraskeuh",
-  "vardiaO": "3",
- },
- ]
+    "requirement": [{
+            "ID": "1",
+            "protimisi": "Deutera",
+            "vardiaP": "1",
+            "oxi": "Paraskeuh",
+            "vardiaO": "3"
+        },
+        {
+            "ID": "2",
+            "protimisi": "Tetarth",
+            "vardiaP": "2",
+            "oxi": "Kuriakh",
+            "vardiaO": "1"
+        },
+        {
+            "ID": "3",
+            "protimisi": "Savvato",
+            "vardiaP": "1",
+            "oxi": "Trith",
+            "vardiaO": "1"
+        },
+        {
+            "ID": "4",
+            "protimisi": "Trith",
+            "vardiaP": "3",
+            "oxi": "Deutera",
+            "vardiaO": "2"
+        },
+        {
+            "ID": "5",
+            "protimisi": "Kuriakh",
+            "vardiaP": "2",
+            "oxi": "Pempth",
+            "vardiaO": "2"
+        },
+        {
+            "ID": "6",
+            "protimisi": "Pempth",
+            "vardiaP": "3",
+            "oxi": "Savvato",
+            "vardiaO": "2"
+        },
+        {
+            "ID": "7",
+            "protimisi": "Paraskeuh",
+            "vardiaP": "1",
+            "oxi": "Paraskeuh",
+            "vardiaO": "3"
+        }
+    ]
 }
