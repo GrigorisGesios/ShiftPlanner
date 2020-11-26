@@ -20,25 +20,11 @@ import com.example.shiftplanner.Manager.ManagerLayout;
 public class MainActivity extends AppCompatActivity {
 
     Button btnManager, btnEmployee;
-    TextView textView1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //ΚΩΔΙΚΑΣ ΓΙΑ ΕΚΤΕΛΕΣΗ ΤΩΝ ΜΕΘΟΔΩΝ ΑΠΟ PARSEJ
-        ParseJ parsT = new ParseJ(this);
-
-        try {
-            parsT.parseEmp();
-            parsT.parseWorkers();
-            parsT.parseReq();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        //ΚΩΔΙΚΑΣ ΓΙΑ ΕΚΤΕΛΕΣΗ ΤΩΝ ΜΕΘΟΔΩΝ ΑΠΟ PARSEJ
-
 
         btnManager = (Button) findViewById(R.id.btnManager);
         btnEmployee = (Button) findViewById(R.id.btnEmployee);
