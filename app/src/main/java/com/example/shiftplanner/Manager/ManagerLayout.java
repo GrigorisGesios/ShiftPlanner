@@ -11,7 +11,7 @@ import com.example.shiftplanner.R;
 
 public class ManagerLayout extends AppCompatActivity {
 
-    Button btnGiveRestrictions,btnReviewRequirements,btnPlanFinalSchedule;
+    Button btnGiveRestrictions,btnReviewRequirements,btnPlanFinalSchedule,btnHireEmployee,btnFireEmployee;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +21,8 @@ public class ManagerLayout extends AppCompatActivity {
         btnGiveRestrictions = (Button) findViewById(R.id.btnGiveRestrictions);
         btnReviewRequirements = (Button) findViewById(R.id.btnReviewRequirements);
         btnPlanFinalSchedule = (Button) findViewById(R.id.btnPlanFinalSchedule);
+        btnHireEmployee = (Button) findViewById(R.id.btnHireEmployee);
+        btnFireEmployee = (Button) findViewById(R.id.btnFireEmployee);
 
         btnGiveRestrictions.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +48,21 @@ public class ManagerLayout extends AppCompatActivity {
             }
         });
 
+        btnHireEmployee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ManagerLayout.this, HireEmployee.class);
+                startActivity(intent);
+            }
+        });
+
+        btnFireEmployee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ManagerLayout.this, FireEmployee.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }
