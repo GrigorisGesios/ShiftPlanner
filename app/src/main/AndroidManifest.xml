@@ -9,13 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ShiftPlanner">
-        <activity android:name=".Employee.ViewFinalSchedule"></activity>
-        <activity android:name=".Employee.GiveRequirements" />
-        <activity android:name=".Employee.EmployeeLayout" />
-        <activity android:name=".Manager.PlanFinalSchedule" />
-        <activity android:name=".Manager.ReviewRequirements" />
-        <activity android:name=".Manager.GiveRestrictions" />
-        <activity android:name=".Manager.ManagerLayout" />
+        <activity
+            android:name=".ParseRes"
+            android:label="@string/title_activity_parse_res"
+            android:theme="@style/Theme.ShiftPlanner.NoActionBar"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
