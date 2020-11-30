@@ -11,7 +11,11 @@ public class Workers
         this.firstName = firstName;
         this.lastName = lastName;
         this.workersID = workersID;
-        WorkersProf = workersProf;
+        this.WorkersProf = workersProf;
+    }
+
+    public Workers() {
+
     }
 
     public String getFirstName() {

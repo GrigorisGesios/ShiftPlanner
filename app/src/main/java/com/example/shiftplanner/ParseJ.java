@@ -4,12 +4,15 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.AppCompatRadioButton;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -17,16 +20,37 @@ import java.util.Iterator;
 
 public class ParseJ
 {
-    private Context context;
+    public static Context parsecontext;
 
     ArrayList<Requirements> reqlist = new ArrayList<>();
     ArrayList<Employers> emplist = new ArrayList<>();
-    ArrayList<Workers> workerslist = new ArrayList<>();
+    public static ArrayList<Workers> workerslist = new ArrayList<>();
+    ArrayList<Restrictions> restrlist = new ArrayList<>();
 
+    public ParseJ() {
+
+    }
+
+
+    public ArrayList<Requirements> getReqlist() {
+        return reqlist;
+    }
+
+    public ArrayList<Employers> getEmplist() {
+        return emplist;
+    }
+
+    public ArrayList<Workers> getWorkerslist() {
+        return workerslist;
+    }
 
     public ParseJ(Context context)
     {
-        this.context = context;
+        this.parsecontext = context;
+    }
+
+    public static Context getParsecontext() {
+        return parsecontext;
     }
 
 
@@ -90,15 +114,36 @@ public class ParseJ
         return emplist;
     }
 
+    public ArrayList<Restrictions> parseRes() throws JSONException {
+        JSONObject obj = new JSONObject(loadJSONFromAsset("restrictions.json"));
+        JSONArray jarr = (JSONArray) obj.get("restriction");
+        for(int i=0;i<jarr.length();i++)
+        {
+            JSONObject jin = jarr.getJSONObject(i);
+            String vardnum = jin.getString("ar_vard");
+            String mornwork = jin.getString("prwi_pros");
+            String noonwork = jin.getString("apogeuma_pros");
+            String nightwork = jin.getString("vradu_pros");
+            String dailyhours = jin.getString("sun_wres");
+            String weeklyhours = jin.getString("wres_evd");
+            String maxadeia = jin.getString("max_adeia");
+
+            Restrictions restr = new Restrictions(vardnum, mornwork, noonwork, nightwork, dailyhours, weeklyhours, maxadeia);
+
+            restrlist.add(restr);
+        }
+           Log.d("Λίστα Restrictions",restrlist.toString());
+
+        return restrlist;
+    }
 
 
-
-    public String loadJSONFromAsset(String jsonname)
+    public static String loadJSONFromAsset(String jsonname)
     {
         String json = null;
         try
         {
-            InputStream is = context.getAssets().open(jsonname);
+            InputStream is = parsecontext.getAssets().open(jsonname);
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
@@ -113,6 +158,30 @@ public class ParseJ
         return json;
     }
 
+
+    public void ShowRestrictions(TextView tView) throws JSONException {
+        ArrayList<Restrictions> list = parseRes();
+        StringBuilder sb = new StringBuilder();
+        for(int i=0;i<list.size();i++)
+        {
+            sb.append(list.get(i).getNumvard());
+            sb.append(" ");
+            sb.append(list.get(i).getMornvard());
+            sb.append(" ");
+            sb.append(list.get(i).getNoonvard());
+            sb.append(" ");
+            sb.append(list.get(i).getNightvard());
+            sb.append(" ");
+            sb.append(list.get(i).getHoursvard());
+            sb.append(" ");
+            sb.append(list.get(i).getHoursweek());
+            sb.append(" ");
+            sb.append(list.get(i).getAdeiamax());
+            sb.append("\n");
+        }
+        //Log.d("Λίστα Employer",sb.toString());
+        tView.setText(sb.toString());
+    }
 
     public void ShowEmployers(TextView tView) throws JSONException {
         ArrayList<Employers> list = parseEmp();
