@@ -1,47 +1,47 @@
 {
-   "employee":[
+   "employee": [
       {
-         "firstname":"Orestis",
-         "idikotita":"ergatis",
-         "ID":"1",
-         "lastname":"Papanikolaou"
+         "firstname": "Orestis",
+         "idikotita": "ergatis",
+         "ID": "1",
+         "lastname": "Papanikolaou"
       },
       {
-         "firstname":"Nikos",
-         "idikotita":"ergatis",
-         "ID":"2",
-         "lastname":"Papanikolaou"
+         "firstname": "Nikos",
+         "idikotita": "ergatis",
+         "ID": "2",
+         "lastname": "Papanikolaou"
       },
       {
-
-         "firstname":"Nefeli",
-         "idikotita":"ergatis",
-         "ID":"3",
-         "lastname":"Aslanidou"
+         "firstname": "Nefeli",
+         "idikotita": "ergatis",
+         "ID": "3",
+         "lastname": "Aslanidou"
       },
       {
-
-         "firstname":"",
-         "idikotita":"ergatis",
-         "ID":"4",
-         "lastname":"Koulelis"
+         "firstname": "Alexandros",
+         "idikotita": "ergatis",
+         "ID": "4",
+         "lastname": "Koulelis"
       },
       {
-         "firstname":"Alexandros",
-         "idikotita":"ergatis",
-         "ID":"5",
-         "lastname":"Fournaris"
+         "firstname": "Alexandros",
+         "idikotita": "ergatis",
+         "ID": "5",
+         "lastname": "Fournaris"
       },
       {
-         "firstname":"Grigoris",
-         "idikotita":"ergatis",
-         "ID":"6",
-         "lastname":"Gesios"
+         "firstname": "Grigoris",
+         "idikotita": "ergatis",
+         "ID": "6",
+         "lastname": "Gesios"
       },
       {
-         "firstname":"Xristos",
-         "idikotita":"ergatis",
-         "ID":"7",
-         "lastname":"Karagiavouridis"
+         "firstname": "Xristos",
+         "idikotita": "ergatis",
+         "ID": "7",
+         "lastname": "Karagiavouridis"
       }
-   ]}
+   ]
+}
+	
