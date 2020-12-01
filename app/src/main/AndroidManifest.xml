@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ShiftPlanner">
+        <activity android:name=".Manager.FireEmployee"></activity>
+        <activity android:name=".Manager.HireEmployee" />
         <activity
             android:name=".ParseRes"
             android:label="@string/title_activity_parse_res"
