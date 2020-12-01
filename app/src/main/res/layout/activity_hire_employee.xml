@@ -40,10 +40,10 @@
         app:layout_constraintBottom_toTopOf="@+id/edTextGiveLastName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edTextGiveMajor" />
+        app:layout_constraintTop_toBottomOf="@+id/edTextGiveProf" />
 
     <EditText
-        android:id="@+id/edTextGiveMajor"
+        android:id="@+id/edTextGiveProf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
@@ -73,7 +73,7 @@
         android:ems="10"
         android:hint="Όνομα:"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/edTextGiveMajor"
+        app:layout_constraintBottom_toTopOf="@+id/edTextGiveProf"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
