@@ -11,6 +11,10 @@
         android:theme="@style/Theme.ShiftPlanner">
         <activity android:name=".Manager.FireEmployee"></activity>
         <activity android:name=".Manager.HireEmployee" />
+        <activity
+            android:name=".ParseRes"
+            android:label="@string/title_activity_parse_res"
+            android:theme="@style/Theme.ShiftPlanner.NoActionBar"></activity>
         <activity android:name=".Employee.ViewFinalSchedule" />
         <activity android:name=".Employee.GiveRequirements" />
         <activity android:name=".Employee.EmployeeLayout" />
