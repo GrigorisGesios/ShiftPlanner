@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         btnManager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ManagerLayout.class);
+                Intent intent = new Intent(MainActivity.this, Login.class);
                 startActivity(intent);
             }
         });
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         btnEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, EmployeeLayout.class);
+                Intent intent = new Intent(MainActivity.this, Login.class);
                 startActivity(intent);
             }
         });
