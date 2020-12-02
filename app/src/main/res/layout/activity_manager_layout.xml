@@ -19,7 +19,6 @@
         android:text="Give Restrictions"
         app:layout_constraintBottom_toTopOf="@+id/btnReviewRequirements"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,7 +50,6 @@
         android:text="Review Requirements"
         app:layout_constraintBottom_toTopOf="@+id/btnPlanFinalSchedule"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnGiveRestrictions" />
 
