@@ -1,46 +1,26 @@
 package com.example.shiftplanner;
 
 import android.content.Context;
-import android.service.restrictions.RestrictionsReceiver;
-import android.util.Log;
-import android.widget.TextView;
 
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Objects;
-import java.util.stream.Collectors;
+import java.util.Random;
 
-import static com.example.shiftplanner.ParseJ.loadJSONFromAsset;
-import static com.example.shiftplanner.ParseJ.workerslist;
 import static java.lang.Integer.parseInt;
 
 public class Shift {
 
     private Context context;
 
-
-    String typeOfShift;
     String shiftStaff;
-    String shiftTime;   //Δεν το χρησιμοποιήσα για την ώρα
-    int morningstaff = 0;
-    int afternoonstaff=0;
-    int nightstaff= 0;
-    boolean isfull = false;
-    ArrayList<Restrictions> restrictionslist = new ArrayList<Restrictions>();
+    String shiftTime;
+
     ArrayList<Workers> dailyworkerslist = new ArrayList<Workers>();
     ArrayList<String>  dailyworkersstringlist = new ArrayList<String>();
 
 
     ParseJ parseobj = new ParseJ();
-    Workers workersobj = new Workers();
-    Restrictions restrobj = new Restrictions();
-
-
 
     public Shift() {
     }
@@ -64,16 +44,18 @@ public class Shift {
             list.add(oneworker);
         }
         return list;
-
     }
+
     public ArrayList<String> setWorkersOnShift() throws JSONException {
         dailyworkersstringlist = changeToString();
-        ArrayList<String> list = new ArrayList<String>();
-        for(int i=0;i<7;i++)
-        {
-            list.add(String.valueOf(dailyworkerslist.get(i)));
-        }
+        ArrayList<String> list = new ArrayList<>();
 
+        int totlaworkers = parseobj.getRestriction("sunol_pros"); //getRestrition παράδειγμα
+
+        for(int i=0;i<totlaworkers;i++)
+        {
+            list.add(String.valueOf(dailyworkersstringlist.get(i)));
+        }
         return list;
     }
 
@@ -92,12 +74,5 @@ public class Shift {
     public void setShiftStaff(String shiftStaff) {
         this.shiftStaff = shiftStaff;
     }
-
-
-
-
-
-
-
 
 }

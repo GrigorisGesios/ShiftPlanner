@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.example.shiftplanner.ParseJ;
 import com.example.shiftplanner.R;
 import com.example.shiftplanner.Schedule;
+import com.example.shiftplanner.Shift;
 import com.example.shiftplanner.ToUI;
 import com.example.shiftplanner.Week;
 
@@ -22,11 +23,8 @@ public class ViewFinalSchedule extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_final_schedule);
 
-        Context fsContext = ParseJ.getParsecontext();
-
         TextView textView1 = (TextView) findViewById(R.id.EmployerView);
 
-        ParseJ parsT = new ParseJ(fsContext);
         try {
             Schedule scheduleobj = new Schedule();
             scheduleobj.printSchedule(textView1);
@@ -34,6 +32,5 @@ public class ViewFinalSchedule extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        //ΚΩΔΙΚΑΣ ΓΙΑ ΕΜΦΑΝΙΣΗ ΤΩΝ ΛΙΣΤΩΝ
     }
 }

@@ -1,7 +1,6 @@
 package com.example.shiftplanner;
 
 import android.content.Context;
-import android.util.Log;
 
 import org.json.JSONException;
 
@@ -9,19 +8,23 @@ import java.util.ArrayList;
 
 public class Week {
 
-    private Context weekcontext = ParseJ.getParsecontext();
     private String maxDaysOff;
 
     private Day dayobj = new Day();
-    private ArrayList<String> listofdays = new ArrayList<String>();
+    private ArrayList<ArrayList<String>> list = new ArrayList<>();
+    private ArrayList<ArrayList<String>> daylist = new ArrayList<>();
 
     public Week() throws JSONException {
     }
 
 
-    public ArrayList<String> createWeek() throws JSONException {
-            listofdays = dayobj.DailyShifts();
-        return listofdays;
+    public ArrayList<ArrayList<String>> createWeek() throws JSONException {
+            list = dayobj.DailyShifts();
+            for(int i=0;i<7;i++)
+            {
+                daylist.addAll(list);
+            }
+        return daylist;
     }
 
     public String getMaxDaysOff() {

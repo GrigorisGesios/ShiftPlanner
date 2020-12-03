@@ -13,8 +13,10 @@ import static com.example.shiftplanner.ParseJ.loadJSONFromAsset;
 
 public class Schedule
 {
-    private ArrayList<String> schedule = new ArrayList<String>();
+    private ArrayList<ArrayList<String>> schedule = new ArrayList<ArrayList<String>>();
     private Shift shiftobj = new Shift();
+    private Day dayobj = new Day();
+    private Week wobj = new Week();
 
     public Schedule() throws JSONException {
     }
@@ -24,9 +26,9 @@ public class Schedule
 
         StringBuilder builder = new StringBuilder();
 
-            schedule=shiftobj.changeToString();
+            schedule= wobj.createWeek();
 
-        for(String details : schedule)
+        for(ArrayList<String> details : schedule)
         {
             builder.append(details + "\n");
         }

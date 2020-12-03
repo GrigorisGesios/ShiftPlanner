@@ -2,9 +2,6 @@ package com.example.shiftplanner;
 
 import android.content.Context;
 import android.util.Log;
-import android.widget.TextView;
-
-import androidx.appcompat.widget.AppCompatRadioButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -12,11 +9,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
 
 public class ParseJ
 {
@@ -114,7 +107,7 @@ public class ParseJ
     }
 
     public ArrayList<Restrictions> parseRes() throws JSONException {
-        JSONObject obj = new JSONObject(loadJSONFromAsset("Restrictions.json"));
+        JSONObject obj = new JSONObject(loadJSONFromAsset("ΟΝΟΜΑΤΟΥRESTRICTIONSJSON.json"));
         JSONArray jarr = (JSONArray) obj.get("restriction");
         for(int i=0;i<jarr.length();i++)
         {
@@ -138,7 +131,7 @@ public class ParseJ
 
     public int getRestriction(String restriction) throws JSONException {
         int x=0;
-        JSONObject obj = new JSONObject(loadJSONFromAsset("Restrictions.json"));
+        JSONObject obj = new JSONObject(loadJSONFromAsset("ΟΝΟΜΑΤΟΥRESTRICTIONSJSON.json"));
         JSONArray jarr = (JSONArray) obj.get("restriction");
             JSONObject jin = jarr.getJSONObject(0);
             String vardnum = jin.getString(restriction);
