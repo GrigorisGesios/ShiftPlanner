@@ -19,14 +19,11 @@ public class Day {
     private Context context;
 
     private Shift shiftobj = new Shift();
+    private ParseJ parseobj = new ParseJ();
 
-    String numberOfShifts;
+    private int totalworkers = 0;
 
-    /*String morningstaff = null;
-    String afternoonstaff = null;
-    String nightstaff = null;
-    String dailyhours = null;*/
-    int totalworkers = 0;
+
 
     ArrayList<String> shiftRestrictions = new ArrayList<String>();
 
@@ -36,21 +33,8 @@ public class Day {
     }
 
 
-    public Integer parseTotalWorkers() throws JSONException {
-        JSONObject obj = new JSONObject(loadJSONFromAsset("restrictions.json"));
-        JSONArray jarr = (JSONArray) obj.get("restriction");
-        int tw=0;
-        for(int i=0;i<jarr.length();i++)
-        {
-            JSONObject jin = jarr.getJSONObject(i);
-            String jsontotalworkers = jin.getString("sunol_pros");
-            tw = parseInt(jsontotalworkers);
-        }
-        return tw;
-    }
-
     public ArrayList<String> DailyShifts() throws JSONException {
-        totalworkers = parseTotalWorkers();
+        totalworkers = parseobj.getRestriction("sunol_pros");
         for(int i =0;i<totalworkers-1;i++)
         {
             dailyshiftlist=shiftobj.changeToString();

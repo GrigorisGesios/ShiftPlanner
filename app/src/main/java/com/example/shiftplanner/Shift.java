@@ -1,6 +1,7 @@
 package com.example.shiftplanner;
 
 import android.content.Context;
+import android.service.restrictions.RestrictionsReceiver;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -30,12 +31,14 @@ public class Shift {
     int afternoonstaff=0;
     int nightstaff= 0;
     boolean isfull = false;
+    ArrayList<Restrictions> restrictionslist = new ArrayList<Restrictions>();
     ArrayList<Workers> dailyworkerslist = new ArrayList<Workers>();
     ArrayList<String>  dailyworkersstringlist = new ArrayList<String>();
 
 
     ParseJ parseobj = new ParseJ();
     Workers workersobj = new Workers();
+    Restrictions restrobj = new Restrictions();
 
 
 
@@ -44,25 +47,6 @@ public class Shift {
 
     public Shift(Context context) {
         this.context = context;
-
-    }
-
-
-    public void parsingSchedule() throws JSONException {
-        JSONObject obj = new JSONObject(loadJSONFromAsset("restrictions.json"));
-        JSONArray jarr = (JSONArray) obj.get("restriction");
-        for(int i=0;i<jarr.length();i++)
-        {
-            JSONObject jin = jarr.getJSONObject(i);
-            String mornwork = jin.getString("prwi_pros");
-            String noonwork = jin.getString("apogeuma_pros");
-            String nightwork = jin.getString("vradu_pros");
-            String dailyhours = jin.getString("sun_wres");
-
-            morningstaff = parseInt(mornwork);
-            afternoonstaff = parseInt(noonwork);
-            nightstaff = parseInt(nightwork);
-        }
     }
 
 
@@ -88,47 +72,10 @@ public class Shift {
         for(int i=0;i<7;i++)
         {
             list.add(String.valueOf(dailyworkerslist.get(i)));
-            Log.d("PUSSY:", String.valueOf(list));
         }
 
         return list;
     }
-
-
-
-
-    /*public void WorkersToShift(int shift,int workerscount)
-    {
-        int x=0;
-        ParseJ workersparse = new ParseJ(context);
-
-        listOfWorkers = workersparse.getWorkerslist();
-
-         if(shift == 1 && morningShift.size()<=workerscount)
-        {
-            morningShift.add(listOfWorkers.get(x));
-            x++;
-        }
-         else if(shift == 2 && afternoonShift.size()<=workerscount)
-         {
-             afternoonShift.add(listOfWorkers.get(x));
-             x++;
-         }
-         else if(shift == 3 && nightShift.size()<=workerscount)
-         {
-             nightShift.add(listOfWorkers.get(x));
-             x++;
-         }
-
-         //LOG CHECK(ΓΙΑ ΣΒΗΣΙΜΟ)
-         for(int i =0;i<morningShift.size();i++)
-         {
-             Log.d("MORNINGSHIFT:", String.valueOf(morningShift.get(i)));
-         }
-    }*/
-
-
-
 
     public String getShiftTime() {
         return shiftTime;

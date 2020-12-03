@@ -31,7 +31,6 @@ public class ParseJ
 
     }
 
-
     public ArrayList<Requirements> getReqlist() {
         return reqlist;
     }
@@ -115,7 +114,7 @@ public class ParseJ
     }
 
     public ArrayList<Restrictions> parseRes() throws JSONException {
-        JSONObject obj = new JSONObject(loadJSONFromAsset("restrictions.json"));
+        JSONObject obj = new JSONObject(loadJSONFromAsset("Restrictions.json"));
         JSONArray jarr = (JSONArray) obj.get("restriction");
         for(int i=0;i<jarr.length();i++)
         {
@@ -137,6 +136,15 @@ public class ParseJ
         return restrlist;
     }
 
+    public int getRestriction(String restriction) throws JSONException {
+        int x=0;
+        JSONObject obj = new JSONObject(loadJSONFromAsset("Restrictions.json"));
+        JSONArray jarr = (JSONArray) obj.get("restriction");
+            JSONObject jin = jarr.getJSONObject(0);
+            String vardnum = jin.getString(restriction);
+            x = Integer.parseInt(vardnum);
+        return x;
+    }
 
     public static String loadJSONFromAsset(String jsonname)
     {
@@ -156,84 +164,5 @@ public class ParseJ
             return null;
         }
         return json;
-    }
-
-
-    public void ShowRestrictions(TextView tView) throws JSONException {
-        ArrayList<Restrictions> list = parseRes();
-        StringBuilder sb = new StringBuilder();
-        for(int i=0;i<list.size();i++)
-        {
-            sb.append(list.get(i).getNumvard());
-            sb.append(" ");
-            sb.append(list.get(i).getMornvard());
-            sb.append(" ");
-            sb.append(list.get(i).getNoonvard());
-            sb.append(" ");
-            sb.append(list.get(i).getNightvard());
-            sb.append(" ");
-            sb.append(list.get(i).getHoursvard());
-            sb.append(" ");
-            sb.append(list.get(i).getHoursweek());
-            sb.append(" ");
-            sb.append(list.get(i).getAdeiamax());
-            sb.append("\n");
-        }
-        //Log.d("Λίστα Employer",sb.toString());
-        tView.setText(sb.toString());
-    }
-
-    public void ShowEmployers(TextView tView) throws JSONException {
-        ArrayList<Employers> list = parseEmp();
-        StringBuilder sb = new StringBuilder();
-        for(int i=0;i<list.size();i++)
-        {
-            sb.append(list.get(i).getFirstName());
-            sb.append(" ");
-            sb.append(list.get(i).getEmployerProff());
-            sb.append(" ");
-            sb.append(list.get(i).getEmployerID());
-            sb.append(" ");
-            sb.append(list.get(i).getLastName());
-            sb.append("\n");
-        }
-        //Log.d("Λίστα Employer",sb.toString());
-        tView.setText(sb.toString());
-    }
-
-    public void ShowWorkers(TextView tView) throws JSONException {
-        ArrayList<Workers> list =  parseWorkers();
-        StringBuilder sb = new StringBuilder();
-        for(int i=0;i<list.size();i++)
-        {
-            sb.append(list.get(i).getFirstName());
-            sb.append(" ");
-            sb.append(list.get(i).getWorkersProf());
-            sb.append(" ");
-            sb.append(list.get(i).getWorkersID());
-            sb.append(" ");
-            sb.append(list.get(i).getLastName());
-            sb.append("\n");
-        }
-        //Log.d("Λίστα Employer",sb.toString());
-        tView.setText(sb.toString());
-    }
-
-    public void ShowRequirements(TextView tView) throws JSONException {
-        ArrayList<Requirements> list =  parseReq();
-        StringBuilder sb = new StringBuilder();
-        for(int i=0;i<list.size();i++)
-        {
-            sb.append(list.get(i).getRequirementsID());
-            sb.append(" ");
-            sb.append(list.get(i).getPreference());
-            sb.append(" ");
-            sb.append(list.get(i).getVardiaP());
-            sb.append(" ");
-            sb.append(list.get(i).getVardiaO());
-            sb.append("\n");
-        }
-        //Log.d("Λίστα Employer",sb.toString());
-        tView.setText(sb.toString());
     }
 }

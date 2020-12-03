@@ -13,15 +13,15 @@ public class Week {
     private String maxDaysOff;
 
     private Day dayobj = new Day();
-    private ArrayList<String> listofweeks = new ArrayList<String>();
+    private ArrayList<String> listofdays = new ArrayList<String>();
 
     public Week() throws JSONException {
     }
 
 
     public ArrayList<String> createWeek() throws JSONException {
-            listofweeks = dayobj.DailyShifts();
-        return listofweeks;
+            listofdays = dayobj.DailyShifts();
+        return listofdays;
     }
 
     public String getMaxDaysOff() {
