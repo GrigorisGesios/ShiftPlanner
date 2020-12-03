@@ -107,7 +107,7 @@ public class ParseJ
     }
 
     public ArrayList<Restrictions> parseRes() throws JSONException {
-        JSONObject obj = new JSONObject(loadJSONFromAsset("ΟΝΟΜΑΤΟΥRESTRICTIONSJSON.json"));
+        JSONObject obj = new JSONObject(loadJSONFromAsset("Restrictions.json"));
         JSONArray jarr = (JSONArray) obj.get("restriction");
         for(int i=0;i<jarr.length();i++)
         {
@@ -131,7 +131,7 @@ public class ParseJ
 
     public int getRestriction(String restriction) throws JSONException {
         int x=0;
-        JSONObject obj = new JSONObject(loadJSONFromAsset("ΟΝΟΜΑΤΟΥRESTRICTIONSJSON.json"));
+        JSONObject obj = new JSONObject(loadJSONFromAsset("Restrictions.json"));
         JSONArray jarr = (JSONArray) obj.get("restriction");
             JSONObject jin = jarr.getJSONObject(0);
             String vardnum = jin.getString(restriction);
