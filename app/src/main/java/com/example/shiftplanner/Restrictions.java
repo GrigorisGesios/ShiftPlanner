@@ -14,6 +14,10 @@ public class Restrictions
         this.adeiamax = adeiamax;
     }
 
+    public Restrictions() {
+
+    }
+
     public String getNumvard() {
         return numvard;
     }
