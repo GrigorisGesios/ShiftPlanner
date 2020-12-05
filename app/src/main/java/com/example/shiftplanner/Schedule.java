@@ -13,8 +13,7 @@ import static com.example.shiftplanner.ParseJ.loadJSONFromAsset;
 
 public class Schedule
 {
-    private ArrayList<ArrayList<String>> schedule = new ArrayList<ArrayList<String>>();
-    private Shift shiftobj = new Shift();
+    private ArrayList<ArrayList<String>> schedule = new ArrayList<>();
     private Day dayobj = new Day();
     private Week wobj = new Week();
 

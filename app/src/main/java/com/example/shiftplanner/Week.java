@@ -19,7 +19,7 @@ public class Week {
 
 
     public ArrayList<ArrayList<String>> createWeek() throws JSONException {
-            list = dayobj.DailyShifts();
+            list = dayobj.createDay();
             for(int i=0;i<7;i++)
             {
                 daylist.addAll(list);
