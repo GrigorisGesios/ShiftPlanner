@@ -6,12 +6,21 @@ public class Workers
     private String lastName;
     private String workersID;
     private String WorkersProf;
+    private String VardiaP;
+    private String oxiV;
+    private String VardiaO;
 
-    public Workers(String firstName, String lastName, String workersID, String workersProf) {
+
+
+    public Workers(String firstName, String lastName, String workersID, String workersProf,
+                   String VardiaP, String oxiV, String VardiaO) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.workersID = workersID;
         this.WorkersProf = workersProf;
+        this.VardiaP = VardiaP;
+        this.oxiV = oxiV;
+        this.VardiaO = VardiaO;
     }
 
     public Workers() {
@@ -46,7 +55,17 @@ public class Workers
         return WorkersProf;
     }
 
-    public void setWorkersProf(String workersProf) {
-        WorkersProf = workersProf;
-    }
+    public void setWorkersProf(String workersProf) { this.WorkersProf = workersProf; }
+
+    public String getVardiaP() { return VardiaP; }
+
+    public void setVardiaP(String vardiaP) { this.VardiaP = vardiaP; }
+
+    public String getOxiV() { return oxiV; }
+
+    public void setOxiV(String oxiV) { this.oxiV = oxiV; }
+
+    public String getVardiaO() { return VardiaO; }
+
+    public void setVardiaO(String vardiaO) { this.VardiaO = vardiaO; }
 }
