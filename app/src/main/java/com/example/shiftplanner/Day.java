@@ -20,24 +20,33 @@ public class Day {
 
     ArrayList<ArrayList<String>> dailyshiftlist = new ArrayList<>();
 
+    int mornworkers = parseobj.getRestriction("prwi_pros");
+    int afternoonworkers = parseobj.getRestriction("apogeuma_pros");
+    int nightworkers = parseobj.getRestriction("vradu_pros");
+
     public Day() throws JSONException {
     }
 
-    public Shift checkShift(ArrayList<Workers> list, int numberofoworkers)
+    public Shift checkShift(ArrayList<Workers> list, int shiftnum)
     {
+        int currentshift = shiftnum;
+        int numberofworkers;
+        numberofworkers = checkShift(shiftnum);
         ArrayList<Workers> templist = new ArrayList<>();
         int i=0;
-        while(!(templist.size() == numberofoworkers))
-        {
+        while(!(templist.size() == numberofoworkers)) {
             Workers obj = worklist.get(i);
+            String vardiaO = obj.getVardiaO();
             //Log.d("WORKGET:",obj.getFirstName());
             if (list.contains(obj)) {
                 i++;
-            }
-            else {
-                list.add(obj);
-                templist.add(obj);
-                i++;
+            } else {
+                if (vardiaO != currentshift) {
+                    list.add(obj);
+                    templist.add(obj);
+                } else {
+                    i++;
+                }
             }
         }
         Shift shift = new Shift(templist);
@@ -45,18 +54,16 @@ public class Day {
     }
 
     public ArrayList<Shift> setShiftList() throws JSONException {
-        int mornworkers = parseobj.getRestriction("prwi_pros");
-        int afternoonworkers = parseobj.getRestriction("apogeuma_pros");
-        int nightworkers = parseobj.getRestriction("vradu_pros");
+
         ArrayList<Workers> wlist = new ArrayList<>();
 
-        Shift shift1 = checkShift(wlist, mornworkers);
+        Shift shift1 = checkShift(wlist, 1);
         shiftlist.add(shift1);
 
-        Shift shift2 = checkShift(wlist, afternoonworkers);
+        Shift shift2 = checkShift(wlist, 2);
         shiftlist.add(shift2);
 
-        Shift shift3 = checkShift(wlist, nightworkers);
+        Shift shift3 = checkShift(wlist, 3);
         shiftlist.add(shift3);
 
         return shiftlist;
@@ -90,6 +97,25 @@ public class Day {
          daylist = changeToString(shiftlist,2);
          dailyshiftlist.add(daylist);
          return dailyshiftlist;
+    }
+
+    public int checkShift(int x)
+    {
+        switch (x)
+        {
+            case 1:
+                x=mornworkers;
+                break;
+            case 2:
+                x=afternoonworkers;
+                break;
+            case 3:
+                x=nightworkers;
+                break;
+            default:
+                break;
+        }
+        return x;
     }
 
 }
