@@ -34,14 +34,15 @@ public class Day {
         numberofworkers = checkShift(shiftnum);
         ArrayList<Workers> templist = new ArrayList<>();
         int i=0;
-        while(!(templist.size() == numberofoworkers)) {
+        while(!(templist.size() == numberofworkers)) {
             Workers obj = worklist.get(i);
             String vardiaO = obj.getVardiaO();
+            int vardiao = Integer.parseInt(vardiaO);
             //Log.d("WORKGET:",obj.getFirstName());
             if (list.contains(obj)) {
                 i++;
             } else {
-                if (vardiaO != currentshift) {
+                if (vardiao != currentshift) {
                     list.add(obj);
                     templist.add(obj);
                 } else {
