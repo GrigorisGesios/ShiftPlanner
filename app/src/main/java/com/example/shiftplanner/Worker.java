@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey;
 public class Worker {
 
         @PrimaryKey
-        public int id;
+        public int workersID;
 
         @ColumnInfo(name = "first_name")
         public String firstName;
@@ -16,7 +16,7 @@ public class Worker {
         @ColumnInfo(name = "last_name")
         public String lastName;
 
-        @ColumnInfo(name = "major")
+        @ColumnInfo(name = "WorkersProf")
         public String major;
 }
 
