@@ -1,4 +1,4 @@
-package com.example.shiftplanner;
+package com.example.shiftplanner.WorkersDatabase;
 
 import androidx.room.Database;
 import androidx.room.RoomDatabase;
