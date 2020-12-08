@@ -22,4 +22,10 @@ public interface WorkerDao {
 
         @Delete
         void delete(Worker workers);
+
+        @Query("SELECT * FROM Worker ORDER BY workersID")
+        List<Worker> loadAllWorkers();
+
+        @Query("SELECT * FROM Worker WHERE workersID = :id")
+        Worker loadWorkersById(int id);
 }
