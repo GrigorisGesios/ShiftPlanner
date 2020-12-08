@@ -7,9 +7,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
-import com.example.shiftplanner.Manager.*;
-import com.example.shiftplanner.Employee.*;
+import com.example.shiftplanner.Employee.EmployeeLayout;
+import com.example.shiftplanner.Manager.ManagerLayout;
 
 import org.json.JSONException;
 
@@ -38,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
 
         btnManager = (Button) findViewById(R.id.btnManager);
         btnEmployee = (Button) findViewById(R.id.btnEmployee);
+
+        AppDatabase db = Room.databaseBuilder(getApplicationContext(),
+                AppDatabase.class, "WorkersDatabase").build();
 
         btnManager.setOnClickListener(new View.OnClickListener() {
             @Override
