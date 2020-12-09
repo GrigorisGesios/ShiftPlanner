@@ -1,13 +1,13 @@
 {
    "employee": [
       {
-         "firstname": "Orestis",
+         "firstname": "Alexandros",
          "idikotita": "ergatis",
          "ID": "1",
-         "lastname": "Papanikolaou",
-         "protimisi": "1",
-         "vardiaP": "1",
-         "oxi": "5",
+         "lastname": "Fournaris",
+         "protimisi": "7",
+         "vardiaP": "2",
+         "oxi": "1",
          "vardiaO": "3"
       },
       {
@@ -31,23 +31,23 @@
          "vardiaO": "1"
       },
       {
-         "firstname": "Alexandros",
+         "firstname": "Orestis",
          "idikotita": "ergatis",
          "ID": "4",
-         "lastname": "Koulelis",
-         "protimisi": "2",
-         "vardiaP": "3",
-         "oxi": "1",
-         "vardiaO": "2"
+         "lastname": "Papanikolaou",
+         "protimisi": "1",
+         "vardiaP": "1",
+         "oxi": "5",
+         "vardiaO": "3"
       },
       {
          "firstname": "Alexandros",
          "idikotita": "ergatis",
          "ID": "5",
-         "lastname": "Fournaris",
-         "protimisi": "7",
+         "lastname": "Koulelis",
+         "protimisi": "5",
          "vardiaP": "2",
-         "oxi": "4",
+         "oxi": "2",
          "vardiaO": "2"
       },
       {

@@ -23,7 +23,7 @@ public class ViewFinalSchedule extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_final_schedule);
 
-        TextView textView1 = (TextView) findViewById(R.id.EmployerView);
+       TextView textView1 = (TextView) findViewById(R.id.EmployerView);
 
         try {
             Schedule scheduleobj = new Schedule();

@@ -25,13 +25,6 @@ public class MainActivity extends AppCompatActivity {
         //ΚΩΔΙΚΑΣ ΓΙΑ ΕΚΤΕΛΕΣΗ ΤΩΝ ΜΕΘΟΔΩΝ ΑΠΟ PARSEJ
         ParseJ parsT = new ParseJ(this);
 
-        try {
-            parsT.parseEmp();
-            parsT.parseWorkers();
-            parsT.parseReq();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
         //ΚΩΔΙΚΑΣ ΓΙΑ ΕΚΤΕΛΕΣΗ ΤΩΝ ΜΕΘΟΔΩΝ ΑΠΟ PARSEJ
 
 

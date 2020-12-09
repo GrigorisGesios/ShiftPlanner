@@ -78,10 +78,10 @@ public class ParseJ
             String wID = jin.getString("ID");
             String lname = jin.getString("lastname");
             String vP = jin.getString("vardiaP");
-            String noP = jin.getString("oxi");
+            String mO = jin.getString("oxi");
             String vO = jin.getString("vardiaO");
 
-            Workers work = new Workers(fname,lname,wID,wprof,vP,noP,vO);
+            Workers work = new Workers(fname,lname,wID,wprof,vP,mO,vO);
 
             workerslist.add(work);
         }
