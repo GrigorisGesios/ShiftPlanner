@@ -5,13 +5,16 @@ import android.util.Log;
 import org.json.JSONException;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class Algorithm
 {
     ParseJ parseobj = new ParseJ();
     ArrayList<Workers> masterworkerslist = parseobj.parseWorkers();
 
-    ArrayList<Shift> shiftlist = new ArrayList<>();
+    //ArrayList<Shift> shiftlist = new ArrayList<>();
 
     ArrayList<ArrayList<String>> dailyshiftlist = new ArrayList<>();
 
@@ -22,35 +25,81 @@ public class Algorithm
     public Algorithm() throws JSONException {
     }
 
-    public ArrayList<Workers> createShift(ArrayList<Workers> list,int shift) throws JSONException {
+    public void createDay(ArrayList<Workers> workerslist) throws JSONException {
 
-        ArrayList<Workers> lista = new ArrayList<>();
-        lista=checkShiftRequirements(list,shift);
-        return lista;
     }
 
-    public ArrayList<ArrayList<String>> createDay(ArrayList<Workers> workerslist) throws JSONException {
-
-        ArrayList<ArrayList<String>> finaldaylist = new ArrayList<>();
-        int shiftnum = parseobj.getRestriction("ar_vard");
-        for(int i=1;i<shiftnum+1;i++)
-        {
-            finaldaylist.add(changeToString(createShift(workerslist,i)));
-        }
-       return finaldaylist;//δενεπιστρέφει αυτό
-    }
-
-    public ArrayList<ArrayList<ArrayList<String>>> createWeek() throws JSONException {
+    public ArrayList<ArrayList<String>> createWeek() throws JSONException {   //Αυτη η μέθοδος δουλεύι κανονικά
         ArrayList<Workers> dayworkerslist = new ArrayList<>();
-        ArrayList<ArrayList<ArrayList<String>>> finalweeklist= new ArrayList<>();
-        ArrayList<ArrayList<String>> list = new ArrayList<>();
-       //έλεγχος για το πόσες μέρες θέλουμε!!!
+        ArrayList<String> list = new ArrayList<>();
+        ArrayList<ArrayList<String>> finallist = new ArrayList<>();
+        ArrayList<Workers> shiftlist = new ArrayList<>();
+        int numberofshifts = parseobj.getRestriction("ar_vard");
+        TruthTable table[] = new TruthTable[masterworkerslist.size()];
+
+        for(int o=0;o<masterworkerslist.size();o++)
+        {
+              Workers obj = masterworkerslist.get(o);
+              table[o] = new TruthTable(obj);
+        }
+        //Log.d("MYARRAY:","arr" + Arrays.toString(table));
+
         for(int i=1;i<8;i++)
         {
-            dayworkerslist = checkDayRequirements(i);    //ΙΣΩΣ αυτό αποτελέσει πρόβλημα στο μέλλον,μπορεί να μην περνιούνται όλα τ α δεδομένα
-            finalweeklist.add(createDay(dayworkerslist));
+            dayworkerslist = checkDayRequirements(i);
+
+            for(int j=1;j<numberofshifts+1;j++)
+            {
+                //list = changeToString(addToShift(dayworkerslist,j));
+                 int numberofworkers = checkShift(j);
+                 int k=0;
+                 while(!(shiftlist.size() == numberofworkers))
+                 {
+                     Log.d("INTEGER:",String.valueOf(numberofworkers));
+                     LinkedHashMap<Workers,String> temphash = new LinkedHashMap<Workers,String>();
+                     for(int l=0;l<masterworkerslist.size();l++)
+                     {
+                         temphash.put(masterworkerslist.get(l),masterworkerslist.get(l).getWorkersID());
+                     }
+                     Workers obj = dayworkerslist.get(k);
+                     String wid = obj.getWorkersID();//ΔΟΥΛΕΥΕΙ
+                     String index = temphash.get(wid);
+                     Integer intindex = Integer.parseInt(index);
+                     String twid = table[k].getWorker().getWorkersID();
+                    //Log.d("INTEGER:",String.valueOf(table[k].isInsertedin()));
+                    if(table[intindex].isInsertedin() == false)//table[k].getTotalhoursworked() <= 40
+                    {
+                        Log.d("MYARRAY:","arr" + Arrays.toString(table));
+                        Log.d("CHECKVARDIAO:", String.valueOf(Integer.parseInt(table[k].getWorker().getVardiaO())));
+                        shiftlist.add(obj);
+                        //Log.d("POIOOBJEINAI:",obj.getFirstName());
+                        //Log.d("BOOLOBJEINAI:",String.valueOf(table[k].isInsertedin()));
+                        table[intindex].setInsertedin(true);
+
+                        /*table[k].addToTotalHoursWorked(8);
+                        Log.d("MPLAMPLA:",String.valueOf(table[k].getTotalhoursworked()));*/
+
+                        //shiftlist.add(dayworkerslist.get(k));
+                        //table[k].setInsertedin(true);
+                        k++;
+                    }
+                    else
+                    {
+                        //do nothing
+                        k++;
+                    }
+                 }
+                 list = changeToString(shiftlist);
+                 finallist.add(list);
+                 shiftlist.clear();
+            }
+
+          for(int p=0;p<table.length;p++)
+          {
+              table[p].setInsertedin(false);
+          }
         }
-       return finalweeklist;
+       return finallist;
     }
 
     public ArrayList<Workers> checkDayRequirements(int daynumber)
@@ -71,41 +120,65 @@ public class Algorithm
         return list;
     }
 
-    public ArrayList<Workers> checkShiftRequirements(ArrayList<Workers> lista,int shiftnumber)
+    /*public ArrayList<Workers> testAdd(ArrayList<Workers> daylist,int shiftnumber)
     {
-        ArrayList<Workers> list = new ArrayList<>();
-        int currentshift = shiftnumber;
-        int numberofworkers;
-        numberofworkers = checkShift(shiftnumber); //ΔΟΥΛΕΥΕΙ ΚΑΝΟΝΙΚΑ
-        ArrayList<Workers> templist = new ArrayList<>();
-        int i=0;
-        while(!(templist.size() == numberofworkers))
+        int numberofworkers = checkShift(shiftnumber);
+        boolean test = true;
+        while(!(shiftlist.size() == numberofworkers))
         {
-            Workers obj = lista.get(i);
-            if(lista.contains(obj))
+            Log.d("INTEGER:",String.valueOf(numberofworkers));
+            Workers obj = daylist.get(0);
+            //Log.d("INTEGER:",String.valueOf(table[k].isInsertedin()));
+            if(test)
             {
-                i++;
+                shiftlist.add(obj);
+                //shiftlist.add(dayworkerslist.get(k));
+                //table[k].setInsertedin(true);
+                k++;
             }
             else
             {
-                if(Integer.parseInt(lista.get(i).getVardiaO()) != shiftnumber)
-                {
-                    list.add(obj);
-                    templist.add(obj);
-                }
-                else
-                {
-                    i++;
-                }
+                //do nothing
+                k++;
+            }
+        }
+        list = changeToString(addToShift(dayworkerslist,j));
+        finallist.add(list);
+    }*/
+    public ArrayList<Workers> addToShift(ArrayList<Workers> daylist,int shiftnumber)
+    {
+        int numberofworkers = checkShift(shiftnumber);
+        ArrayList<Workers> lista = new ArrayList<>();
+
+        for(int i=0;i<numberofworkers;i++)
+        {
+            lista.add(daylist.get(i));
+        }
+        return lista;
+    }
+    public ArrayList<Workers> checkShiftRequirements(ArrayList<Workers> lista,int shiftnumber)
+    {
+        int numberofshifts=3;   //Αυτό πρέπει να γίνεται αυτόματα
+        int numberofworkers;
+        ArrayList<Workers> list = new ArrayList<>();
+        int shift = checkShift(shiftnumber);
+
+        for(int i=0;i<shift;i++)
+        {
+            if(!(Integer.parseInt(lista.get(i).getVardiaO()) == shiftnumber))
+            {
+                list.add(lista.get(i));
+            }
+            else
+            {
+                //Do nothing
             }
         }
 
-        for(int j=0;j<list.size();j++)
-        {
-            Log.d("metalistameras:",list.get(j).getFirstName());
-        }
-        return templist;
+        return list;
     }
+
+
 
     public int checkShift(int x)
     {
@@ -140,4 +213,6 @@ public class Algorithm
         }
         return list;
     }
+
 }
+

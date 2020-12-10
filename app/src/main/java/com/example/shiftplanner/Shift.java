@@ -12,7 +12,6 @@ public class Shift {
 
     private ArrayList<Workers> shiftworkerslist = new ArrayList<>();
 
-    String shiftTime;
 
     public Shift(ArrayList<Workers> shiftworkerslist) {
         this.shiftworkerslist = shiftworkerslist;
@@ -22,13 +21,5 @@ public class Shift {
         return shiftworkerslist;
     }
 
-
-    public String getShiftTime() {
-        return shiftTime;
-    }
-
-    public void setShiftTime(String shiftTime) {
-        this.shiftTime = shiftTime;
-    }
 
 }
