@@ -3,8 +3,9 @@ package com.example.shiftplanner;
 public class TruthTable
 {
     private Workers worker;
-    private int totalhoursworked;
     private boolean insertedin;
+    private int totalhoursworked;
+
 
     public TruthTable(Workers worker) {
         this.worker = worker;

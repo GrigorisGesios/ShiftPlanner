@@ -14,8 +14,6 @@ import static com.example.shiftplanner.ParseJ.loadJSONFromAsset;
 public class Schedule
 {
     private ArrayList<ArrayList<String>> schedule = new ArrayList<>();
-    //private Day dayobj = new Day();
-    //private Week wobj = new Week();
     private Algorithm alg = new Algorithm();
 
     public Schedule() throws JSONException {

@@ -35,9 +35,11 @@ public class Algorithm
         ArrayList<ArrayList<String>> finallist = new ArrayList<>();
         ArrayList<Workers> shiftlist = new ArrayList<>();
         int numberofshifts = parseobj.getRestriction("ar_vard");
+        int maximumhoursperweek = parseobj.getRestriction("wres_evd");
+        int workhours = parseobj.getRestriction("sun_wres");
         TruthTable table[] = new TruthTable[masterworkerslist.size()];
-
         ArrayList<String> idlist = new ArrayList<>();
+
 
         for(int t=0;t<masterworkerslist.size();t++)
         {
@@ -66,12 +68,12 @@ public class Algorithm
                      String wid = obj.getWorkersID();//ΔΟΥΛΕΥΕΙ
                      int index = idlist.indexOf(wid);
                      Log.d("29INDEX:", String.valueOf(index));;
-                    if(table[index].isInsertedin() == false && (Integer.parseInt(table[index].getWorker().getVardiaO()) != j) && table[index].getTotalhoursworked() < 40 )
+                    if(table[index].isInsertedin() == false && (Integer.parseInt(table[index].getWorker().getVardiaO()) != j) && table[index].getTotalhoursworked() < maximumhoursperweek)
                     {
                         shiftlist.add(obj);
                         table[index].setInsertedin(true);
 
-                        table[index].addToTotalHoursWorked(8);
+                        table[index].addToTotalHoursWorked(workhours);
                         Log.d("ERGAZOMENOS:",table[index].getWorker().getLastName());
                         Log.d("WRES:",String.valueOf(table[index].getTotalhoursworked()));
                         k++;
