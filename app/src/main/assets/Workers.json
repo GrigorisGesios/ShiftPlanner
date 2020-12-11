@@ -18,7 +18,7 @@
          "protimisi": "3",
          "vardiaP": "2",
          "oxi": "7",
-         "vardiaO": "2"
+         "vardiaO": "1"
       },
       {
          "firstname": "Nefeli",
@@ -69,6 +69,56 @@
          "vardiaP": "1",
          "oxi": "5",
          "vardiaO": "1"
+      },
+      {
+         "firstname": "Giannhs",
+         "idikotita": "ergatis",
+         "ID": "8",
+         "lastname": "Papadopoulou",
+         "protimisi": "5",
+         "vardiaP": "1",
+         "oxi": "3",
+         "vardiaO": "3"
+      },
+      {
+         "firstname": "Sofia",
+         "idikotita": "ergatis",
+         "ID": "9",
+         "lastname": "Kouleli",
+         "protimisi": "5",
+         "vardiaP": "1",
+         "oxi": "4",
+         "vardiaO": "1"
+      },
+      {
+         "firstname": "Lefteris",
+         "idikotita": "ergatis",
+         "ID": "10",
+         "lastname": "Kendros",
+         "protimisi": "5",
+         "vardiaP": "1",
+         "oxi": "3",
+         "vardiaO": "2"
+      },
+      {
+         "firstname": "Mpampis",
+         "idikotita": "ergatis",
+         "ID": "11",
+         "lastname": "Papaioannou",
+         "protimisi": "5",
+         "vardiaP": "1",
+         "oxi": "1",
+         "vardiaO": "2"
+      },
+      {
+         "firstname": "Panagiwta",
+         "idikotita": "ergatis",
+         "ID": "12",
+         "lastname": "Fournari",
+         "protimisi": "5",
+         "vardiaP": "1",
+         "oxi": "7",
+         "vardiaO": "3"
       }
    ]
 }

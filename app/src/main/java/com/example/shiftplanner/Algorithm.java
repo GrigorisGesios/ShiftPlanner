@@ -37,6 +37,13 @@ public class Algorithm
         int numberofshifts = parseobj.getRestriction("ar_vard");
         TruthTable table[] = new TruthTable[masterworkerslist.size()];
 
+        ArrayList<String> idlist = new ArrayList<>();
+
+        for(int t=0;t<masterworkerslist.size();t++)
+        {
+            idlist.add(masterworkerslist.get(t).getWorkersID());
+        }
+
         for(int o=0;o<masterworkerslist.size();o++)
         {
               Workers obj = masterworkerslist.get(o);
@@ -55,32 +62,18 @@ public class Algorithm
                  int k=0;
                  while(!(shiftlist.size() == numberofworkers))
                  {
-                     Log.d("INTEGER:",String.valueOf(numberofworkers));
-                     LinkedHashMap<Workers,String> temphash = new LinkedHashMap<Workers,String>();
-                     for(int l=0;l<masterworkerslist.size();l++)
-                     {
-                         temphash.put(masterworkerslist.get(l),masterworkerslist.get(l).getWorkersID());
-                     }
                      Workers obj = dayworkerslist.get(k);
                      String wid = obj.getWorkersID();//ΔΟΥΛΕΥΕΙ
-                     String index = temphash.get(wid);
-                     Integer intindex = Integer.parseInt(index);
-                     String twid = table[k].getWorker().getWorkersID();
-                    //Log.d("INTEGER:",String.valueOf(table[k].isInsertedin()));
-                    if(table[intindex].isInsertedin() == false)//table[k].getTotalhoursworked() <= 40
+                     int index = idlist.indexOf(wid);
+                     Log.d("29INDEX:", String.valueOf(index));;
+                    if(table[index].isInsertedin() == false && (Integer.parseInt(table[index].getWorker().getVardiaO()) != j) && table[index].getTotalhoursworked() < 40 )
                     {
-                        Log.d("MYARRAY:","arr" + Arrays.toString(table));
-                        Log.d("CHECKVARDIAO:", String.valueOf(Integer.parseInt(table[k].getWorker().getVardiaO())));
                         shiftlist.add(obj);
-                        //Log.d("POIOOBJEINAI:",obj.getFirstName());
-                        //Log.d("BOOLOBJEINAI:",String.valueOf(table[k].isInsertedin()));
-                        table[intindex].setInsertedin(true);
+                        table[index].setInsertedin(true);
 
-                        /*table[k].addToTotalHoursWorked(8);
-                        Log.d("MPLAMPLA:",String.valueOf(table[k].getTotalhoursworked()));*/
-
-                        //shiftlist.add(dayworkerslist.get(k));
-                        //table[k].setInsertedin(true);
+                        table[index].addToTotalHoursWorked(8);
+                        Log.d("ERGAZOMENOS:",table[index].getWorker().getLastName());
+                        Log.d("WRES:",String.valueOf(table[index].getTotalhoursworked()));
                         k++;
                     }
                     else
