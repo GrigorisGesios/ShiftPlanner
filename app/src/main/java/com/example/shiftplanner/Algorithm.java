@@ -13,9 +13,6 @@ public class Algorithm
 {
     ParseJ parseobj = new ParseJ();
     ArrayList<Workers> masterworkerslist = parseobj.parseWorkers();
-
-    //ArrayList<Shift> shiftlist = new ArrayList<>();
-
     ArrayList<ArrayList<String>> dailyshiftlist = new ArrayList<>();
 
     int mornworkers = parseobj.getRestriction("prwi_pros");
@@ -23,10 +20,6 @@ public class Algorithm
     int nightworkers = parseobj.getRestriction("vradu_pros");
 
     public Algorithm() throws JSONException {
-    }
-
-    public void createDay(ArrayList<Workers> workerslist) throws JSONException {
-
     }
 
     public ArrayList<ArrayList<String>> createWeek() throws JSONException {   //Αυτη η μέθοδος δουλεύι κανονικά
@@ -37,50 +30,46 @@ public class Algorithm
         int numberofshifts = parseobj.getRestriction("ar_vard");
         int maximumhoursperweek = parseobj.getRestriction("wres_evd");
         int workhours = parseobj.getRestriction("sun_wres");
-        TruthTable table[] = new TruthTable[masterworkerslist.size()];
-        ArrayList<String> idlist = new ArrayList<>();
+        TruthTable table[] = new TruthTable[masterworkerslist.size()];   //Πίνακας αληθείας
+        ArrayList<String> idlist = new ArrayList<>();   //Λίστα με τα ID των εργαζομένων
 
 
-        for(int t=0;t<masterworkerslist.size();t++)
+        for(int t=0;t<masterworkerslist.size();t++) //Μπαίνουν τα id στην idlist
         {
             idlist.add(masterworkerslist.get(t).getWorkersID());
         }
 
-        for(int o=0;o<masterworkerslist.size();o++)
+        for(int o=0;o<masterworkerslist.size();o++) //Μπαίνουν οι εργαζόμενοι στον πίνακα αληθείας
         {
               Workers obj = masterworkerslist.get(o);
               table[o] = new TruthTable(obj);
         }
-        //Log.d("MYARRAY:","arr" + Arrays.toString(table));
 
-        for(int i=1;i<8;i++)
+        //Αλγόριθμος
+        for(int i=1;i<8;i++)  //Γίνονται 7 μέρες
         {
-            dayworkerslist = checkDayRequirements(i);
+            dayworkerslist = checkDayRequirements(i); //Δημιουργεί μέρα με τα requirements των εργαζομένων
 
-            for(int j=1;j<numberofshifts+1;j++)
+            for(int j=1;j<numberofshifts+1;j++) //Έλεγχος για κάθε βάρδια
             {
-                //list = changeToString(addToShift(dayworkerslist,j));
                  int numberofworkers = checkShift(j);
                  int k=0;
-                 while(!(shiftlist.size() == numberofworkers))
+                 while(!(shiftlist.size() == numberofworkers)) //Έλεγχος μίας βάρδιας
                  {
                      Workers obj = dayworkerslist.get(k);
-                     String wid = obj.getWorkersID();//ΔΟΥΛΕΥΕΙ
+                     String wid = obj.getWorkersID();
                      int index = idlist.indexOf(wid);
                      Log.d("29INDEX:", String.valueOf(index));;
                     if(table[index].isInsertedin() == false && (Integer.parseInt(table[index].getWorker().getVardiaO()) != j) && table[index].getTotalhoursworked() < maximumhoursperweek)
                     {
-                        shiftlist.add(obj);
-                        table[index].setInsertedin(true);
-
-                        table[index].addToTotalHoursWorked(workhours);
-                        Log.d("ERGAZOMENOS:",table[index].getWorker().getLastName());
-                        Log.d("WRES:",String.valueOf(table[index].getTotalhoursworked()));
+                        shiftlist.add(obj); //Βάζει τον εργαζόμενο στην βάρδια
+                        table[index].setInsertedin(true); //Κάνε τον εργαζόμενο μη διαθέσιμο για την επόμενη βάρδια
+                        table[index].addToTotalHoursWorked(workhours); //Προσθέτει τις ώρες που εργάστηκε
                         k++;
                     }
                     else
                     {
-                        //do nothing
+                        //skip to next
                         k++;
                     }
                  }
@@ -89,14 +78,14 @@ public class Algorithm
                  shiftlist.clear();
             }
 
-          for(int p=0;p<table.length;p++)
+          for(int p=0;p<table.length;p++)  //Κάνει τους εργαζομένους διαθέσιμους για την επόμενη μέρα.
           {
               table[p].setInsertedin(false);
           }
         }
        return finallist;
     }
-
+    //Τέλος αλγορίθμου
     public ArrayList<Workers> checkDayRequirements(int daynumber)
     {
         ArrayList<Workers> list = new ArrayList<>();
@@ -114,32 +103,6 @@ public class Algorithm
         }
         return list;
     }
-
-    /*public ArrayList<Workers> testAdd(ArrayList<Workers> daylist,int shiftnumber)
-    {
-        int numberofworkers = checkShift(shiftnumber);
-        boolean test = true;
-        while(!(shiftlist.size() == numberofworkers))
-        {
-            Log.d("INTEGER:",String.valueOf(numberofworkers));
-            Workers obj = daylist.get(0);
-            //Log.d("INTEGER:",String.valueOf(table[k].isInsertedin()));
-            if(test)
-            {
-                shiftlist.add(obj);
-                //shiftlist.add(dayworkerslist.get(k));
-                //table[k].setInsertedin(true);
-                k++;
-            }
-            else
-            {
-                //do nothing
-                k++;
-            }
-        }
-        list = changeToString(addToShift(dayworkerslist,j));
-        finallist.add(list);
-    }*/
     public ArrayList<Workers> addToShift(ArrayList<Workers> daylist,int shiftnumber)
     {
         int numberofworkers = checkShift(shiftnumber);
