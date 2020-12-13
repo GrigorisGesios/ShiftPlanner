@@ -13,7 +13,6 @@ public class Algorithm
 {
     ParseJ parseobj = new ParseJ();
     ArrayList<Workers> masterworkerslist = parseobj.parseWorkers();
-    ArrayList<ArrayList<String>> dailyshiftlist = new ArrayList<>();
 
     int mornworkers = parseobj.getRestriction("prwi_pros");
     int afternoonworkers = parseobj.getRestriction("apogeuma_pros");
@@ -59,19 +58,18 @@ public class Algorithm
                      Workers obj = dayworkerslist.get(k);
                      String wid = obj.getWorkersID();
                      int index = idlist.indexOf(wid);
-                     Log.d("29INDEX:", String.valueOf(index));;
-                    if(table[index].isInsertedin() == false && (Integer.parseInt(table[index].getWorker().getVardiaO()) != j) && table[index].getTotalhoursworked() < maximumhoursperweek)
-                    {
+                     if(table[index].isInsertedin() == false && (Integer.parseInt(table[index].getWorker().getVardiaO()) != j) && table[index].getTotalhoursworked() < maximumhoursperweek)
+                      {
                         shiftlist.add(obj); //Βάζει τον εργαζόμενο στην βάρδια
                         table[index].setInsertedin(true); //Κάνε τον εργαζόμενο μη διαθέσιμο για την επόμενη βάρδια
                         table[index].addToTotalHoursWorked(workhours); //Προσθέτει τις ώρες που εργάστηκε
                         k++;
-                    }
+                      }
                     else
-                    {
+                      {
                         //skip to next
                         k++;
-                    }
+                      }
                  }
                  list = changeToString(shiftlist);
                  finallist.add(list);
@@ -81,6 +79,10 @@ public class Algorithm
           for(int p=0;p<table.length;p++)  //Κάνει τους εργαζομένους διαθέσιμους για την επόμενη μέρα.
           {
               table[p].setInsertedin(false);
+          }
+          for(int ar=0;ar<table.length;ar++)
+          {
+              Log.d("Ergazomenos:",table[ar].getWorker().getFirstName() + "WresErgasias:" + String.valueOf(table[ar].getTotalhoursworked()));
           }
         }
        return finallist;
