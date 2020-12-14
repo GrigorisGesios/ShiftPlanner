@@ -3,6 +3,7 @@ package com.example.shiftplanner.Manager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.example.shiftplanner.R;
 
@@ -12,5 +13,7 @@ public class ReviewRequirements extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review_requirements);
+
     }
 }
+
