@@ -13,6 +13,15 @@ public class ReviewRequirements extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review_requirements);
+        ToUI obj = null;
+        try {
+            obj = new ToUI();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        TextView text1 = (TextView) findViewById(R.id.ViewReq_RevReq_TextView);
+
+        obj.viewRequirements(text1);
 
     }
 }

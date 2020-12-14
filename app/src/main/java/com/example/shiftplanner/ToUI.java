@@ -11,54 +11,63 @@ import java.util.ArrayList;
 
 public class ToUI
 {
-    private Context uiContext = ParseJ.getParsecontext();
+    ParseJ parseobj = new ParseJ();
+    ArrayList<Workers> wlist = parseobj.parseWorkers();
 
-    public ToUI(Context uiContext)
-    {
-        this.uiContext = uiContext;
+    public ToUI() throws JSONException {
     }
 
-    //Εδώ θα μπούν μέθοδοι τύπου ShowEmployers()
-    ParseJ emplist = new ParseJ(uiContext);
-    ParseJ worklist = new ParseJ(uiContext);
 
-
-    public void ShowSchedule(TextView tView) throws JSONException
+    public void viewRequirements(TextView t1)
     {
-        ArrayList<Employers> list = emplist.getEmplist();
-        StringBuilder sb = new StringBuilder();
-        for(int i=0;i<list.size();i++)
+        String currentday = new String();
+        ArrayList<String> list = new ArrayList<>();
+        for(int i=0;i<wlist.size();i++)
         {
-            sb.append(list.get(i).getFirstName());
-            sb.append(" ");
-            sb.append(list.get(i).getEmployerProff());
-            sb.append(" ");
-            sb.append(list.get(i).getEmployerID());
-            sb.append(" ");
-            sb.append(list.get(i).getLastName());
-            sb.append("\n");
+            currentday = returnDay(Integer.parseInt(wlist.get(i).getMeraO()));
+            list.add(wlist.get(i).getWorkersID() + "   " +wlist.get(i).getLastName() + "   "+ currentday + "   " + wlist.get(i).getVardiaO());
         }
-        //Log.d("Λίστα Employer",sb.toString());
-        tView.setText(sb.toString());
+
+        StringBuilder builder = new StringBuilder();
+
+        for(String details : list)
+        {
+            builder.append(details + "\n");
+        }
+        t1.setText(builder.toString());
     }
 
-    public void ShowWorkers(TextView tView) throws JSONException
+    private String returnDay(int daynumber)
     {
-        ArrayList<Workers> list = worklist.getWorkerslist();
-        StringBuilder sb = new StringBuilder();
-        for(int i=0;i<list.size();i++)
+        String day = new String();
+        switch(daynumber)
         {
-            sb.append(list.get(i).getFirstName());
-            sb.append(" ");
-            sb.append(list.get(i).getWorkersProf());
-            sb.append(" ");
-            sb.append(list.get(i).getWorkersID());
-            sb.append(" ");
-            sb.append(list.get(i).getLastName());
-            sb.append("\n");
+            case 1:
+                day = "Δευτέρα";
+                break;
+            case 2:
+                day = "Τρίτη";
+                break;
+            case 3:
+                day = "Τετάρτη";
+                break;
+            case 4:
+                day = "Πέμπτη";
+                break;
+            case 5:
+                day = "Παρασκευή";
+                break;
+            case 6:
+                day = "Σάββατο";
+                break;
+            case 7:
+                day = "Κυριακή";
+                break;
+            default:
+                day = null;
+                break;
         }
-        Log.d("Λίστα Employer",sb.toString());
-        tView.setText(sb.toString());
+        return day;
     }
 
 }
