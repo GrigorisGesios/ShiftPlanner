@@ -21,11 +21,13 @@ public class ToUI
     public void viewRequirements(TextView t1)
     {
         String currentday = new String();
+        String currentshift = new String();
         ArrayList<String> list = new ArrayList<>();
         for(int i=0;i<wlist.size();i++)
         {
             currentday = returnDay(Integer.parseInt(wlist.get(i).getMeraO()));
-            list.add(wlist.get(i).getWorkersID() + "   " +wlist.get(i).getLastName() + "   "+ currentday + "   " + wlist.get(i).getVardiaO());
+            currentshift = returnShift(Integer.parseInt(wlist.get(i).getVardiaO()));
+            list.add(wlist.get(i).getWorkersID() + "   " +wlist.get(i).getLastName() + "   "+ currentday + "   " + currentshift);
         }
 
         StringBuilder builder = new StringBuilder();
@@ -37,6 +39,25 @@ public class ToUI
         t1.setText(builder.toString());
     }
 
+    private String returnShift(int shiftnumber)
+    {
+        String shift = new String();
+                switch(shiftnumber)
+                {
+                    case 1:
+                        shift = "1η βάρδια";
+                        break;
+                    case 2:
+                        shift = "2η βάρδια";
+                        break;
+                    case 3:
+                        shift = "3η βάρδια";
+                        break;
+                    default:
+                        break;
+                }
+                return shift;
+    }
     private String returnDay(int daynumber)
     {
         String day = new String();
