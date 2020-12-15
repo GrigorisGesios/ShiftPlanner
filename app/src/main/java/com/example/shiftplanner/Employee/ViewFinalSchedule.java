@@ -34,13 +34,6 @@ public class ViewFinalSchedule extends AppCompatActivity {
         textView1 = (TextView) findViewById(R.id.EmployerView);
 
 
-        try {
-            Schedule scheduleobj = new Schedule();
-            scheduleobj.printSchedule(textView1);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
     }
 
     public void load(View v) {
@@ -52,7 +45,7 @@ public class ViewFinalSchedule extends AppCompatActivity {
             StringBuilder sb = new StringBuilder();
             String textSchedule;
 
-            while ((textSchedule = br.readLine() != null)) {
+            while ((textSchedule = br.readLine()) != null) {
                 sb.append(textSchedule).append("\n");
             }
             textView1.setText(sb.toString());
