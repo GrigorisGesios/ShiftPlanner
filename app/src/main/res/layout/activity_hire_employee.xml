@@ -12,48 +12,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginLeft="100dp"
-        android:layout_marginTop="32dp"
         android:layout_marginEnd="100dp"
         android:layout_marginRight="100dp"
-        android:layout_marginBottom="280dp"
         android:ems="10"
         android:hint="Επώνυμο:"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edTextGiveId" />
-
-    <EditText
-        android:id="@+id/edTextGiveId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginRight="100dp"
-        android:layout_marginBottom="32dp"
-        android:ems="10"
-        android:hint="Id:"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/edTextGiveLastName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edTextGiveProf" />
-
-    <EditText
-        android:id="@+id/edTextGiveProf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginRight="100dp"
-        android:layout_marginBottom="32dp"
-        android:ems="10"
-        android:hint="Ειδικότητα:"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/edTextGiveId"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,19 +23,49 @@
         app:layout_constraintTop_toBottomOf="@+id/edTextGiveName" />
 
     <EditText
+        android:id="@+id/edTextGiveId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:ems="10"
+        android:hint="Id:"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/edTextGiveProf"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edTextGiveLastName" />
+
+    <EditText
+        android:id="@+id/edTextGiveProf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:ems="10"
+        android:hint="Ειδικότητα:"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/btnConfirmHireEmployee"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edTextGiveId" />
+
+    <EditText
         android:id="@+id/edTextGiveName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginLeft="100dp"
-        android:layout_marginTop="111dp"
         android:layout_marginEnd="100dp"
         android:layout_marginRight="100dp"
-        android:layout_marginBottom="32dp"
         android:ems="10"
         android:hint="Όνομα:"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/edTextGiveProf"
+        app:layout_constraintBottom_toTopOf="@+id/edTextGiveLastName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -91,7 +83,9 @@
         android:text="Hire Employee"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edTextGiveLastName" />
+        app:layout_constraintTop_toBottomOf="@+id/edTextGiveLastName"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
