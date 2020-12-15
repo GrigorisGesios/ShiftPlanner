@@ -1,9 +1,9 @@
 package com.example.shiftplanner.Manager;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.shiftplanner.R;
 
@@ -16,6 +16,6 @@ public class FireEmployee extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fire_employee);
 
-        btnConfirmFireEmployee = (Button) findViewById(R.id.btnFireEmployee);
+        btnConfirmFireEmployee = (Button) findViewById(R.id.btnConfirmFireEmployee);
     }
 }
