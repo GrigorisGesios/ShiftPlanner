@@ -77,8 +77,11 @@ public class ParseJ
             String wprof = jin.getString("idikotita");
             String wID = jin.getString("ID");
             String lname = jin.getString("lastname");
+            String vP = jin.getString("vardiaP");
+            String mO = jin.getString("oxi");
+            String vO = jin.getString("vardiaO");
 
-            Workers work = new Workers(fname,lname,wID,wprof);
+            Workers work = new Workers(fname,lname,wID,wprof,vP,mO,vO);
 
             workerslist.add(work);
         }

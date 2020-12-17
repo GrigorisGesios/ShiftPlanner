@@ -1,29 +1,31 @@
 package com.example.shiftplanner;
 
 import android.content.Context;
+import android.util.Log;
 
 import org.json.JSONException;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 import static java.lang.Integer.parseInt;
 
 public class Day {
 
-    private Context context;
+      private ArrayList<Shift> shiftlist = new ArrayList<>();
 
-    private Shift shiftobj = new Shift();
+      public Day(ArrayList<Shift> shiftlist) {
+        this.shiftlist = shiftlist;
+      }
 
-    ArrayList<ArrayList<String>> dailyshiftlist = new ArrayList<>();
-
-    public Day() throws JSONException {
+    public ArrayList<Shift> getShiftlist() {
+        return shiftlist;
     }
 
-    public ArrayList<ArrayList<String>> DailyShifts() throws JSONException {
-            dailyshiftlist.add(shiftobj.setWorkersOnShift());
-        return dailyshiftlist;
+    public void setShiftlist(ArrayList<Shift> shiftlist) {
+        this.shiftlist = shiftlist;
     }
-
 }
 
 
