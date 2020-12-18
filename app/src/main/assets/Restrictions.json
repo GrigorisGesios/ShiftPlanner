@@ -3,10 +3,15 @@
 "restriction":
 [
  {
+  "ar_week": "4",
+  "ar_days": "7",
   "ar_vard": "3",
-  "prwi_pros": "2",
-  "apogeuma_pros": "1",
-  "vradu_pros": "2",
+  "vardia1": "2",
+  "vardia2": "1",
+  "vardia3": "2",
+  "vardia4": "2",
+  "vardia5": "1",
+  "vardia6": "1",
   "sunol_pros": "1",
   "sun_wres": "8",
   "wres_evd": "40",
