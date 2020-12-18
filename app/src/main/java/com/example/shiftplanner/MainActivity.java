@@ -9,7 +9,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.shiftplanner.Employee.EmployeeLayout;
+import com.example.shiftplanner.Employee.EmployeeLogin;
 import com.example.shiftplanner.Manager.ManagerLayout;
+import com.example.shiftplanner.Manager.ManagerLogin;
 
 import org.json.JSONException;
 
@@ -34,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         btnManager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ManagerLayout.class);
+                Intent intent = new Intent(MainActivity.this, ManagerLogin.class);
                 startActivity(intent);
             }
         });
@@ -42,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         btnEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, EmployeeLayout.class);
+                Intent intent = new Intent(MainActivity.this, EmployeeLogin.class);
                 startActivity(intent);
             }
         });
