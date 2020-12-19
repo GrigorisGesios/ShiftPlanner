@@ -14,9 +14,12 @@ public class Algorithm
     ParseJ parseobj = new ParseJ();
     ArrayList<Workers> masterworkerslist = parseobj.parseWorkers();
 
-    int mornworkers = parseobj.getRestriction("prwi_pros");
-    int afternoonworkers = parseobj.getRestriction("apogeuma_pros");
-    int nightworkers = parseobj.getRestriction("vradu_pros");
+    int v1 = parseobj.getRestriction("vardia1");
+    int v2 = parseobj.getRestriction("vardia2");
+    int v3 = parseobj.getRestriction("vardia3");
+    int v4 = parseobj.getRestriction("vardia4");
+    int v5 = parseobj.getRestriction("vardia5");
+    int v6 = parseobj.getRestriction("vardia6");
 
     public Algorithm() throws JSONException {
     }
@@ -27,6 +30,7 @@ public class Algorithm
         ArrayList<ArrayList<String>> finallist = new ArrayList<>();
         ArrayList<Workers> shiftlist = new ArrayList<>();
         int numberofshifts = parseobj.getRestriction("ar_vard");
+        int numberofdays = parseobj.getRestriction("ar_days");
         int maximumhoursperweek = parseobj.getRestriction("wres_evd");
         int workhours = parseobj.getRestriction("sun_wres");
         TruthTable table[] = new TruthTable[masterworkerslist.size()];   //Πίνακας αληθείας
@@ -45,7 +49,7 @@ public class Algorithm
         }
 
         //Αλγόριθμος
-        for(int i=1;i<8;i++)  //Γίνονται 7 μέρες
+        for(int i=1;i<numberofdays+1;i++)  //Γίνονται οι ανάλογες μέρες σύμφωνα με τον περιορισμό
         {
             dayworkerslist = checkDayRequirements(i); //Δημιουργεί μέρα με τα requirements των εργαζομένων
 
@@ -105,53 +109,28 @@ public class Algorithm
         }
         return list;
     }
-    public ArrayList<Workers> addToShift(ArrayList<Workers> daylist,int shiftnumber)
-    {
-        int numberofworkers = checkShift(shiftnumber);
-        ArrayList<Workers> lista = new ArrayList<>();
-
-        for(int i=0;i<numberofworkers;i++)
-        {
-            lista.add(daylist.get(i));
-        }
-        return lista;
-    }
-    public ArrayList<Workers> checkShiftRequirements(ArrayList<Workers> lista,int shiftnumber)
-    {
-        int numberofshifts=3;   //Αυτό πρέπει να γίνεται αυτόματα
-        int numberofworkers;
-        ArrayList<Workers> list = new ArrayList<>();
-        int shift = checkShift(shiftnumber);
-
-        for(int i=0;i<shift;i++)
-        {
-            if(!(Integer.parseInt(lista.get(i).getVardiaO()) == shiftnumber))
-            {
-                list.add(lista.get(i));
-            }
-            else
-            {
-                //Do nothing
-            }
-        }
-
-        return list;
-    }
-
-
 
     public int checkShift(int x)
     {
         switch (x)
         {
             case 1:
-                x=mornworkers;
+                x=v1;
                 break;
             case 2:
-                x=afternoonworkers;
+                x=v2;
                 break;
             case 3:
-                x=nightworkers;
+                x=v3;
+                break;
+            case 4:
+                x=v4;
+                break;
+            case 5:
+                x=v5;
+                break;
+            case 6:
+                x=v6;
                 break;
             default:
                 break;
