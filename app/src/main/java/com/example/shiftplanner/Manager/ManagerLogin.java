@@ -8,8 +8,6 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.shiftplanner.Employee.EmployeeLayout;
-import com.example.shiftplanner.Employee.EmployeeLogin;
 import com.example.shiftplanner.R;
 
 public class ManagerLogin extends AppCompatActivity {

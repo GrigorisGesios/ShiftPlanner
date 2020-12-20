@@ -1,6 +1,20 @@
 <resources>
     <string name="app_name">ShiftPlanner</string>
     <string name="title_activity_parse_res">ParseRes</string>
+    <string-array name="weeks">
+        <item name="weeks1">1</item>
+        <item name="weeks2">2</item>
+        <item name="weeks3">3</item>
+        <item name="weeks4">4</item>
+    </string-array>
+
+    <string-array name="shifts">
+        <item name="shifts1">3</item>
+        <item name="shifts2">4</item>
+        <item name="shifts3">5</item>
+        <item name="shifts4">6</item>
+    </string-array>
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
