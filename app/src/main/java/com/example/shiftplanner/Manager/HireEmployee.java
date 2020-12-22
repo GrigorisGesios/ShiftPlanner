@@ -18,7 +18,6 @@ public class HireEmployee extends AppCompatActivity {
 
     Button btnConfirmHireEmployee;
     TextView edTextGiveName, edTextGiveProf, edTextGiveId,edTextGiveLastName;
-    long counter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
