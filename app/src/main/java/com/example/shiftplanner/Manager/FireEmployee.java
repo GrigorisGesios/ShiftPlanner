@@ -41,8 +41,8 @@ public class FireEmployee extends AppCompatActivity {
         btnConfirmFireEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String childNum = edTextGiveId.getText().toString();
-                database = FirebaseDatabase.getInstance().getReference().child("employee").child(childNum);
+                int childNum = Integer.parseInt(edTextGiveId.getText().toString())-1;
+                database = FirebaseDatabase.getInstance().getReference().child("employee").child(String.valueOf(childNum));
                 database.removeValue();
             }
         });
@@ -50,8 +50,8 @@ public class FireEmployee extends AppCompatActivity {
         btnShowEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String childNum = edTextGiveId.getText().toString();
-                database = FirebaseDatabase.getInstance().getReference().child("employee").child(childNum);
+                int childNum = Integer.parseInt(edTextGiveId.getText().toString())-1;
+                database = FirebaseDatabase.getInstance().getReference().child("employee").child(String.valueOf(childNum));
                 database.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
