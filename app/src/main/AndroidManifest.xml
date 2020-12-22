@@ -14,10 +14,12 @@
         <activity android:name=".Employee.ViewFinalSchedule" />
         <activity android:name=".Employee.GiveRequirements" />
         <activity android:name=".Employee.EmployeeLayout" />
+        <activity android:name=".Employee.EmployeeLogin"/>
         <activity android:name=".Manager.PlanFinalSchedule" />
         <activity android:name=".Manager.ReviewRequirements" />
         <activity android:name=".Manager.GiveRestrictions" />
         <activity android:name=".Manager.ManagerLayout" />
+        <activity android:name=".Manager.ManagerLogin"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
