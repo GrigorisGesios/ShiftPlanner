@@ -24,7 +24,11 @@ public class MainActivity extends AppCompatActivity {
 
         //ΚΩΔΙΚΑΣ ΓΙΑ ΕΚΤΕΛΕΣΗ ΤΩΝ ΜΕΘΟΔΩΝ ΑΠΟ PARSEJ
         ParseJ parsT = new ParseJ(this);
-
+        try {
+            JsonCheck joT = new JsonCheck();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         //ΚΩΔΙΚΑΣ ΓΙΑ ΕΚΤΕΛΕΣΗ ΤΩΝ ΜΕΘΟΔΩΝ ΑΠΟ PARSEJ
 
 

@@ -37,6 +37,7 @@ public class Algorithm
         ArrayList<String> idlist = new ArrayList<>();   //Λίστα με τα ID των εργαζομένων
 
 
+        Log.d("TOTALCHECK:", String.valueOf(masterworkerslist.size()));
         for(int t=0;t<masterworkerslist.size();t++) //Μπαίνουν τα id στην idlist
         {
             idlist.add(masterworkerslist.get(t).getWorkersID());
