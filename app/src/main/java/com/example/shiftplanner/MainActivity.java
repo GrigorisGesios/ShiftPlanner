@@ -8,9 +8,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.shiftplanner.Employee.EmployeeLayout;
 import com.example.shiftplanner.Employee.EmployeeLogin;
-import com.example.shiftplanner.Manager.ManagerLayout;
 import com.example.shiftplanner.Manager.ManagerLogin;
 
 import org.json.JSONException;

@@ -179,12 +179,12 @@ public class ParseJ
             String loginusername = jin.getString("username");
             String loginpassword = jin.getString("password");
 
-            Login log = new Requirements(loginID,loginidikotita,loginusername,loginpassword);
+            Login log = new Login (loginID,loginidikotita,loginusername,loginpassword);
 
             loginlist.add(log);
         }
         return loginlist;
-        //Log.d("Λίστα Requirements",reqlist.toString());
+        //Log.d("Λίστα Requirements",loginlist.toString());
     }
 }
 
