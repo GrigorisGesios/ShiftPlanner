@@ -31,6 +31,14 @@ public class MainActivity extends AppCompatActivity {
         }
         //ΚΩΔΙΚΑΣ ΓΙΑ ΕΚΤΕΛΕΣΗ ΤΩΝ ΜΕΘΟΔΩΝ ΑΠΟ PARSEJ
 
+        /*TestClass t = null;
+        try {
+            t = new TestClass();
+            t.testMethod();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }*/
+
 
         btnManager = (Button) findViewById(R.id.btnManager);
         btnEmployee = (Button) findViewById(R.id.btnEmployee);

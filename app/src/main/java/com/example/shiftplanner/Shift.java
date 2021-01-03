@@ -10,16 +10,20 @@ import static java.lang.Integer.parseInt;
 
 public class Shift {
 
-    private ArrayList<Workers> shiftworkerslist = new ArrayList<>();
+    private ArrayList<String> shiftworkerslist = new ArrayList<>();
 
+   /* public Shift(ArrayList<String> shiftworkerslist) {
+        this.shiftworkerslist = shiftworkerslist;
+    }*/
 
-    public Shift(ArrayList<Workers> shiftworkerslist) {
+    public void setShiftworkerslist(ArrayList<String> shiftworkerslist) {
         this.shiftworkerslist = shiftworkerslist;
     }
 
-    public ArrayList<Workers> getShiftworkerslist() {
+    public ArrayList<String> getShiftworkerslist() {
         return shiftworkerslist;
     }
+
 
 
 }
