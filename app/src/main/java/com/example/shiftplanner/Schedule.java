@@ -20,38 +20,22 @@ public class Schedule
     public Schedule() throws JSONException {
     }
 
-
-    public void printSchedule(TextView scheduleview) throws JSONException {
-        ParseJ parseobj = new ParseJ();
-        int numberofweeks = parseobj.getRestriction("ar_week");
-
     public void printSchedule(TextView scheduleview,ArrayList<String> list) throws JSONException {
-
 
         //ParseJ parseobj = new ParseJ();
         //int numberofweeks = parseobj.getRestriction("ar_week");
         StringBuilder builder = new StringBuilder();
-           for(int i=0;i<numberofweeks;i++)
-           {
-               schedule= alg.createWeek();
-               schedule1.add(schedule);
-           }
 
-<<<<<<< Updated upstream
-
-        for(ArrayList<ArrayList<String>> details : schedule1)
-=======
         //for(int i=0;i<numberofweeks;i++)
         //{
-           // schedule= alg.createWeek();
-            schedule1.add(schedule);
+        // schedule= alg.createWeek();
+        schedule1.add(schedule);
         //}
 
         for(String details : list)
->>>>>>> Stashed changes
         {
             builder.append(details + "\n");
         }
-         scheduleview.setText(builder.toString());
+        scheduleview.setText(builder.toString());
     }
 }
