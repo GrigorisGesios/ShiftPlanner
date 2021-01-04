@@ -12,6 +12,7 @@ public class Algorithm
     ParseJ parseobj = new ParseJ();
     ArrayList<Workers> masterworkerslist = parseobj.parseWorkers();
     Calendar date = Calendar.getInstance();
+    int numofweeks = parseobj.getRestriction("ar_week");
     int date_year = parseobj.getRestriction("d_year");
     int date_month = parseobj.getRestriction("d_month");
     int date_day   = parseobj.getRestriction("d_day");
@@ -29,7 +30,9 @@ public class Algorithm
         /*date.set(Calendar.YEAR,date_year);
         date.set(Calendar.MONTH,date_month);
         date.set(Calendar.DAY_OF_MONTH,date_day);*/
-        date.set(date_year,date_month,date_day,0,0);
+
+        //date.set(date_year,date_month,date_day,0,0);
+
         ArrayList<Workers> dayworkerslist = new ArrayList<>();
         ArrayList<String> list = new ArrayList<>();
         ArrayList<ArrayList<String>> finallist = new ArrayList<>();
@@ -89,15 +92,14 @@ public class Algorithm
                         k++;
                       }
                  }
-                //parsecurrentshift.clear();
                 Shift shiftobj = new Shift();
                 parsecurrentshift = changeToString(currentshift);
                 Log.d("68PleaseWork", String.valueOf(parsecurrentshift.size()));
                 shiftobj.setShiftworkerslist(parsecurrentshift);
                 shiftlista.add(shiftobj);
-                Log.d("69PleaseWork", String.valueOf(shiftlista.get(0).getShiftworkerslist().get(0)));
+                //Log.d("69PleaseWork", String.valueOf(shiftlista.get(0).getShiftworkerslist().get(0)));
                 currentshift.clear();
-                Log.d("70PleaseWork", String.valueOf(shiftlista.get(0).getShiftworkerslist().get(0)));
+                //Log.d("70PleaseWork", String.valueOf(shiftlista.get(0).getShiftworkerslist().get(0)));
 
                 ///ΠΑΛΙΑ,ΔΕΝ ΘΕΛΟΥΝ ΑΛΛΑΓΕΣ
                  //list = changeToString(currentshift);
@@ -118,6 +120,23 @@ public class Algorithm
        return daylist;
     }
     //Τέλος αλγορίθμου
+
+    public ArrayList<Week> createSchedule() throws JSONException {
+        ArrayList<Week> finallist = new ArrayList<>();
+        for(int i=0;i<numofweeks;i++)
+        {
+            date.set(date_year,date_month,date_day,0,0);
+            Log.d("AlgTime1:", String.valueOf(date.getTime()));
+            date.add(Calendar.DAY_OF_MONTH,7*i);
+            Log.d("AlgTime2:", String.valueOf(date.getTime()));
+            ArrayList<Day> weeklist = new ArrayList<>();
+            weeklist = createWeek();
+            Week obj = new Week(weeklist,date.getTime());
+            finallist.add(obj);
+        }
+        return finallist;
+    }
+
     public ArrayList<Workers> checkDayRequirements(int daynumber)
     {
         ArrayList<Workers> list = new ArrayList<>();
