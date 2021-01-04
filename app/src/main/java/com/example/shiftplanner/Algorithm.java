@@ -15,7 +15,7 @@ public class Algorithm
     Calendar date = Calendar.getInstance();
     int numofweeks = parseobj.getRestriction("ar_week");
     int date_year = parseobj.getRestriction("d_year");
-    int date_month = parseobj.getRestriction("d_month");
+    int date_month = parseobj.getMonth();
     int date_day   = parseobj.getRestriction("d_day");
     int v1 = parseobj.getRestriction("vardia1");
     int v2 = parseobj.getRestriction("vardia2");

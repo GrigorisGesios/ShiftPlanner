@@ -42,7 +42,11 @@ public class EmployeeLayout extends AppCompatActivity {
                     JsonCheck obj = new JsonCheck();
                     boolean stime = obj.checkIfTimeIsCorrect();
                     boolean wcount = obj.checkWorkerCount();
-                    if(stime ==true && wcount == true)
+                    boolean weekvalid = obj.checkIfWeekIsValid();
+                    boolean shiftvalid = obj.checkIfShiftCountIsValid();
+                    boolean weekhoursvalid = obj.checkIfWeeklyWorkHoursAreValid();
+                    boolean dayscorrect = obj.checkIfDaysAreCorrectInWeek();
+                    if(stime ==true && wcount == true && weekvalid == true && shiftvalid == true && weekhoursvalid==true)//&& dayscorrect ==true
                     {
                         Intent intent = new Intent(EmployeeLayout.this, ViewFinalSchedule.class);
                         startActivity(intent);
@@ -51,18 +55,30 @@ public class EmployeeLayout extends AppCompatActivity {
                     {
                         Context context = getApplicationContext();
                         CharSequence errortext = "";
-                        if(stime == false && wcount == false)
+                        if(stime == false)
                         {
-                            errortext = "Λάθος τιμές JSON.";
-                        }
-                        else if(stime == false)
-                        {
-                            errortext = "Λάθος τιμές JSON,οι ώρες εργασίας υπερβαίνουν το 24ωρο.";
+                            errortext = "Λάθος τιμές JSON,οι ώρες εργασίας που έχουν δοθεί δεν είναι σωστές.";
                         }
                         else if(wcount == false)
                         {
                             errortext = "Λάθος τιμές JSON,το προσωπικό δεν είναι αρκετό.";
                         }
+                        else if(weekvalid == false)
+                        {
+                            errortext = "Λάθος τιμές JSON,ο αριθμός των ημερών είναι λανθασμένος.";
+                        }
+                        else if(shiftvalid == false)
+                        {
+                            errortext = "Λάθος τιμές JSON,ο αριθμός των βαρδιών που έχει δοθεί δεν είναι σωστός.";
+                        }
+                        else if(weekhoursvalid == false)
+                        {
+                            errortext = "Λάθος τιμές JSON,ο μέγιστος αριθμός εβδομαδιαίων ωρών εργασίας που έχει δοθεί δεν είναι σωστός.";
+                        }
+                        /*else if(dayscorrect == false)
+                        {
+                            errortext = "Λάθος τιμές JSON,αντικρούονται τα δεδομένα αρχικής ημέρας.";
+                        }*/
 
                         int duration = Toast.LENGTH_LONG;
                         Toast jsonerrortoast = Toast.makeText(context,errortext,duration);
