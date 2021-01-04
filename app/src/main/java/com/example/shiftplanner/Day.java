@@ -17,10 +17,12 @@ public class Day {
 
     private ArrayList<Shift> listofshifts = new ArrayList<>();
     private Date dateofday = null;
+    private Boolean holiday = false;
 
-    public Day(ArrayList<Shift> listofshifts, Date dateofday) {
+    public Day(ArrayList<Shift> listofshifts, Date dateofday,Boolean holiday) {
         this.listofshifts = listofshifts;
         this.dateofday = dateofday;
+        this.holiday = holiday;
     }
 
     public ArrayList<Shift> getListofshifts() {
@@ -39,6 +41,13 @@ public class Day {
         this.dateofday = dateofday;
     }
 
+    public Boolean getHoliday() {
+        return holiday;
+    }
+
+    public void setHoliday(Boolean holiday) {
+        this.holiday = holiday;
+    }
 }
 
 

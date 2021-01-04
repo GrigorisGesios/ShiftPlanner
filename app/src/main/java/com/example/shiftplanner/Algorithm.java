@@ -63,48 +63,53 @@ public class Algorithm
         {
             dayworkerslist = checkDayRequirements(i); //Δημιουργεί μέρα με τα requirements των εργαζομένων
             ArrayList<Shift> shiftlista = new ArrayList<>();
-            for(int j=1;j<numberofshifts+1;j++) //Έλεγχος για κάθε βάρδια
+            boolean holidaycheck = false;
+            holidaycheck = checkForHoliday(date);
+            if (!holidaycheck)
             {
-                 int numberofworkers = checkShift(j);
-                 int k=0;
-                 while(!(currentshift.size() == numberofworkers)) //Έλεγχος μίας βάρδιας
-                 {
-                     Workers obj = dayworkerslist.get(k);
-                     String wid = obj.getWorkersID();
-                     int index = idlist.indexOf(wid);
-                     if(table[index].isInsertedin() == false && (Integer.parseInt(table[index].getWorker().getVardiaO()) != j) && table[index].getTotalhoursworked() < maximumhoursperweek)
-                      {
-                        currentshift.add(obj); //Βάζει τον εργαζόμενο στην βάρδια
-                        table[index].setInsertedin(true); //Κάνε τον εργαζόμενο μη διαθέσιμο για την επόμενη βάρδια
-                        table[index].addToTotalHoursWorked(workhours); //Προσθέτει τις ώρες που εργάστηκε
-                        k++;
-                      }
-                    else
-                      {
-                        //skip to next
-                        k++;
-                      }
-                 }
-                Shift shiftobj = new Shift();
-                parsecurrentshift = changeToString(currentshift);
-                Log.d("68PleaseWork", String.valueOf(parsecurrentshift.size()));
-                shiftobj.setShiftworkerslist(parsecurrentshift);
-                shiftlista.add(shiftobj);
-                //Log.d("69PleaseWork", String.valueOf(shiftlista.get(0).getShiftworkerslist().get(0)));
-                currentshift.clear();
-                //Log.d("70PleaseWork", String.valueOf(shiftlista.get(0).getShiftworkerslist().get(0)));
+                for (int j = 1; j < numberofshifts + 1; j++) //Έλεγχος για κάθε βάρδια
+                {
+                    int numberofworkers = checkShift(j);
+                    int k = 0;
+                    while (!(currentshift.size() == numberofworkers)) //Έλεγχος μίας βάρδιας
+                    {
+                        Workers obj = dayworkerslist.get(k);
+                        String wid = obj.getWorkersID();
+                        int index = idlist.indexOf(wid);
+                        if (table[index].isInsertedin() == false && (Integer.parseInt(table[index].getWorker().getVardiaO()) != j) && table[index].getTotalhoursworked() < maximumhoursperweek) {
+                            currentshift.add(obj); //Βάζει τον εργαζόμενο στην βάρδια
+                            table[index].setInsertedin(true); //Κάνε τον εργαζόμενο μη διαθέσιμο για την επόμενη βάρδια
+                            table[index].addToTotalHoursWorked(workhours); //Προσθέτει τις ώρες που εργάστηκε
+                            k++;
+                        } else {
+                            //skip to next
+                            k++;
+                        }
+                    }
+                    Shift shiftobj = new Shift();
+                    parsecurrentshift = changeToString(currentshift);
+                    Log.d("68PleaseWork", String.valueOf(parsecurrentshift.size()));
+                    shiftobj.setShiftworkerslist(parsecurrentshift);
+                    shiftlista.add(shiftobj);
+                    //Log.d("69PleaseWork", String.valueOf(shiftlista.get(0).getShiftworkerslist().get(0)));
+                    currentshift.clear();
+                    //Log.d("70PleaseWork", String.valueOf(shiftlista.get(0).getShiftworkerslist().get(0)));
 
-                ///ΠΑΛΙΑ,ΔΕΝ ΘΕΛΟΥΝ ΑΛΛΑΓΕΣ
-                 //list = changeToString(currentshift);
-                 //finallist.add(list);
-                ///ΠΑΛΙΑ,ΔΕΝ ΘΕΛΟΥΝ ΑΛΛΑΓΕΣ
+                    ///ΠΑΛΙΑ,ΔΕΝ ΘΕΛΟΥΝ ΑΛΛΑΓΕΣ
+                    //list = changeToString(currentshift);
+                    //finallist.add(list);
+                    ///ΠΑΛΙΑ,ΔΕΝ ΘΕΛΟΥΝ ΑΛΛΑΓΕΣ
+                }
+          }
+            else
+            {
+                //skip
             }
-          //Log.d("3PleaseWork",shiftlista.get(0).getShiftworkerslist().get(0));
           for(int p=0;p<table.length;p++)  //Κάνει τους εργαζομένους διαθέσιμους για την επόμενη μέρα.
           {
               table[p].setInsertedin(false);
           }
-            Day dobj = new Day(shiftlista,date.getTime());
+            Day dobj = new Day(shiftlista,date.getTime(),holidaycheck);
             daylist.add(dobj);
             Log.d("71PleaseWork",daylist.get(0).getListofshifts().get(0).getShiftworkerslist().get(0));
             date.add(Calendar.DAY_OF_MONTH,1);
@@ -127,6 +132,28 @@ public class Algorithm
             finallist.add(obj);
         }
         return finallist;
+    }
+
+    public boolean checkForHoliday(Calendar date)
+    {
+        boolean isHoliday = false;
+        if(date.get(Calendar.MONTH)==0 && date.get(Calendar.DAY_OF_MONTH)==1)
+        {
+            isHoliday =true;
+        }
+        else if(date.get(Calendar.MONTH)==11 && date.get(Calendar.DAY_OF_MONTH)==25)
+        {
+            isHoliday =true;
+        }
+        else if(date.get(Calendar.MONTH)==11 && date.get(Calendar.DAY_OF_MONTH)==26)
+        {
+            isHoliday =true;
+        }
+        else
+        {
+            isHoliday = false;
+        }
+        return isHoliday;
     }
 
     public ArrayList<Workers> checkDayRequirements(int daynumber)

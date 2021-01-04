@@ -41,20 +41,25 @@ public class Schedule
             //Log.d("3CHECKTIME:", String.valueOf(date.get(Calendar.YEAR) == dateofalg.get(Calendar.YEAR)));
 
             if (( date.get(Calendar.YEAR) == dateofalg.get(Calendar.YEAR)) && (date.get(Calendar.MONTH) == dateofalg.get(Calendar.MONTH)) && (date.get(Calendar.DAY_OF_MONTH) == dateofalg.get(Calendar.DAY_OF_MONTH))) {
-                for (int j = 0; j < lista.get(k).getDaylist().get(i).getListofshifts().size(); j++) {
-                    //workerslist.addAll(lista.get(i).getListofshifts().get(j).getShiftworkerslist());
-                    workerslist.addAll(lista.get(k).getDaylist().get(i).getListofshifts().get(j).getShiftworkerslist());
+                if(lista.get(k).getDaylist().get(i).getHoliday() == false)
+                {
+                    for (int j = 0; j < lista.get(k).getDaylist().get(i).getListofshifts().size(); j++) {
+                        //workerslist.addAll(lista.get(i).getListofshifts().get(j).getShiftworkerslist());
+                        workerslist.addAll(lista.get(k).getDaylist().get(i).getListofshifts().get(j).getShiftworkerslist());
+                    }
+                    StringBuilder builder = new StringBuilder();
+                    for (String details : workerslist) {
+                        builder.append(details + "\n");
+                    }
+                    tvw.setText(builder.toString());
                 }
-                StringBuilder builder = new StringBuilder();
-                for (String details : workerslist) {
-                    builder.append(details + "\n");
+                else
+                {
+                    tvw.setText("ΑΡΓΙΑ");
                 }
-                tvw.setText(builder.toString());
                 finished = true;
                 found = true;
             }
-            Log.d("CHECKI:", String.valueOf(i));
-            Log.d("CHECKK:", String.valueOf(k));
             if(i == sizeofDaylist-1)
             {
                 Log.d("ELEXOS",String.valueOf(k));
