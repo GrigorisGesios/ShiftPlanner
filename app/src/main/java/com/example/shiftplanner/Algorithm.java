@@ -6,6 +6,7 @@ import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 
 public class Algorithm
 {
@@ -34,8 +35,6 @@ public class Algorithm
         //date.set(date_year,date_month,date_day,0,0);
 
         ArrayList<Workers> dayworkerslist = new ArrayList<>();
-        ArrayList<String> list = new ArrayList<>();
-        ArrayList<ArrayList<String>> finallist = new ArrayList<>();
         int numberofshifts = parseobj.getRestriction("ar_vard");
         int numberofdays = parseobj.getRestriction("ar_days");
         int maximumhoursperweek = parseobj.getRestriction("wres_evd");
@@ -46,8 +45,8 @@ public class Algorithm
         ArrayList<Day> daylist = new ArrayList<>();
         ArrayList<Workers> currentshift = new ArrayList<>();
         ArrayList<String> parsecurrentshift = new ArrayList<>();
-        ArrayList<Day> daylistfinal = new ArrayList<>();
 
+        Collections.shuffle(masterworkerslist);
         Log.d("TOTALCHECK:", String.valueOf(masterworkerslist.size()));
         for(int t=0;t<masterworkerslist.size();t++) //Μπαίνουν τα id στην idlist
         {
@@ -59,17 +58,11 @@ public class Algorithm
               Workers obj = masterworkerslist.get(o);
               table[o] = new TruthTable(obj);
         }
-        int oop = 0;
-        //Log.d("ALGORITHMCHECKTIME:", String.valueOf(date.getTime()));
         //Αλγόριθμος
         for(int i=1;i<numberofdays+1;i++)  //Γίνονται οι ανάλογες μέρες σύμφωνα με τον περιορισμό
         {
             dayworkerslist = checkDayRequirements(i); //Δημιουργεί μέρα με τα requirements των εργαζομένων
             ArrayList<Shift> shiftlista = new ArrayList<>();
-            if(oop>0)
-            {
-                Log.d("72PleaseWork",daylist.get(0).getListofshifts().get(0).getShiftworkerslist().get(0));
-            }
             for(int j=1;j<numberofshifts+1;j++) //Έλεγχος για κάθε βάρδια
             {
                  int numberofworkers = checkShift(j);
@@ -115,7 +108,6 @@ public class Algorithm
             daylist.add(dobj);
             Log.d("71PleaseWork",daylist.get(0).getListofshifts().get(0).getShiftworkerslist().get(0));
             date.add(Calendar.DAY_OF_MONTH,1);
-            oop++;
         }
        return daylist;
     }

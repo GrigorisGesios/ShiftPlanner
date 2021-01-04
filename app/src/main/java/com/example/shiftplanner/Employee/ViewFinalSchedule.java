@@ -29,12 +29,23 @@ import java.util.ArrayList;
 
 public class ViewFinalSchedule extends AppCompatActivity {
 
+    private ArrayList<Week> weekslist = new ArrayList<Week>();
+    private Algorithm obj = new Algorithm();
+
+    public ViewFinalSchedule() throws JSONException {
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_final_schedule);
 
+        try {
+            weekslist = obj.createSchedule();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
         CalendarView cv = (CalendarView) findViewById(R.id.schedulecalendar);
         TextView textView1 = (TextView) findViewById(R.id.EmployerView);
@@ -47,16 +58,11 @@ public class ViewFinalSchedule extends AppCompatActivity {
         cv.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                ArrayList<Week> weekslist = new ArrayList<Week>();
-                ArrayList<String> lista = new ArrayList<>();
+
                 try {
-                    Algorithm obj = new Algorithm();
-                    weekslist = obj.createSchedule();
+
                     Schedule scheduleobj  = new Schedule();
-//                    Log.d("4LOD:",daylist.get(2).getListofshifts().get(0).getShiftworkerslist().get(0).getWorkersID()); //Είναι 7 μέρες που έχουν τους εργάτες απο την τελευταία μέρα
                     scheduleobj.returnWorkers(weekslist,dayOfMonth,month,year,textView2);
-                    //scheduleobj.printSchedule(textView2,lista);
-                    //textView2.setText((CharSequence) lista.get(0));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
