@@ -42,9 +42,18 @@ public class ViewFinalSchedule extends AppCompatActivity {
         }
 
         CalendarView cv = (CalendarView) findViewById(R.id.schedulecalendar);
-        TextView textView2 = (TextView) findViewById(R.id.Vardia1);
-
-        textView2.setText(" ");
+        TextView tv1 = (TextView) findViewById(R.id.Vardia1);
+        TextView tv2 = (TextView) findViewById(R.id.Vardia2);
+        TextView tv3 = (TextView) findViewById(R.id.Vardia3);
+        TextView tv4 = (TextView) findViewById(R.id.Vardia4);
+        TextView tv5 = (TextView) findViewById(R.id.Vardia5);
+        TextView tv6 = (TextView) findViewById(R.id.Vardia6);
+        tv1.setText(" ");
+        tv2.setText(" ");
+        tv3.setText(" ");
+        tv4.setText(" ");
+        tv5.setText(" ");
+        tv6.setText(" ");
 
 
         cv.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
@@ -53,7 +62,7 @@ public class ViewFinalSchedule extends AppCompatActivity {
 
                 try {
                     Schedule scheduleobj  = new Schedule();
-                    scheduleobj.returnWorkers(weekslist,dayOfMonth,month,year,textView2);
+                    scheduleobj.returnWorkers(weekslist,dayOfMonth,month,year,tv1);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
