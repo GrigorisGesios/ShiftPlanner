@@ -7,158 +7,164 @@
     tools:context=".Employee.ViewFinalSchedule">
 
     <TextView
-        android:id="@+id/Vardia4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="10dp"
-        android:text="TextView"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Text_V4" />
-
-    <TextView
-        android:id="@+id/Vardia5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="175dp"
-        android:layout_marginLeft="175dp"
-        android:layout_marginTop="10dp"
-        android:text="TextView"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Text_V4" />
-
-    <TextView
-        android:id="@+id/Vardia6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="325dp"
-        android:layout_marginLeft="325dp"
-        android:layout_marginTop="10dp"
-        android:text="TextView"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Text_V4" />
-
-    <TextView
-        android:id="@+id/Vardia3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
-        android:layout_marginLeft="9dp"
-        android:layout_marginTop="8dp"
-        android:text="TextView"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@+id/Text_V3"
-        app:layout_constraintTop_toBottomOf="@+id/Text_V3" />
-
-    <TextView
-        android:id="@+id/Vardia1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:text="TextView"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@+id/Text_V1"
-        app:layout_constraintTop_toBottomOf="@+id/Text_V1" />
-
-    <TextView
-        android:id="@+id/Text_V4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginBottom="205dp"
-        android:text="Βάρδια 4"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/Text_V5"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/Text_V6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="23dp"
-        android:layout_marginRight="23dp"
-        android:layout_marginBottom="10dp"
-        android:text="Βάρδια 6"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/Vardia4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/Text_V5" />
-
-    <TextView
         android:id="@+id/Text_V1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="41dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
         android:text="Βάρδια 1"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/Text_V2"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/schedulecalendar" />
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/No_Vardia"
+        app:layout_constraintTop_toBottomOf="@+id/No_Vardia" />
 
     <TextView
         android:id="@+id/Text_V2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="41dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="32dp"
         android:text="Βάρδια 2"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/Text_V3"
-        app:layout_constraintStart_toEndOf="@+id/Text_V1"
-        app:layout_constraintTop_toBottomOf="@+id/schedulecalendar" />
-
-    <TextView
-        android:id="@+id/Text_V5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="Βάρδια 5"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/Vardia4"
-        app:layout_constraintEnd_toStartOf="@+id/Text_V6"
-        app:layout_constraintStart_toEndOf="@+id/Text_V4" />
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/No_Vardia"
+        app:layout_constraintTop_toBottomOf="@+id/No_Vardia" />
 
     <TextView
         android:id="@+id/Vardia2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="230dp"
+        android:layout_marginLeft="230dp"
+        android:layout_marginTop="5dp"
         android:text="TextView"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@+id/Text_V2"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Text_V2" />
+
+    <TextView
+        android:id="@+id/Vardia1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="5dp"
+        android:text="TextView"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Text_V1" />
+
+    <TextView
+        android:id="@+id/Text_V5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="Βάρδια 5"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/Text_V1"
+        app:layout_constraintStart_toStartOf="@+id/Text_V1"
+        app:layout_constraintTop_toBottomOf="@+id/Vardia3" />
+
+    <TextView
+        android:id="@+id/Text_V6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="Βάρδια 6"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/Text_V2"
+        app:layout_constraintStart_toStartOf="@+id/Text_V2"
+        app:layout_constraintTop_toBottomOf="@+id/Vardia4" />
 
     <TextView
         android:id="@+id/Text_V3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="41dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginRight="23dp"
+        android:layout_marginTop="25dp"
         android:text="Βάρδια 3"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/Text_V2"
-        app:layout_constraintTop_toBottomOf="@+id/schedulecalendar" />
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/Text_V5"
+        app:layout_constraintStart_toStartOf="@+id/Text_V5"
+        app:layout_constraintTop_toBottomOf="@+id/Vardia1" />
+
+    <TextView
+        android:id="@+id/Text_V4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="Βάρδια 4"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/Text_V6"
+        app:layout_constraintStart_toStartOf="@+id/Text_V6"
+        app:layout_constraintTop_toBottomOf="@+id/Vardia2" />
+
+    <TextView
+        android:id="@+id/Vardia3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="5dp"
+        android:text="TextView"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Text_V3" />
+
+    <TextView
+        android:id="@+id/Vardia4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="230dp"
+        android:layout_marginLeft="230dp"
+        android:layout_marginTop="5dp"
+        android:text="TextView"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Text_V4" />
+
+    <TextView
+        android:id="@+id/Vardia6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="230dp"
+        android:layout_marginLeft="230dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Text_V6" />
+
+    <TextView
+        android:id="@+id/Vardia5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Text_V5" />
 
     <CalendarView
         android:id="@+id/schedulecalendar"
-        android:layout_width="413dp"
+        android:layout_width="0dp"
         android:layout_height="307dp"
-        tools:layout_editor_absoluteY="2dp" />
+        android:layout_marginTop="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/No_Vardia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/schedulecalendar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.CalendarView;
 import android.widget.TextView;
 
@@ -42,18 +43,32 @@ public class ViewFinalSchedule extends AppCompatActivity {
         }
 
         CalendarView cv = (CalendarView) findViewById(R.id.schedulecalendar);
+        TextView ttv1 = (TextView) findViewById(R.id.Text_V1);
+        TextView ttv2 = (TextView) findViewById(R.id.Text_V2);
+        TextView ttv3 = (TextView) findViewById(R.id.Text_V3);
+        TextView ttv4 = (TextView) findViewById(R.id.Text_V4);
+        TextView ttv5 = (TextView) findViewById(R.id.Text_V5);
+        TextView ttv6 = (TextView) findViewById(R.id.Text_V6);
         TextView tv1 = (TextView) findViewById(R.id.Vardia1);
         TextView tv2 = (TextView) findViewById(R.id.Vardia2);
         TextView tv3 = (TextView) findViewById(R.id.Vardia3);
         TextView tv4 = (TextView) findViewById(R.id.Vardia4);
         TextView tv5 = (TextView) findViewById(R.id.Vardia5);
         TextView tv6 = (TextView) findViewById(R.id.Vardia6);
-        tv1.setText(" ");
-        tv2.setText(" ");
-        tv3.setText(" ");
-        tv4.setText(" ");
-        tv5.setText(" ");
-        tv6.setText(" ");
+        TextView tvempty = (TextView) findViewById(R.id.No_Vardia);
+        tvempty.setVisibility(View.INVISIBLE);
+        tv1.setVisibility(View.INVISIBLE);
+        tv2.setVisibility(View.INVISIBLE);
+        tv3.setVisibility(View.INVISIBLE);
+        tv4.setVisibility(View.INVISIBLE);
+        tv5.setVisibility(View.INVISIBLE);
+        tv6.setVisibility(View.INVISIBLE);
+        ttv1.setVisibility(View.INVISIBLE);
+        ttv2.setVisibility(View.INVISIBLE);
+        ttv3.setVisibility(View.INVISIBLE);
+        ttv4.setVisibility(View.INVISIBLE);
+        ttv5.setVisibility(View.INVISIBLE);
+        ttv6.setVisibility(View.INVISIBLE);
 
 
         cv.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
@@ -62,7 +77,7 @@ public class ViewFinalSchedule extends AppCompatActivity {
 
                 try {
                     Schedule scheduleobj  = new Schedule();
-                    scheduleobj.returnWorkers(weekslist,dayOfMonth,month,year,tv1);
+                    scheduleobj.returnWorkers(weekslist,dayOfMonth,month,year,tv1,tv2,tv3,tv4,tv5,tv6,tvempty,ttv1,ttv2,ttv3,ttv4,ttv5,ttv6);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
