@@ -3,55 +3,47 @@ package com.example.shiftplanner.Employee;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.CalendarView;
-import android.widget.LinearLayout;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.example.shiftplanner.Algorithm;
-import com.example.shiftplanner.Day;
-import com.example.shiftplanner.ParseJ;
 import com.example.shiftplanner.R;
 import com.example.shiftplanner.Schedule;
-import com.example.shiftplanner.Shift;
-import com.example.shiftplanner.ToUI;
 import com.example.shiftplanner.Week;
 
 import org.json.JSONException;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+
 
 public class ViewFinalSchedule extends AppCompatActivity {
 
     private ArrayList<Week> weekslist = new ArrayList<Week>();
     private Algorithm obj = new Algorithm();
-
+    public boolean schedulecreated = false;
     public ViewFinalSchedule() throws JSONException {
     }
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_final_schedule);
-
+        Log.d("SCHETRUE:", String.valueOf(schedulecreated));
         try {
-            weekslist = obj.createSchedule();
+            if(!schedulecreated)
+            {
+                weekslist = obj.createSchedule();
+                schedulecreated = true;
+                Log.d("SCHETRUE:", String.valueOf(schedulecreated));
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
         CalendarView cv = (CalendarView) findViewById(R.id.schedulecalendar);
-        TextView textView1 = (TextView) findViewById(R.id.EmployerView);
-        TextView textView2 = (TextView) findViewById(R.id.workerview);
+        TextView textView2 = (TextView) findViewById(R.id.Vardia1);
 
-        textView1.setVisibility(View.INVISIBLE);
         textView2.setText(" ");
 
 
@@ -60,7 +52,6 @@ public class ViewFinalSchedule extends AppCompatActivity {
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
 
                 try {
-
                     Schedule scheduleobj  = new Schedule();
                     scheduleobj.returnWorkers(weekslist,dayOfMonth,month,year,textView2);
                 } catch (JSONException e) {

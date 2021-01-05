@@ -13,10 +13,14 @@ import com.example.shiftplanner.Manager.ManagerLayout;
 
 import org.json.JSONException;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     Button btnManager, btnEmployee;
     TextView textView1;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
