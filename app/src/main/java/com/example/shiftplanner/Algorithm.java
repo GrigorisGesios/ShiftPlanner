@@ -59,9 +59,10 @@ public class Algorithm
               table[o] = new TruthTable(obj);
         }
         //Αλγόριθμος
-        for(int i=1;i<numberofdays+1;i++)  //Γίνονται οι ανάλογες μέρες σύμφωνα με τον περιορισμό
+        for(int i=0;i<numberofdays;i++)  //Γίνονται οι ανάλογες μέρες σύμφωνα με τον περιορισμό
         {
-            dayworkerslist = checkDayRequirements(i); //Δημιουργεί μέρα με τα requirements των εργαζομένων
+            Log.d("DAYOFWEEK:", String.valueOf(date.get(Calendar.DAY_OF_WEEK)));
+            dayworkerslist = checkDayRequirements(date.get(Calendar.DAY_OF_WEEK)); //Δημιουργεί μέρα με τα requirements των εργαζομένων
             ArrayList<Shift> shiftlista = new ArrayList<>();
             boolean holidaycheck = false;
             holidaycheck = checkForHoliday(date);
@@ -162,7 +163,7 @@ public class Algorithm
 
         for(int i=0;i<masterworkerslist.size();i++)
         {
-            if(!(Integer.parseInt(masterworkerslist.get(i).getMeraO()) == daynumber))
+            if(!(returnDayToInteger(masterworkerslist.get(i).getMeraO()) == daynumber))
             {
                 list.add(masterworkerslist.get(i));
             }
@@ -174,6 +175,39 @@ public class Algorithm
         return list;
     }
 
+    public int returnDayToInteger(String dayname)
+    {
+        int day = 0;
+        if(dayname.equals("Deutera"))
+        {
+            day = 2;
+        }
+        else if(dayname.equals("Trith"))
+        {
+            day=3;
+        }
+        else if(dayname.equals("Tetarth"))
+        {
+            day=4;
+        }
+        else if(dayname.equals("Pempth"))
+        {
+            day=5;
+        }
+        else if(dayname.equals("Paraskeuh"))
+        {
+            day=6;
+        }
+        else if(dayname.equals("Sabbato"))
+        {
+            day=7;
+        }
+        else if(dayname.equals("Kyriakh"))
+        {
+            day=1;
+        }
+        return day;
+    }
     public int checkShift(int x)
     {
         switch (x)
