@@ -21,22 +21,20 @@ import java.util.ArrayList;
 
 public class ViewFinalSchedule extends AppCompatActivity {
 
-    private ArrayList<Week> weekslist = new ArrayList<Week>();
+    public static ArrayList<Week> weekslist = new ArrayList<Week>();
     private Algorithm obj = new Algorithm();
-    public boolean schedulecreated = false;
+    public static boolean schedulecreated = false;
     public ViewFinalSchedule() throws JSONException {
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_final_schedule);
-        Log.d("SCHETRUE:", String.valueOf(schedulecreated));
         try {
             if(!schedulecreated)
             {
                 weekslist = obj.createSchedule();
                 schedulecreated = true;
-                Log.d("SCHETRUE:", String.valueOf(schedulecreated));
             }
         } catch (JSONException e) {
             e.printStackTrace();

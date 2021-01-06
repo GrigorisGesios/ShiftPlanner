@@ -16,9 +16,11 @@ import com.example.shiftplanner.R;
 
 import org.json.JSONException;
 
+import static com.example.shiftplanner.Employee.ViewFinalSchedule.schedulecreated;
+
 public class EmployeeLayout extends AppCompatActivity {
 
-    Button btnGiveRequirements,btnViewFinalSchedule;
+    Button btnGiveRequirements,btnViewFinalSchedule,btnviewdaysoff;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,7 @@ public class EmployeeLayout extends AppCompatActivity {
         setContentView(R.layout.activity_employee_layout);
         btnViewFinalSchedule = (Button) findViewById(R.id.btnViewFinalSchedule);
         btnGiveRequirements = (Button) findViewById(R.id.btnGiveRequirements);
+        btnviewdaysoff = (Button) findViewById(R.id.days_off_btn);
 
         btnGiveRequirements.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +92,28 @@ public class EmployeeLayout extends AppCompatActivity {
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
+                }
+            }
+        });
+
+        btnviewdaysoff.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!schedulecreated)
+                {
+                    Context context = getApplicationContext();
+                    CharSequence errortext = "";
+                    errortext = "Δεν έχει δημιουργηθεί κάποιο πρόγραμμα εργασιών.";
+                    int duration = Toast.LENGTH_LONG;
+                    Toast jsonerrortoast = Toast.makeText(context,errortext,duration);
+                    jsonerrortoast.show();
+                    Intent intent = new Intent(EmployeeLayout.this, MainActivity.class);
+                    startActivity(intent);
+                }
+                else if(schedulecreated)
+                {
+                    Intent intent = new Intent(EmployeeLayout.this, DaysOff.class);
+                    startActivity(intent);
                 }
             }
         });

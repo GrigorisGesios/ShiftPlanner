@@ -10,19 +10,24 @@ import static java.lang.Integer.parseInt;
 
 public class Shift {
 
-    private ArrayList<String> shiftworkerslist = new ArrayList<>();
+    //private ArrayList<String> shiftworkerslist = new ArrayList<>();
+    private ArrayList<Workers> shiftworkerslist = new ArrayList<>();
 
-   /* public Shift(ArrayList<String> shiftworkerslist) {
+    public ArrayList<Workers> getShiftworkerslist() {
+        return shiftworkerslist;
+    }
+
+    public void setShiftworkerslist(ArrayList<Workers> shiftworkerslist) {
         this.shiftworkerslist = shiftworkerslist;
-    }*/
+    }
 
-    public void setShiftworkerslist(ArrayList<String> shiftworkerslist) {
+    /*public void setShiftworkerslist(ArrayList<String> shiftworkerslist) {
         this.shiftworkerslist = shiftworkerslist;
     }
 
     public ArrayList<String> getShiftworkerslist() {
         return shiftworkerslist;
-    }
+    }*/
 
 
 

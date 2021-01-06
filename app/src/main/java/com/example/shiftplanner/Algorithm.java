@@ -10,8 +10,17 @@ import java.util.Collections;
 
 public class Algorithm
 {
-    ParseJ parseobj = new ParseJ();
-    ArrayList<Workers> masterworkerslist = parseobj.parseWorkers();
+    public static ParseJ parseobj = new ParseJ();
+    public static ArrayList<Workers> masterworkerslist;
+
+    static {
+        try {
+            masterworkerslist = parseobj.parseWorkers();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
     Calendar date = Calendar.getInstance();
     int numofweeks = parseobj.getRestriction("ar_week");
     int date_year = parseobj.getRestriction("d_year");
@@ -31,9 +40,7 @@ public class Algorithm
         /*date.set(Calendar.YEAR,date_year);
         date.set(Calendar.MONTH,date_month);
         date.set(Calendar.DAY_OF_MONTH,date_day);*/
-
         //date.set(date_year,date_month,date_day,0,0);
-
         ArrayList<Workers> dayworkerslist = new ArrayList<>();
         int numberofshifts = parseobj.getRestriction("ar_vard");
         int numberofdays = parseobj.getRestriction("ar_days");
@@ -44,9 +51,9 @@ public class Algorithm
 
         ArrayList<Day> daylist = new ArrayList<>();
         ArrayList<Workers> currentshift = new ArrayList<>();
-        ArrayList<String> parsecurrentshift = new ArrayList<>();
+        //ArrayList<String> parsecurrentshift = new ArrayList<>();
 
-        Collections.shuffle(masterworkerslist);
+        //Collections.shuffle(masterworkerslist);
         Log.d("TOTALCHECK:", String.valueOf(masterworkerslist.size()));
         for(int t=0;t<masterworkerslist.size();t++) //Μπαίνουν τα id στην idlist
         {
@@ -61,7 +68,6 @@ public class Algorithm
         //Αλγόριθμος
         for(int i=0;i<numberofdays;i++)  //Γίνονται οι ανάλογες μέρες σύμφωνα με τον περιορισμό
         {
-            Log.d("DAYOFWEEK:", String.valueOf(date.get(Calendar.DAY_OF_WEEK)));
             dayworkerslist = checkDayRequirements(date.get(Calendar.DAY_OF_WEEK)); //Δημιουργεί μέρα με τα requirements των εργαζομένων
             ArrayList<Shift> shiftlista = new ArrayList<>();
             boolean holidaycheck = false;
@@ -88,8 +94,12 @@ public class Algorithm
                         }
                     }
                     Shift shiftobj = new Shift();
-                    parsecurrentshift = changeToString(currentshift);
+                    //parsecurrentshift = changeToString(currentshift);
+                    //currentshift1.clear();
+                    ArrayList<Workers> parsecurrentshift = new ArrayList<>();
+                    parsecurrentshift.addAll(currentshift);
                     Log.d("68PleaseWork", String.valueOf(parsecurrentshift.size()));
+                    //shiftobj.setShiftworkerslist(parsecurrentshift);
                     shiftobj.setShiftworkerslist(parsecurrentshift);
                     shiftlista.add(shiftobj);
                     //Log.d("69PleaseWork", String.valueOf(shiftlista.get(0).getShiftworkerslist().get(0)));
@@ -112,9 +122,9 @@ public class Algorithm
           }
             Day dobj = new Day(shiftlista,date.getTime(),holidaycheck);
             daylist.add(dobj);
-            Log.d("71PleaseWork",daylist.get(0).getListofshifts().get(0).getShiftworkerslist().get(0));
             date.add(Calendar.DAY_OF_MONTH,1);
         }
+        Log.d("SHIFTSIZE1:", String.valueOf(daylist.get(0).getListofshifts().get(0).getShiftworkerslist().size()));
        return daylist;
     }
     //Τέλος αλγορίθμου
