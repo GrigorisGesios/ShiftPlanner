@@ -1,124 +1,59 @@
-{
-   "employee": [
-      {
-         "firstname": "Alexandros",
-         "idikotita": "ergatis",
-         "ID": "1",
-         "lastname": "Fournaris",
-         "protimisi": "7",
-         "vardiaP": "2",
-         "oxi": "Deutera",
-         "vardiaO": "1"
-      },
-      {
-         "firstname": "Nikos",
-         "idikotita": "ergatis",
-         "ID": "2",
-         "lastname": "Papanikolaou",
-         "protimisi": "3",
-         "vardiaP": "2",
-         "oxi": "Kyriakh",
-         "vardiaO": "1"
-      },
-      {
-         "firstname": "Nefeli",
-         "idikotita": "ergatis",
-         "ID": "3",
-         "lastname": "Aslanidou",
-         "protimisi": "6",
-         "vardiaP": "1",
-         "oxi": "Trith",
-         "vardiaO": "1"
-      },
-      {
-         "firstname": "Orestis",
-         "idikotita": "ergatis",
-         "ID": "4",
-         "lastname": "Papanikolaou",
-         "protimisi": "1",
-         "vardiaP": "1",
-         "oxi": "Pempth",
-         "vardiaO": "1"
-      },
-      {
-         "firstname": "Alexandros",
-         "idikotita": "ergatis",
-         "ID": "5",
-         "lastname": "Koulelis",
-         "protimisi": "5",
-         "vardiaP": "2",
-         "oxi": "Trith",
-         "vardiaO": "2"
-      },
-      {
-         "firstname": "Grigoris",
-         "idikotita": "ergatis",
-         "ID": "6",
-         "lastname": "Gesios",
-         "protimisi": "4",
-         "vardiaP": "3",
-         "oxi": "Sabbato",
-         "vardiaO": "2"
-      },
-      {
-         "firstname": "Xristos",
-         "idikotita": "ergatis",
-         "ID": "7",
-         "lastname": "Karagiavouridis",
-         "protimisi": "5",
-         "vardiaP": "1",
-         "oxi": "Paraskeuh",
-         "vardiaO": "1"
-      },
-      {
-         "firstname": "Giannhs",
-         "idikotita": "ergatis",
-         "ID": "8",
-         "lastname": "Papadopoulou",
-         "protimisi": "5",
-         "vardiaP": "1",
-         "oxi": "Tetarth",
-         "vardiaO": "3"
-      },
-      {
-         "firstname": "Sofia",
-         "idikotita": "ergatis",
-         "ID": "9",
-         "lastname": "Kouleli",
-         "protimisi": "5",
-         "vardiaP": "1",
-         "oxi": "Pempth",
-         "vardiaO": "3"
-      },
-      {
-         "firstname": "Lefteris",
-         "idikotita": "ergatis",
-         "ID": "10",
-         "lastname": "Kendros",
-         "protimisi": "5",
-         "vardiaP": "1",
-         "oxi": "Tetarth",
-         "vardiaO": "2"
-      },
-      {
-         "firstname": "Mpampis",
-         "idikotita": "ergatis",
-         "ID": "11",
-         "lastname": "Papaioannou",
-         "protimisi": "5",
-         "vardiaP": "1",
-         "oxi": "Deutera",
-         "vardiaO": "2"
-      },
-      {
-         "firstname": "Panagiwta",
-         "idikotita": "ergatis",
-         "ID": "12",
-         "lastname": "Fournari",
-         "protimisi": "5",
-         "vardiaP": "1",
-         "oxi": "Kyriakh",
-         "vardiaO": "3"
+[
+   {
+      "employee":{
+         "firstname":"Orestis",
+         "idikotita":"ergatis",
+         "ID":"1",
+         "lastname":"Papanikolaou",
       }
-   ]
-}
+   },
+   {
+      "employee":{
+         "firstname":"Nikos",
+         "idikotita":"ergatis",
+         "ID":"2",
+         "lastname":"Papanikolaou",
+         }
+   },
+   {
+      "employee":{
+         "firstname":"Nefeli",
+         "idikotita":"ergatis",
+         "ID":"3",
+         "lastname":"Aslanidou",
+         }
+   },
+   {
+      "employee":{
+         "firstname":"Alexandros",
+         "idikotita":"ergatis",
+         "ID":"4",
+         "lastname":"Koulelis",
+         }
+   },
+   {
+      "employee":{
+         "firstname":"Alexandros",
+         "idikotita":"ergatis",
+         "ID":"5",
+         "lastname":"Fournaris",
+         }
+   },
+   {
+      "employee":{
+         "firstname":"Grigoris",
+         "idikotita":"ergatis",
+         "ID":"6",
+         "lastname":"Gesios",
+         }
+   },
+   {
+      "employee":{
+         "firstname":"Xristos",
+         "idikotita":"ergatis",
+         "ID":"7",
+         "lastname":"Karagiavouridis",
+         }
+   }
+]
+	

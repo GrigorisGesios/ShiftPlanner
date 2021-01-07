@@ -2,9 +2,7 @@ package com.example.shiftplanner;
 
 import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
-
-import com.example.shiftplanner.Manager.Login;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -13,42 +11,23 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 
 public class ParseJ
 {
-    public static Context parsecontext;
+    private Context context;
 
     ArrayList<Requirements> reqlist = new ArrayList<>();
     ArrayList<Employers> emplist = new ArrayList<>();
-    public static ArrayList<Workers> workerslist = new ArrayList<>();
-    ArrayList<Restrictions> restrlist = new ArrayList<>();
-    ArrayList<Login> loginlist = new ArrayList<>();
-    public ParseJ() {
+    ArrayList<Workers> workerslist = new ArrayList<>();
 
-    }
-
-    public ArrayList<Requirements> getReqlist() {
-        return reqlist;
-    }
-
-    public ArrayList<Employers> getEmplist() {
-        return emplist;
-    }
-
-    public ArrayList<Workers> getWorkerslist() {
-        return workerslist;
-    }
 
     public ParseJ(Context context)
     {
-        this.parsecontext = context;
+        this.context = context;
     }
-
-    public static Context getParsecontext() {
-        return parsecontext;
-    }
-
-    public ArrayList<Login> getlogin() {return loginlist;}
 
 
 
@@ -82,11 +61,8 @@ public class ParseJ
             String wprof = jin.getString("idikotita");
             String wID = jin.getString("ID");
             String lname = jin.getString("lastname");
-            String vP = jin.getString("vardiaP");
-            String mO = jin.getString("oxi");
-            String vO = jin.getString("vardiaO");
 
-            Workers work = new Workers(fname,lname,wID,wprof,vP,mO,vO);
+            Workers work = new Workers(fname,lname,wID,wprof);
 
             workerslist.add(work);
         }
@@ -114,93 +90,15 @@ public class ParseJ
         return emplist;
     }
 
-    public ArrayList<Restrictions> parseRes() throws JSONException {
-        JSONObject obj = new JSONObject(loadJSONFromAsset("Restrictions.json"));
-        JSONArray jarr = (JSONArray) obj.get("restriction");
-        for(int i=0;i<jarr.length();i++)
-        {
-            JSONObject jin = jarr.getJSONObject(i);
-            String vardnum = jin.getString("ar_vard");
-            String mornwork = jin.getString("prwi_pros");
-            String noonwork = jin.getString("apogeuma_pros");
-            String nightwork = jin.getString("vradu_pros");
-            String dailyhours = jin.getString("sun_wres");
-            String weeklyhours = jin.getString("wres_evd");
-            String maxadeia = jin.getString("max_adeia");
 
-            Restrictions restr = new Restrictions(vardnum, mornwork, noonwork, nightwork, dailyhours, weeklyhours, maxadeia);
 
-            restrlist.add(restr);
-        }
-           Log.d("Λίστα Restrictions",restrlist.toString());
 
-        return restrlist;
-    }
-
-    public int getRestriction(String restriction) throws JSONException {
-        int x=0;
-        JSONObject obj = new JSONObject(loadJSONFromAsset("Restrictions.json"));
-        JSONArray jarr = (JSONArray) obj.get("restriction");
-            JSONObject jin = jarr.getJSONObject(0);
-            String vardnum = jin.getString(restriction);
-            x = Integer.parseInt(vardnum);
-        return x;
-    }
-
-    public int getMonth() throws JSONException {
-        int x=0;
-        JSONObject obj = new JSONObject(loadJSONFromAsset("Restrictions.json"));
-        JSONArray jarr = (JSONArray) obj.get("restriction");
-        JSONObject jin = jarr.getJSONObject(0);
-        String monthstring = jin.getString("d_month");
-        switch(monthstring)
-        {
-            case "January":
-                x=0;
-                break;
-            case "February":
-                x=1;
-                break;
-            case "March":
-                x=2;
-                break;
-            case "April":
-                x=3;
-                break;
-            case "May":
-                x=4;
-                break;
-            case "June":
-                x=5;
-                break;
-            case "July":
-                x=6;
-                break;
-            case "August":
-                x=7;
-                break;
-            case "September":
-                x=8;
-                break;
-            case "October":
-                x=9;
-                break;
-            case "November":
-                x=10;
-                break;
-            case "December":
-                x=11;
-                break;
-        }
-        return x;
-    }
-
-    public static String loadJSONFromAsset(String jsonname)
+    public String loadJSONFromAsset(String jsonname)
     {
         String json = null;
         try
         {
-            InputStream is = parsecontext.getAssets().open(jsonname);
+            InputStream is = context.getAssets().open(jsonname);
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
@@ -214,23 +112,59 @@ public class ParseJ
         }
         return json;
     }
-    public ArrayList<Login> parselogin() throws JSONException {
-        JSONObject obj = new JSONObject(loadJSONFromAsset("login.json"));
-        JSONArray jarr = (JSONArray) obj.get("login");
-        for(int i=0;i<jarr.length();i++)
+
+
+    public void ShowEmployers(TextView tView) throws JSONException {
+        ArrayList<Employers> list = parseEmp();
+        StringBuilder sb = new StringBuilder();
+        for(int i=0;i<list.size();i++)
         {
-            JSONObject jin = jarr.getJSONObject(i);
-            String loginID = jin.getString("ID");
-            String loginidikotita = jin.getString("idikotita");
-            String loginusername = jin.getString("username");
-            String loginpassword = jin.getString("password");
-
-            Login log = new Login (loginID,loginidikotita,loginusername,loginpassword);
-
-            loginlist.add(log);
+            sb.append(list.get(i).getFirstName());
+            sb.append(" ");
+            sb.append(list.get(i).getEmployerProff());
+            sb.append(" ");
+            sb.append(list.get(i).getEmployerID());
+            sb.append(" ");
+            sb.append(list.get(i).getLastName());
+            sb.append("\n");
         }
-        return loginlist;
-        //Log.d("Λίστα Requirements",loginlist.toString());
+        //Log.d("Λίστα Employer",sb.toString());
+        tView.setText(sb.toString());
+    }
+
+    public void ShowWorkers(TextView tView) throws JSONException {
+        ArrayList<Workers> list =  parseWorkers();
+        StringBuilder sb = new StringBuilder();
+        for(int i=0;i<list.size();i++)
+        {
+            sb.append(list.get(i).getFirstName());
+            sb.append(" ");
+            sb.append(list.get(i).getWorkersProf());
+            sb.append(" ");
+            sb.append(list.get(i).getWorkersID());
+            sb.append(" ");
+            sb.append(list.get(i).getLastName());
+            sb.append("\n");
+        }
+        //Log.d("Λίστα Employer",sb.toString());
+        tView.setText(sb.toString());
+    }
+
+    public void ShowRequirements(TextView tView) throws JSONException {
+        ArrayList<Requirements> list =  parseReq();
+        StringBuilder sb = new StringBuilder();
+        for(int i=0;i<list.size();i++)
+        {
+            sb.append(list.get(i).getRequirementsID());
+            sb.append(" ");
+            sb.append(list.get(i).getPreference());
+            sb.append(" ");
+            sb.append(list.get(i).getVardiaP());
+            sb.append(" ");
+            sb.append(list.get(i).getVardiaO());
+            sb.append("\n");
+        }
+        //Log.d("Λίστα Employer",sb.toString());
+        tView.setText(sb.toString());
     }
 }
-
