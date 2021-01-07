@@ -28,6 +28,9 @@ public class Workers
 
     }
 
+    public Workers(String firstname, String lastname, String id, String idikotita) {
+    }
+
     public String getFirstName() {
         return firstName;
     }
