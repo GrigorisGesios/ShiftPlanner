@@ -1,59 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Manager.ManagerLayout">
+    tools:context=".Manager.ManagerLayout"
+    android:background="@drawable/bg1">
 
     <Button
         android:id="@+id/btnGiveRestrictions"
-        android:layout_width="wrap_content"
+        android:layout_width="245dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="115dp"
-        android:layout_marginLeft="115dp"
-        android:layout_marginTop="253dp"
-        android:layout_marginEnd="115dp"
-        android:layout_marginRight="115dp"
-        android:layout_marginBottom="34dp"
         android:text="Give Restrictions"
-        app:layout_constraintBottom_toTopOf="@+id/btnReviewRequirements"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/btnReviewRequirements"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/btn1"
+        android:drawableLeft="@drawable/ic_give"/>
 
     <Button
         android:id="@+id/btnReviewRequirements"
-        android:layout_width="wrap_content"
+        android:layout_width="245dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="159dp"
-        android:layout_marginLeft="159dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="159dp"
-        android:layout_marginRight="159dp"
-        android:layout_marginBottom="46dp"
+        android:layout_centerInParent="true"
         android:text="Review Requirements"
-        app:layout_constraintBottom_toTopOf="@+id/btnPlanFinalSchedule"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnGiveRestrictions" />
+        android:background="@drawable/btn1"
+        android:textColor="@color/white"
+        android:drawableLeft="@drawable/ic_review"/>
 
     <Button
         android:id="@+id/btnPlanFinalSchedule"
-        android:layout_width="wrap_content"
+        android:layout_width="245dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginLeft="160dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="159dp"
-        android:layout_marginRight="159dp"
-        android:layout_marginBottom="260dp"
         android:text="Plan Final Schedule"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnReviewRequirements" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:layout_below="@+id/btnReviewRequirements"
+        android:background="@drawable/btn1"
+        android:drawableLeft="@drawable/ic_schedule"/>
+</RelativeLayout>
