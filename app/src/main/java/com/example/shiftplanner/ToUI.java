@@ -9,10 +9,12 @@ import org.json.JSONException;
 
 import java.util.ArrayList;
 
+import static com.example.shiftplanner.Algorithm.masterworkerslist;
+
 public class ToUI
 {
-    ParseJ parseobj = new ParseJ();
-    ArrayList<Workers> wlist = parseobj.parseWorkers();
+    //ParseJ parseobj = new ParseJ();
+    //ArrayList<Workers> wlist = parseobj.parseWorkers();
 
     public ToUI() throws JSONException {
     }
@@ -20,14 +22,12 @@ public class ToUI
 
     public void viewRequirements(TextView t1)
     {
-        String currentday = new String();
-        String currentshift = new String();
+        String nonwantedshift = new String();
         ArrayList<String> list = new ArrayList<>();
-        for(int i=0;i<wlist.size();i++)
+        for(int i=0;i<masterworkerslist.size();i++)
         {
-            currentday = returnDay(Integer.parseInt(wlist.get(i).getMeraO()));
-            currentshift = returnShift(Integer.parseInt(wlist.get(i).getVardiaO()));
-            list.add(wlist.get(i).getWorkersID() + "   " +wlist.get(i).getLastName() + "   "+ currentday + "   " + currentshift);
+            nonwantedshift = returnShift(Integer.parseInt(masterworkerslist.get(i).getVardiaO()));
+            list.add(masterworkerslist.get(i).getWorkersID() + "   " +masterworkerslist.get(i).getLastName() + "   "+ masterworkerslist.get(i).getMeraO() + "   " + nonwantedshift);
         }
 
         StringBuilder builder = new StringBuilder();

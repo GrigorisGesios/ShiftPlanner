@@ -142,6 +142,54 @@ public class ParseJ
         return x;
     }
 
+    public int getMonth() throws JSONException {
+        int x=0;
+        JSONObject obj = new JSONObject(loadJSONFromAsset("Restrictions.json"));
+        JSONArray jarr = (JSONArray) obj.get("restriction");
+        JSONObject jin = jarr.getJSONObject(0);
+        String monthstring = jin.getString("d_month");
+        switch(monthstring)
+        {
+            case "January":
+                x=0;
+                break;
+            case "February":
+                x=1;
+                break;
+            case "March":
+                x=2;
+                break;
+            case "April":
+                x=3;
+                break;
+            case "May":
+                x=4;
+                break;
+            case "June":
+                x=5;
+                break;
+            case "July":
+                x=6;
+                break;
+            case "August":
+                x=7;
+                break;
+            case "September":
+                x=8;
+                break;
+            case "October":
+                x=9;
+                break;
+            case "November":
+                x=10;
+                break;
+            case "December":
+                x=11;
+                break;
+        }
+        return x;
+    }
+
     public static String loadJSONFromAsset(String jsonname)
     {
         String json = null;
@@ -161,4 +209,5 @@ public class ParseJ
         }
         return json;
     }
+
 }

@@ -9,16 +9,17 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.shiftplanner.Employee.EmployeeLayout;
-import com.example.shiftplanner.Employee.EmployeeLogin;
 import com.example.shiftplanner.Manager.ManagerLayout;
-import com.example.shiftplanner.Manager.ManagerLogin;
 
 import org.json.JSONException;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     Button btnManager, btnEmployee;
     TextView textView1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +28,20 @@ public class MainActivity extends AppCompatActivity {
 
         //ΚΩΔΙΚΑΣ ΓΙΑ ΕΚΤΕΛΕΣΗ ΤΩΝ ΜΕΘΟΔΩΝ ΑΠΟ PARSEJ
         ParseJ parsT = new ParseJ(this);
-
+        try {
+            JsonCheck joT = new JsonCheck();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         //ΚΩΔΙΚΑΣ ΓΙΑ ΕΚΤΕΛΕΣΗ ΤΩΝ ΜΕΘΟΔΩΝ ΑΠΟ PARSEJ
+
+        /*TestClass t = null;
+        try {
+            t = new TestClass();
+            t.testMethod();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }*/
 
 
         btnManager = (Button) findViewById(R.id.btnManager);
@@ -37,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         btnManager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ManagerLogin.class);
+                Intent intent = new Intent(MainActivity.this, ManagerLayout.class);
                 startActivity(intent);
             }
         });
@@ -45,10 +58,9 @@ public class MainActivity extends AppCompatActivity {
         btnEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, EmployeeLogin.class);
+                Intent intent = new Intent(MainActivity.this, EmployeeLayout.class);
                 startActivity(intent);
             }
         });
     }
 }
-
