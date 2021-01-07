@@ -2,6 +2,9 @@ package com.example.shiftplanner;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
+
+import com.example.shiftplanner.Manager.Login;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -19,7 +22,7 @@ public class ParseJ
     ArrayList<Employers> emplist = new ArrayList<>();
     public static ArrayList<Workers> workerslist = new ArrayList<>();
     ArrayList<Restrictions> restrlist = new ArrayList<>();
-
+    ArrayList<Login> loginlist = new ArrayList<>();
     public ParseJ() {
 
     }
@@ -44,6 +47,8 @@ public class ParseJ
     public static Context getParsecontext() {
         return parsecontext;
     }
+
+    public ArrayList<Login> getlogin() {return loginlist;}
 
 
 
@@ -209,5 +214,23 @@ public class ParseJ
         }
         return json;
     }
+    public ArrayList<Login> parselogin() throws JSONException {
+        JSONObject obj = new JSONObject(loadJSONFromAsset("login.json"));
+        JSONArray jarr = (JSONArray) obj.get("login");
+        for(int i=0;i<jarr.length();i++)
+        {
+            JSONObject jin = jarr.getJSONObject(i);
+            String loginID = jin.getString("ID");
+            String loginidikotita = jin.getString("idikotita");
+            String loginusername = jin.getString("username");
+            String loginpassword = jin.getString("password");
 
+            Login log = new Login (loginID,loginidikotita,loginusername,loginpassword);
+
+            loginlist.add(log);
+        }
+        return loginlist;
+        //Log.d("Λίστα Requirements",loginlist.toString());
+    }
 }
+

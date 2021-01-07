@@ -12,7 +12,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="576px"
+        android:layout_marginTop="190dp"
         android:layout_marginLeft="50px"
         android:text="Εβδομάδες: "
         android:textSize="20dp"
@@ -26,9 +26,9 @@
         />
 
     <Spinner
-        android:layout_marginTop="576px"
-        android:layout_marginLeft="50dp"
-        android:layout_toRightOf="@id/weeks"
+        android:layout_marginLeft="74dp"
+        android:layout_toRightOf="@id/date"
+        android:layout_marginTop="190dp"
         android:layout_width="wrap_content"
         android:layout_height="70px"
         android:id="@+id/numweek"/>
@@ -36,8 +36,34 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/weeks"
+        android:layout_marginTop="80dp"
         android:layout_marginLeft="50px"
-        android:layout_marginTop="1152px"
+        android:text="Ημέρες: "
+        android:textSize="20dp"
+        android:textStyle="bold|italic"
+        android:shadowColor="@color/black"
+        android:shadowRadius="5"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:textColor="@color/white"
+        android:id="@+id/days"/>
+
+    <Spinner
+        android:layout_marginLeft="74dp"
+        android:layout_toRightOf="@id/date"
+        android:layout_below="@id/numweek"
+        android:layout_marginTop="80dp"
+        android:layout_width="wrap_content"
+        android:layout_height="70px"
+        android:id="@+id/numdays"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50px"
+        android:layout_below="@id/days"
+        android:layout_marginTop="80dp"
         android:text="Βάρδιες: "
         android:textSize="20dp"
         android:textStyle="bold|italic"
@@ -50,11 +76,43 @@
         />
 
     <Spinner
-        android:layout_marginTop="1152px"
-        android:layout_marginLeft="50dp"
-        android:layout_toRightOf="@id/weeks"
+        android:id="@+id/numshifts"
         android:layout_width="wrap_content"
         android:layout_height="70px"
-        android:id="@+id/numshifts"/>
+        android:layout_below="@id/numdays"
+        android:layout_marginLeft="74dp"
+        android:layout_marginTop="80dp"
+        android:layout_toRightOf="@id/date" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/shifts"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="50px"
+        android:layout_marginBottom="50dp"
+        android:text="Αρχική Ημερομηνία: "
+        android:textSize="20dp"
+        android:textStyle="bold|italic"
+        android:shadowColor="@color/black"
+        android:shadowRadius="5"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:textColor="@color/white"
+        android:id="@+id/date"/>
+
+    <Button
+        android:layout_marginLeft="38dp"
+        android:layout_toRightOf="@id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:layout_below="@id/numshifts"
+        android:layout_marginTop="75dp"
+        android:id="@+id/show"
+        android:background="@drawable/btn1"
+        android:drawableLeft="@drawable/ic_date"/>
 
 </RelativeLayout>
