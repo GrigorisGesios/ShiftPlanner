@@ -37,11 +37,11 @@ public class FireEmployee extends AppCompatActivity {
         btnShowEmployee = (Button) findViewById(R.id.btnShowEmployee);
 
         database = FirebaseDatabase.getInstance().getReference().child("employers");
-        int childNum = (Integer.parseInt(edTextGiveId.getText().toString())-1);
+
         btnConfirmFireEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int childNum = Integer.parseInt(edTextGiveId.getText().toString())-1;
+                int childNum = Integer.parseInt(edTextGiveId.getText().toString());
                 database = FirebaseDatabase.getInstance().getReference().child("employers").child(String.valueOf(childNum));
                 database.removeValue();
             }
@@ -50,11 +50,13 @@ public class FireEmployee extends AppCompatActivity {
         btnShowEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int childNum = Integer.parseInt(edTextGiveId.getText().toString())-1;
 
                 database = FirebaseDatabase.getInstance().getReference().child("employers").child(String.valueOf(childNum));
                 database.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        int childNum = Integer.parseInt(edTextGiveId.getText().toString())-1;
                         String firstname = snapshot.child("employers").child(String.valueOf(childNum)).child("firstname").getValue().toString();
                         String idikotita = snapshot.child("employers").child(String.valueOf(childNum)).child("idikotita").getValue().toString();
                         String lastname = snapshot.child("employers").child(String.valueOf(childNum)).child("lastname").getValue().toString();
