@@ -5,7 +5,6 @@ import android.content.Context;
 import org.json.JSONException;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import static java.lang.Integer.parseInt;
 
@@ -38,7 +37,7 @@ public class Shift {
         {
             String workerfname = dailyworkerslist.get(i).getFirstName();
             String workerlname = dailyworkerslist.get(i).getLastName();
-            String workerid = dailyworkerslist.get(i).getWorkersID();
+            String workerid = dailyworkerslist.get(i).getID();
             String workerprof = dailyworkerslist.get(i).getWorkersProf();
             String oneworker = workerid + " " + workerfname +" "+ workerlname +" "+ workerprof;
             list.add(oneworker);

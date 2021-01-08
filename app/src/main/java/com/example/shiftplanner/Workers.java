@@ -4,13 +4,13 @@ public class Workers
 {
     private String firstName;
     private String lastName;
-    private String workersID;
+    private String ID;
     private String WorkersProf;
 
-    public Workers(String firstName, String lastName, String workersID, String workersProf) {
+    public Workers(String firstName, String lastName, String ID, String workersProf) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.workersID = workersID;
+        this.ID = ID;
         this.WorkersProf = workersProf;
     }
 
@@ -34,12 +34,12 @@ public class Workers
         this.lastName = lastName;
     }
 
-    public String getWorkersID() {
-        return workersID;
+    public String getID() {
+        return ID;
     }
 
-    public void setWorkersID(String workersID) {
-        this.workersID = workersID;
+    public void setID(String ID) {
+        this.ID = ID;
     }
 
     public String getWorkersProf() {

@@ -52,7 +52,7 @@ public class ToUI
             sb.append(" ");
             sb.append(list.get(i).getWorkersProf());
             sb.append(" ");
-            sb.append(list.get(i).getWorkersID());
+            sb.append(list.get(i).getID());
             sb.append(" ");
             sb.append(list.get(i).getLastName());
             sb.append("\n");

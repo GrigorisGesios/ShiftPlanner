@@ -30,7 +30,7 @@ public class HireEmployee extends AppCompatActivity {
         edTextGiveId = (TextView) findViewById(R.id.edTextGiveId);
         edTextGiveLastName = (TextView) findViewById(R.id.edTextGiveLastName);
 
-        database = FirebaseDatabase.getInstance().getReference().child("employee");
+
 
         btnConfirmHireEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,7 +42,9 @@ public class HireEmployee extends AppCompatActivity {
 
                 Workers worker = new Workers(firstname, lastname, ID, idikotita);
 
-                database.child(ID).setValue(worker);
+                database = FirebaseDatabase.getInstance().getReference();
+                database.child("employers").child(ID).setValue(worker);
+
             }
         });
     }
