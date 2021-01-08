@@ -4,8 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Employee.EmployeeLayout"
-    android:background="@drawable/bg1">
+    android:background="@drawable/bg1"
+    tools:context=".Employee.EmployeeLayout">
+
+    <Button
+        android:id="@+id/days_off_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="56dp"
+        android:text="ΑΔΕΙΕΣ"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnViewFinalSchedule" />
 
     <Button
         android:id="@+id/btnGiveRequirements"
@@ -17,14 +29,14 @@
         android:layout_marginEnd="116dp"
         android:layout_marginRight="116dp"
         android:layout_marginBottom="48dp"
+        android:background="@drawable/btn1"
+        android:drawableLeft="@drawable/ic_give"
         android:text="Give Requirements"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/btnViewFinalSchedule"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/btn1"
-        android:drawableLeft="@drawable/ic_give"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnViewFinalSchedule"
@@ -36,12 +48,12 @@
         android:layout_marginEnd="104dp"
         android:layout_marginRight="104dp"
         android:layout_marginBottom="292dp"
+        android:background="@drawable/btn1"
+        android:drawableLeft="@drawable/ic_final"
         android:text="View Final Schedule"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnGiveRequirements"
-        android:background="@drawable/btn1"
-        android:drawableLeft="@drawable/ic_final"/>
+        app:layout_constraintTop_toBottomOf="@+id/btnGiveRequirements" />
 </androidx.constraintlayout.widget.ConstraintLayout>

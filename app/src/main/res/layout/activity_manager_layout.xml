@@ -41,4 +41,23 @@
         android:layout_below="@+id/btnReviewRequirements"
         android:background="@drawable/btn1"
         android:drawableLeft="@drawable/ic_schedule"/>
+
+    <Button
+        android:id="@+id/btnHireEmployee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="134dp"
+        android:text="Hire" />
+
+    <Button
+        android:id="@+id/btnFireEmployee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="63dp"
+        android:text="Fire" />
+
 </RelativeLayout>
