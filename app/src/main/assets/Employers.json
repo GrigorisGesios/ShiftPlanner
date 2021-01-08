@@ -1,18 +1,15 @@
-[
-	{
-		"employer":{
-         "firstname":"Marios",
-         "idikotita":"ergodotis",
-         "ID":"a",
-         "lastname":"Papapavlou",
-      }
-   },
-   {
-		"employer":{
-         "firstname":"Antonis",
-         "idikotita":"ergodotis",
-         "ID":"b",
-         "lastname":"Dimou",
-      }
-   }
-]
+{
+  "employer": [
+    {
+      "firstname": "Marios",
+      "idikotita": "ergodotis",
+      "ID": "a",
+      "lastname": "Papapavlou"
+    },
+    {
+      "firstname": "Antonis",
+      "idikotita": "ergodotis",
+      "ID": "b",
+      "lastname": "Dimou"
+    }
+  ]}
