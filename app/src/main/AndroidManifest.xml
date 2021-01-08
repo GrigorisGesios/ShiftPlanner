@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ShiftPlanner">
+        <activity android:name=".Manager.ManagerLogin" />
+        <activity android:name=".Employee.EmployeeLogin" />
         <activity android:name=".Employee.DaysOff" />
         <activity android:name=".Employee.ViewFinalSchedule" />
         <activity android:name=".Employee.GiveRequirements" />
