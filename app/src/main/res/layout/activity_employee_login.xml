@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="@drawable/bg1"
+
+    >
+
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginHorizontal="160dp"
+        app:srcCompat="@drawable/sp"
+        android:id="@+id/logo"/>
+
+    <TextView
+        android:layout_below="@id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="160dp"
+        android:text="Shift Planner"
+        android:textSize="15dp"
+        android:textColor="@color/white"
+        android:id="@+id/shiftplanner"
+        />
+
+    <EditText
+        android:layout_below="@id/shiftplanner"
+        android:id="@+id/Name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:ems="13"
+        android:inputType="textPersonName"
+        android:hint="Username"
+        android:textSize="15dp"
+        android:drawableLeft="@drawable/ic_employee"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"/>
+
+    <EditText
+        android:layout_below="@id/Name"
+        android:id="@+id/Password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:ems="13"
+        android:inputType="textPassword"
+        android:hint="Password"
+        android:textSize="15dp"
+        android:drawableLeft="@drawable/ic_password"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"/>
+
+    <Button
+        android:layout_below="@id/Password"
+        android:id="@+id/Login"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="125dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="20dp"
+        android:background="@drawable/btn1"
+        />
+
+</RelativeLayout>
