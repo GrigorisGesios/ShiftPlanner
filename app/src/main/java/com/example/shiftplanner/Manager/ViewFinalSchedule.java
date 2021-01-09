@@ -80,27 +80,5 @@ public class ViewFinalSchedule extends AppCompatActivity {
 
             }
         });
-
-        /*cv.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                ArrayList<ArrayList<String>> lista = new ArrayList<>();
-                try {
-                    Algorithm obj = new Algorithm();
-                    lista = obj.createWeek();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                String date = (month + 1) + "/" + dayOfMonth + "/" + year;
-                textView2.setText((CharSequence) lista.get(0).get(0));
-            }
-        });*/
-
-        /*try {
-            Schedule scheduleobj = new Schedule();
-            scheduleobj.printSchedule(textView1);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }*/
     }
 }

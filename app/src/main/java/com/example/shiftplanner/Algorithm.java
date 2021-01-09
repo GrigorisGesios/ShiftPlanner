@@ -37,10 +37,6 @@ public class Algorithm
     }
 
     public ArrayList<Day> createWeek() throws JSONException {
-        /*date.set(Calendar.YEAR,date_year);
-        date.set(Calendar.MONTH,date_month);
-        date.set(Calendar.DAY_OF_MONTH,date_day);*/
-        //date.set(date_year,date_month,date_day,0,0);
         ArrayList<Workers> dayworkerslist = new ArrayList<>();
         int numberofshifts = parseobj.getRestriction("ar_vard");
         int numberofdays = parseobj.getRestriction("ar_days");
@@ -51,7 +47,6 @@ public class Algorithm
 
         ArrayList<Day> daylist = new ArrayList<>();
         ArrayList<Workers> currentshift = new ArrayList<>();
-        //ArrayList<String> parsecurrentshift = new ArrayList<>();
 
         Collections.shuffle(masterworkerslist);
         Log.d("TOTALCHECK:", String.valueOf(masterworkerslist.size()));
@@ -102,14 +97,7 @@ public class Algorithm
                     //shiftobj.setShiftworkerslist(parsecurrentshift);
                     shiftobj.setShiftworkerslist(parsecurrentshift);
                     shiftlista.add(shiftobj);
-                    //Log.d("69PleaseWork", String.valueOf(shiftlista.get(0).getShiftworkerslist().get(0)));
                     currentshift.clear();
-                    //Log.d("70PleaseWork", String.valueOf(shiftlista.get(0).getShiftworkerslist().get(0)));
-
-                    ///ΠΑΛΙΑ,ΔΕΝ ΘΕΛΟΥΝ ΑΛΛΑΓΕΣ
-                    //list = changeToString(currentshift);
-                    //finallist.add(list);
-                    ///ΠΑΛΙΑ,ΔΕΝ ΘΕΛΟΥΝ ΑΛΛΑΓΕΣ
                 }
           }
             else
@@ -245,25 +233,5 @@ public class Algorithm
         }
         return x;
     }
-
-    public ArrayList<String> changeToString(ArrayList<Workers> lista) throws JSONException {
-
-        ArrayList<String> list = new ArrayList<>();
-        for(int i=0;i<lista.size();i++)
-        {
-            String workerfname = lista.get(i).getFirstName();
-            String workerlname = lista.get(i).getLastName();
-            String workerid = lista.get(i).getWorkersID();
-            String workerprof = lista.get(i).getWorkersProf();
-            String oneworker = workerid + " " + workerfname +" "+ workerlname;
-            list.add(oneworker);
-        }
-        return list;
-    }
-
-    /*public boolean isWorkerIn()
-    {
-
-    }*/
 }
 
