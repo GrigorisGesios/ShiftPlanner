@@ -7,6 +7,7 @@ import android.app.DatePickerDialog.OnDateSetListener;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 
@@ -17,6 +18,7 @@ import java.util.Calendar;
 public class GiveRestrictions extends AppCompatActivity implements OnDateSetListener {
 
     private Spinner numweek, numshift, numday;
+    Button Save;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,8 @@ public class GiveRestrictions extends AppCompatActivity implements OnDateSetList
         Spinner numweek = (Spinner) findViewById(R.id.numweek);
         Spinner numshift = (Spinner) findViewById(R.id.numshifts);
         Spinner numday = (Spinner) findViewById(R.id.numdays);
+        Save = (Button) findViewById(R.id.save);
+
         findViewById(R.id.show).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,6 +54,13 @@ public class GiveRestrictions extends AppCompatActivity implements OnDateSetList
         String textS = numshift.getSelectedItem().toString();
         numday.setAdapter(adapterS);
         String textD = numshift.getSelectedItem().toString();
+
+        Save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     private void showDatePicker(){
