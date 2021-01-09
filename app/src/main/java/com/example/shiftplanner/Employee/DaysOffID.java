@@ -19,7 +19,7 @@ import static com.example.shiftplanner.Employee.EmployeeLayout.enteredid;
 import static com.example.shiftplanner.Employee.EmployeeLayout.parseid;
 
 public class DaysOffID extends AppCompatActivity {
-    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +49,6 @@ public class DaysOffID extends AppCompatActivity {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
-
                 }
             }
         });

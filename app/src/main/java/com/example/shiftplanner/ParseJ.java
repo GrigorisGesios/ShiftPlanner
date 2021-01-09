@@ -4,7 +4,14 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
 import com.example.shiftplanner.Manager.Login;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -16,11 +23,13 @@ import java.util.ArrayList;
 
 public class ParseJ
 {
+    private DatabaseReference database;
     public static Context parsecontext;
 
     ArrayList<Requirements> reqlist = new ArrayList<>();
     ArrayList<Employers> emplist = new ArrayList<>();
     public static ArrayList<Workers> workerslist = new ArrayList<>();
+    public static ArrayList<Workers> workerslist2 = new ArrayList<>();
     ArrayList<Restrictions> restrlist = new ArrayList<>();
     ArrayList<Login> loginlist = new ArrayList<>();
     public ParseJ() {
@@ -92,6 +101,34 @@ public class ParseJ
         return workerslist;
         //Log.d("Λίστα Employee",workerslist.toString());
     }
+
+    public void parseWorkers2() throws JSONException
+    {
+        database = FirebaseDatabase.getInstance().getReference().child("employee");
+        database = FirebaseDatabase.getInstance().getReference().child("employee").child("ID");
+        database.addValueEventListener(new ValueEventListener() {
+        @Override
+        public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+        for (DataSnapshot ds: snapshot.getChildren())
+        {
+            Log.d("43ASS:","fname");
+            String fname = snapshot.child("employee").child("ID").child("firstname").getValue().toString();
+            String wprof = snapshot.child("employee").child("ID").child("idikotita").getValue().toString();
+            String lname = snapshot.child("employee").child("ID").child("lastname").getValue().toString();
+            String wID = snapshot.child("employee").child("ID").getValue().toString();
+            Log.d("12ASS:",lname);
+        }
+    }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        //return  workerslist2;
+    }
+
+
 
     public ArrayList<Employers> parseEmp() throws JSONException {
         JSONObject obj = new JSONObject(loadJSONFromAsset("Employers.json"));
