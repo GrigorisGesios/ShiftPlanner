@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class TestClass {
 
     ParseJ parseobj = new ParseJ();
-    ArrayList<Workers> masterworkerslist = parseobj.parseWorkers();
+    //ArrayList<Workers> masterworkerslist = parseobj.parseWorkers();
 
     ArrayList<Workers> wlist = new ArrayList<>();
     ArrayList<Shift> slist = new ArrayList<>();

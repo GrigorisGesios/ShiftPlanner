@@ -81,7 +81,7 @@ public class ParseJ
         //Log.d("Λίστα Requirements",reqlist.toString());
     }
 
-    public ArrayList<Workers> parseWorkers() throws JSONException {
+    /*public ArrayList<Workers> parseWorkers() throws JSONException {
         JSONObject obj = new JSONObject(loadJSONFromAsset("Workers.json"));
         JSONArray jarr = (JSONArray) obj.get("employee");
         for(int i=0;i<jarr.length();i++)
@@ -91,41 +91,52 @@ public class ParseJ
             String wprof = jin.getString("idikotita");
             String wID = jin.getString("ID");
             String lname = jin.getString("lastname");
-            String vP = jin.getString("vardiaP");
             String mO = jin.getString("oxi");
             String vO = jin.getString("vardiaO");
-            Workers work = new Workers(fname,lname,wID,wprof,vP,mO,vO);
+            Workers work = new Workers(fname,lname,wID,wprof,mO,vO);
 
             workerslist.add(work);
         }
         return workerslist;
         //Log.d("Λίστα Employee",workerslist.toString());
-    }
+    }*/
 
-    public void parseWorkers2() throws JSONException
+    public ArrayList<Workers> parseWorkers2() throws JSONException
     {
         database = FirebaseDatabase.getInstance().getReference().child("employee");
-        database = FirebaseDatabase.getInstance().getReference().child("employee").child("ID");
+       // database = FirebaseDatabase.getInstance().getReference().child("employee").child("ID");
         database.addValueEventListener(new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot snapshot) {
 
+            int i=0;
         for (DataSnapshot ds: snapshot.getChildren())
         {
-            Log.d("43ASS:","fname");
-            String fname = snapshot.child("employee").child("ID").child("firstname").getValue().toString();
-            String wprof = snapshot.child("employee").child("ID").child("idikotita").getValue().toString();
-            String lname = snapshot.child("employee").child("ID").child("lastname").getValue().toString();
-            String wID = snapshot.child("employee").child("ID").getValue().toString();
-            Log.d("12ASS:",lname);
+                String fname = snapshot.child(String.valueOf(i)).child("firstname").getValue().toString();
+                String wprof = snapshot.child(String.valueOf(i)).child("idikotita").getValue().toString();
+                String lname = snapshot.child(String.valueOf(i)).child("lastname").getValue().toString();
+                String meraO = snapshot.child(String.valueOf(i)).child("oxi").getValue().toString();
+                String vardiaO = snapshot.child(String.valueOf(i)).child("vardiaO").getValue().toString();
+                String wID = snapshot.child(String.valueOf(i)).child("ID").getValue().toString();
+                Log.d("1Test1:",fname);
+                Log.d("1Test2:",wprof);
+                Log.d("1Test3:",lname);
+            Log.d("1Test5:",meraO);
+            Log.d("1Test6:",vardiaO);
+                Log.d("1Test7:",wID);
+                i++;
+            Workers work = new Workers(fname,lname,wID,wprof,meraO,vardiaO);
+
+            workerslist2.add(work);
         }
+
     }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
-        //return  workerslist2;
+        return  workerslist2;
     }
 
 

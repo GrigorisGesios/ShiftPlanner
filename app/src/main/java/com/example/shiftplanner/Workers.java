@@ -11,13 +11,11 @@ public class Workers
     private String VardiaO;
     private boolean isInShift = false;
 
-    public Workers(String firstName, String lastName, String workersID, String workersProf,
-                   String VardiaP, String oxiV, String VardiaO) {
+    public Workers(String firstName, String lastName, String workersID, String workersProf, String oxiV, String VardiaO) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.workersID = workersID;
         this.WorkersProf = workersProf;
-        this.VardiaP = VardiaP;
         this.MeraO = oxiV;
         this.VardiaO = VardiaO;
     }

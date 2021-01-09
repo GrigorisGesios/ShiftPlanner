@@ -15,7 +15,7 @@ public class Algorithm
 
     static {
         try {
-            masterworkerslist = parseobj.parseWorkers();
+            masterworkerslist = parseobj.parseWorkers2();
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -53,7 +53,7 @@ public class Algorithm
         ArrayList<Workers> currentshift = new ArrayList<>();
         //ArrayList<String> parsecurrentshift = new ArrayList<>();
 
-        //Collections.shuffle(masterworkerslist);
+        Collections.shuffle(masterworkerslist);
         Log.d("TOTALCHECK:", String.valueOf(masterworkerslist.size()));
         for(int t=0;t<masterworkerslist.size();t++) //Μπαίνουν τα id στην idlist
         {
