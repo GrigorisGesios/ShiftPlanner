@@ -85,7 +85,6 @@ public class ParseJ
             String vP = jin.getString("vardiaP");
             String mO = jin.getString("oxi");
             String vO = jin.getString("vardiaO");
-
             Workers work = new Workers(fname,lname,wID,wprof,vP,mO,vO);
 
             workerslist.add(work);

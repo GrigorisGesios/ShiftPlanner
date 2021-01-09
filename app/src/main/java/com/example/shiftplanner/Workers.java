@@ -10,8 +10,6 @@ public class Workers
     private String MeraO;
     private String VardiaO;
     private boolean isInShift = false;
-    private String hoursworked;
-
 
     public Workers(String firstName, String lastName, String workersID, String workersProf,
                    String VardiaP, String oxiV, String VardiaO) {
@@ -80,4 +78,5 @@ public class Workers
     public String getVardiaO() { return VardiaO; }
 
     public void setVardiaO(String vardiaO) { this.VardiaO = vardiaO; }
+
 }

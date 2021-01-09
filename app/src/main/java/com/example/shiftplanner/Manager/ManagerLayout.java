@@ -10,17 +10,27 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.shiftplanner.Algorithm;
+import com.example.shiftplanner.Employee.DaysOff;
 import com.example.shiftplanner.Employee.EmployeeLayout;
-import com.example.shiftplanner.Employee.ViewFinalSchedule;
 import com.example.shiftplanner.JsonCheck;
 import com.example.shiftplanner.MainActivity;
 import com.example.shiftplanner.R;
+import com.example.shiftplanner.Week;
 
 import org.json.JSONException;
+
+import java.util.ArrayList;
 
 public class ManagerLayout extends AppCompatActivity {
 
     Button btnGiveRestrictions,btnReviewRequirements,btnPlanFinalSchedule,btnHireEmployee,btnFireEmployee, btnViewFinalSchedule;
+    public static boolean schedulecreated = false;
+    public static ArrayList<Week> weekslist = new ArrayList<Week>();
+    private Algorithm algobj = new Algorithm();
+
+    public ManagerLayout() throws JSONException {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +42,7 @@ public class ManagerLayout extends AppCompatActivity {
         btnPlanFinalSchedule = (Button) findViewById(R.id.btnPlanFinalSchedule);
         btnHireEmployee = (Button) findViewById(R.id.btnHireEmployee);
         btnFireEmployee = (Button) findViewById(R.id.btnFireEmployee);
-        btnViewFinalSchedule = (Button) findViewById(R.id.btnViewFinalSchedule);
+        btnViewFinalSchedule = (Button) findViewById(R.id.btnViewFinalSchedule2);
 
         btnGiveRestrictions.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,30 +63,6 @@ public class ManagerLayout extends AppCompatActivity {
         btnPlanFinalSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ManagerLayout.this, PlanFinalSchedule.class);
-                startActivity(intent);
-            }
-        });
-
-        btnHireEmployee.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ManagerLayout.this, HireEmployee.class);
-                startActivity(intent);
-            }
-        });
-
-        btnFireEmployee.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ManagerLayout.this, FireEmployee.class);
-                startActivity(intent);
-            }
-        });
-
-        btnViewFinalSchedule.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                 try {
                     JsonCheck obj = new JsonCheck();
                     boolean stime = obj.checkIfTimeIsCorrect();
@@ -87,8 +73,23 @@ public class ManagerLayout extends AppCompatActivity {
                     boolean dayscorrect = obj.checkIfDaysAreCorrectInWeek();
                     if(stime ==true && wcount == true && weekvalid == true && shiftvalid == true && weekhoursvalid==true)//&& dayscorrect ==true
                     {
-                        Intent intent = new Intent(ManagerLayout.this, ViewFinalSchedule.class);
-                        startActivity(intent);
+                        String message = null;
+                        if(!schedulecreated)
+                        {
+                            message = "Δημιουργήθηκε πρόγραμμα εργασιών.";
+                            Toast.makeText(ManagerLayout.this,message,Toast.LENGTH_SHORT).show();
+                            try {
+                                weekslist = algobj.createSchedule();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                            schedulecreated = true;
+                        }
+                        else if(schedulecreated)
+                        {
+                            message = "Υπάρχει ήδη πρόγραμμα εργασιών. Πατήστε το κουμπί \"View Final Schedule\" για να το δείτε.";
+                            Toast.makeText(ManagerLayout.this,message,Toast.LENGTH_SHORT).show();
+                        }
                     }
                     else
                     {
@@ -128,6 +129,45 @@ public class ManagerLayout extends AppCompatActivity {
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
+                }
+            }
+        });
+
+        btnHireEmployee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ManagerLayout.this, HireEmployee.class);
+                startActivity(intent);
+            }
+        });
+
+        btnFireEmployee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ManagerLayout.this, FireEmployee.class);
+                startActivity(intent);
+            }
+        });
+
+       btnViewFinalSchedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(!schedulecreated)
+                {
+                    Context context = getApplicationContext();
+                    CharSequence errortext = "";
+                    errortext = "Δεν έχει δημιουργηθεί κάποιο πρόγραμμα εργασιών.";
+                    int duration = Toast.LENGTH_LONG;
+                    Toast jsonerrortoast = Toast.makeText(context,errortext,duration);
+                    jsonerrortoast.show();
+                    Intent intent = new Intent(ManagerLayout.this, MainActivity.class);
+                    startActivity(intent);
+                }
+                else if(schedulecreated)
+                {
+                    Intent intent = new Intent(ManagerLayout.this, ViewFinalSchedule.class);
+                    startActivity(intent);
                 }
             }
         });

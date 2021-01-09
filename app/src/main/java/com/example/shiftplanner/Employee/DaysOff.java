@@ -4,13 +4,17 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.shiftplanner.Manager.ManagerLogin;
+import com.example.shiftplanner.ParseJ;
 import com.example.shiftplanner.R;
 import com.example.shiftplanner.Schedule;
 import com.example.shiftplanner.Week;
@@ -22,11 +26,13 @@ import java.util.ArrayList;
 
 import static com.example.shiftplanner.Algorithm.masterworkerslist;
 import static com.example.shiftplanner.Algorithm.parseobj;
-import static com.example.shiftplanner.Employee.ViewFinalSchedule.weekslist;
+import static com.example.shiftplanner.Employee.EmployeeLayout.parseid;
+import static com.example.shiftplanner.Manager.ManagerLayout.weekslist;
 
 public class DaysOff extends AppCompatActivity {
-    public static int maximumdaysoff;
 
+    public static int daysoff = 0;
+    public static int maximumdaysoff = 0;
     static {
         try {
             maximumdaysoff = parseobj.getRestriction("max_adeia");
@@ -34,38 +40,38 @@ public class DaysOff extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
-    public static int daysoff = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_days_off);
 
-        CalendarView docv = (CalendarView) findViewById(R.id.daysoffcalendar);
 
-        docv.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                if(daysoff < maximumdaysoff)
-                {
-                    daysoff++;
-                    String workerid = weekslist.get(0).getDaylist().get(0).getListofshifts().get(0).getShiftworkerslist().get(0).getWorkersID();
-                    Log.d("WORKER:", String.valueOf(workerid));
-                    ArrayList<Week> updatedweeklist = weekslist;
-                    try {
-                        showAlertDialog(view,updatedweeklist,workerid,year,month,dayOfMonth);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    weekslist = updatedweeklist;
+        CalendarView docv = findViewById(R.id.daysoffcalendar);
+
+            docv.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+                @Override
+                public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                        if(daysoff < maximumdaysoff)
+                        {
+                            String workerid = String.valueOf(parseid);
+                            Log.d("WORKER:", String.valueOf(workerid));
+                            ArrayList<Week> updatedweeklist = weekslist;
+                            try {
+                                showAlertDialog(view,updatedweeklist,workerid,year,month,dayOfMonth);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                            weekslist = updatedweeklist;
+                        }
+                        else
+                        {
+                            String message = "Έχετε φτάσει στον μέγιστο αριθμό αδειών(" + maximumdaysoff + ").";
+                            Toast.makeText(DaysOff.this,message,Toast.LENGTH_SHORT).show();
+                        }
                 }
-                else
-                {
-                    String message = "Έχετε φτάσει στον μέγιστο αριθμό αδειών(" + maximumdaysoff + ").";
-                    Toast.makeText(DaysOff.this,message,Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+            });
+
+
     }
 
     public ArrayList<Week> showAlertDialog(View v, ArrayList<Week> list, String workerid, int dyear, int dmonth, int dday) throws JSONException {
@@ -80,6 +86,14 @@ public class DaysOff extends AppCompatActivity {
                 try {
                     obj = new Schedule();
                     tmessage = obj.returnWorkersforDaysOff(list,dday,dmonth,dyear,workerid);
+                    if(tmessage.equals("Άδεια επικυρώθηκε."))
+                    {
+                        daysoff++;
+                    }
+                    else
+                    {
+                        //skip
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

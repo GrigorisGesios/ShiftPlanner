@@ -15,6 +15,7 @@
         <activity android:name=".Manager.ManagerLogin" />
         <activity android:name=".Employee.EmployeeLogin" />
         <activity android:name=".Employee.DaysOff" />
+        <activity android:name=".Employee.DaysOffID" />
         <activity android:name=".Employee.ViewFinalSchedule" />
         <activity android:name=".Employee.GiveRequirements" />
         <activity android:name=".Employee.EmployeeLayout" />

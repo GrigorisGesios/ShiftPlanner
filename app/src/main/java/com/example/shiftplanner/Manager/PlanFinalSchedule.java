@@ -32,12 +32,6 @@ public class PlanFinalSchedule extends AppCompatActivity {
 
         textView1 = (TextView) findViewById(R.id.Text);
 
-        /*try {
-            Schedule scheduleobj = new Schedule();
-            scheduleobj.printSchedule(textView1);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }*/
     }
 
     public void save(View v) {

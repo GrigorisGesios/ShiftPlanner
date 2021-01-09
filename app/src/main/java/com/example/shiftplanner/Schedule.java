@@ -306,27 +306,28 @@ public class Schedule
                     {
                         for(int p=0;p<lista.get(k).getDaylist().get(i).getListofshifts().get(j).getShiftworkerslist().size();p++)
                         {
+                            int ee = 0;
                             if(lista.get(k).getDaylist().get(i).getListofshifts().get(j).getShiftworkerslist().get(p).getWorkersID().equals(workerid)){
-                                Log.d("IDCHECK1:",lista.get(k).getDaylist().get(i).getListofshifts().get(j).getShiftworkerslist().get(p).getWorkersID());
-                                Log.d("IDCHECK2:",workerid);
-                                /*ArrayList<Workers> worklist = lista.get(k).getDaylist().get(i).getListofshifts().get(j).getShiftworkerslist();
-                                Workers obj = worklist.get(p);
-                                String id = obj.getWorkersID();*/
                                 lista.get(k).getDaylist().get(i).getListofshifts().get(j).getShiftworkerslist().remove(p);
-                                //lista.get(k).getDaylist().get(i).getListofshifts().get(j).getShiftworkerslist().remove(lista.get(k).getDaylist().get(i).getListofshifts().get(j).getShiftworkerslist().get(p).getWorkersID());
-
-                                toastmessage = "Άδεια επικυρώθηκε.";
                                 finished=true;
                                 found = true;
+                                Log.d("TIGINETAI1:", String.valueOf(ee));
                             }
                             else
                             {
                                 //DO NOTHING SKIP
-                                Log.d("WORKER2:", String.valueOf(lista.get(k).getDaylist().get(i).getListofshifts().get(j).getShiftworkerslist().size()));
-                                //toastmessage = "Η μέρα που επιλέξατε δεν είναι έγκυρη.";
                                 finished = true;
+                                Log.d("TIGINETAI2:", String.valueOf(ee));
                             }
                         }
+                    }
+                    if(found)
+                    {
+                        toastmessage = "Άδεια επικυρώθηκε.";
+                    }
+                    else if(!found)
+                    {
+                        toastmessage = "Η μέρα που επιλέξατε δεν είναι έγκυρη.";
                     }
                 }
                 else
