@@ -12,7 +12,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="190dp"
+        android:layout_above="@+id/days"
         android:layout_marginLeft="50px"
         android:text="Εβδομάδες: "
         android:textSize="20dp"
@@ -28,7 +28,7 @@
     <Spinner
         android:layout_marginLeft="74dp"
         android:layout_toRightOf="@id/date"
-        android:layout_marginTop="190dp"
+        android:layout_above="@id/numdays"
         android:layout_width="wrap_content"
         android:layout_height="70px"
         android:id="@+id/numweek"/>
@@ -36,7 +36,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/weeks"
+        android:layout_above="@id/shifts"
         android:layout_marginTop="80dp"
         android:layout_marginLeft="50px"
         android:text="Ημέρες: "
@@ -52,7 +52,7 @@
     <Spinner
         android:layout_marginLeft="74dp"
         android:layout_toRightOf="@id/date"
-        android:layout_below="@id/numweek"
+        android:layout_above="@id/numshifts"
         android:layout_marginTop="80dp"
         android:layout_width="wrap_content"
         android:layout_height="70px"
@@ -61,8 +61,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
         android:layout_marginLeft="50px"
-        android:layout_below="@id/days"
         android:layout_marginTop="80dp"
         android:text="Βάρδιες: "
         android:textSize="20dp"
@@ -79,7 +79,7 @@
         android:id="@+id/numshifts"
         android:layout_width="wrap_content"
         android:layout_height="70px"
-        android:layout_below="@id/numdays"
+        android:layout_centerVertical="true"
         android:layout_marginLeft="74dp"
         android:layout_marginTop="80dp"
         android:layout_toRightOf="@id/date" />
