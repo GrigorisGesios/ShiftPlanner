@@ -24,8 +24,8 @@ import static com.example.shiftplanner.Manager.ManagerLayout.schedulecreated;
 
 public class ChooseData extends AppCompatActivity {
 
-    private Algorithm algobj = new Algorithm();
-    public static ArrayList<Week> weekslist = new ArrayList<Week>();
+    //private Algorithm algobj = new Algorithm();
+    //public static ArrayList<Week> weekslist = new ArrayList<Week>();
     public static boolean dbchoice = false;
 
     public ChooseData() throws JSONException {
@@ -59,11 +59,11 @@ public class ChooseData extends AppCompatActivity {
                             dbchoice = true;
                             message = "Επιλέχθηκαν τα δεδομένα απο την βάση δεδομένων και δημιουργήθηκε πρόγραμμα εργασιών.";
                             Toast.makeText(ChooseData.this,message,Toast.LENGTH_LONG).show();
-                            try {
+                            /*try {
                                 weekslist = algobj.createSchedule();
                             } catch (JSONException e) {
                                 e.printStackTrace();
-                            }
+                            }*/
                             schedulecreated = true;
                             Intent intent = new Intent(ChooseData.this, ManagerLayout.class);
                             startActivity(intent);
@@ -135,11 +135,11 @@ public class ChooseData extends AppCompatActivity {
                             dbchoice = false;
                             message = "Επιλέχθηκαν τα δεδομένα απο το τοπικό αρχείο JSON και δημιουργήθηκε πρόγραμμα εργασιών.";
                             Toast.makeText(ChooseData.this,message,Toast.LENGTH_LONG).show();
-                            try {
+                            /*try {
                                 weekslist = algobj.createSchedule();
                             } catch (JSONException e) {
                                 e.printStackTrace();
-                            }
+                            }*/
                             schedulecreated = true;
                             Intent intent = new Intent(ChooseData.this, ManagerLayout.class);
                             startActivity(intent);

@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import static com.example.shiftplanner.Algorithm.masterworkerslist;
 import static com.example.shiftplanner.Algorithm.parseobj;
 import static com.example.shiftplanner.Employee.EmployeeLayout.parseid;
-import static com.example.shiftplanner.Manager.ChooseData.weekslist;
+import static com.example.shiftplanner.Manager.ManagerLayout.weekslist;
 
 public class DaysOff extends AppCompatActivity {
 

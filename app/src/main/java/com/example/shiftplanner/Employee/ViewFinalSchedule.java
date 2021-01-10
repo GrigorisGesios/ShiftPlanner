@@ -19,8 +19,7 @@ import com.example.shiftplanner.Week;
 import org.json.JSONException;
 
 import java.util.ArrayList;
-
-import static com.example.shiftplanner.Manager.ChooseData.weekslist;
+import static com.example.shiftplanner.Manager.ManagerLayout.weekslist;
 import static com.example.shiftplanner.Manager.ManagerLayout.schedulecreated;
 
 
