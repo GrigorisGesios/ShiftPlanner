@@ -15,7 +15,7 @@ public class Algorithm
 
     static {
         try {
-            masterworkerslist = parseobj.parseWorkers2();
+            masterworkerslist = parseobj.parseWorkers();
         } catch (JSONException e) {
             e.printStackTrace();
         }

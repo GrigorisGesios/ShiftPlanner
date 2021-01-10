@@ -15,11 +15,14 @@ import com.example.shiftplanner.ParseJ;
 import org.json.JSONException;
 import java.util.ArrayList;
 
+import static com.example.shiftplanner.Employee.EmployeeLogin.loggedInEmployee;
+
 public class ManagerLogin extends AppCompatActivity {
 
         Button Login;
         EditText name, password;
         ProgressBar loading;
+        public static boolean loggedInManager = false;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +77,8 @@ public class ManagerLogin extends AppCompatActivity {
             }
             for (int k=0; k<positionlist.size(); k++){
                 if (usernm.equals(userlist.get(k)) && psswrd.equals(passlist.get(k))){
+                    loggedInManager = true;
+                    loggedInEmployee = false;
                     Intent intent = new Intent(ManagerLogin.this, ManagerLayout.class);
                     startActivity(intent);
                     loading.setVisibility(View.GONE);

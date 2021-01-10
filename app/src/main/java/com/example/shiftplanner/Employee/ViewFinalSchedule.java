@@ -20,8 +20,8 @@ import org.json.JSONException;
 
 import java.util.ArrayList;
 
+import static com.example.shiftplanner.Manager.ChooseData.weekslist;
 import static com.example.shiftplanner.Manager.ManagerLayout.schedulecreated;
-import static com.example.shiftplanner.Manager.ManagerLayout.weekslist;
 
 
 public class ViewFinalSchedule extends AppCompatActivity {

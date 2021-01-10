@@ -1,6 +1,7 @@
 package com.example.shiftplanner.Employee;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.shiftplanner.MainActivity;
 import com.example.shiftplanner.Manager.ManagerLogin;
 import com.example.shiftplanner.ParseJ;
 import com.example.shiftplanner.R;
@@ -27,7 +29,7 @@ import java.util.ArrayList;
 import static com.example.shiftplanner.Algorithm.masterworkerslist;
 import static com.example.shiftplanner.Algorithm.parseobj;
 import static com.example.shiftplanner.Employee.EmployeeLayout.parseid;
-import static com.example.shiftplanner.Manager.ManagerLayout.weekslist;
+import static com.example.shiftplanner.Manager.ChooseData.weekslist;
 
 public class DaysOff extends AppCompatActivity {
 
@@ -108,5 +110,13 @@ public class DaysOff extends AppCompatActivity {
         });
         alert.create().show();
         return list;
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent(this, EmployeeLayout.class);
+        startActivity(i);
+        super.onBackPressed();
+
     }
 }

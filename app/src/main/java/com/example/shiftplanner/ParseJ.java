@@ -21,6 +21,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
+import static com.example.shiftplanner.Manager.ChooseData.dbchoice;
+
 public class ParseJ
 {
     private DatabaseReference database;
@@ -81,30 +83,62 @@ public class ParseJ
         //Log.d("Λίστα Requirements",reqlist.toString());
     }
 
-    /*public ArrayList<Workers> parseWorkers() throws JSONException {
-        JSONObject obj = new JSONObject(loadJSONFromAsset("Workers.json"));
-        JSONArray jarr = (JSONArray) obj.get("employee");
-        for(int i=0;i<jarr.length();i++)
+    public ArrayList<Workers> parseWorkers() throws JSONException {
+        if(dbchoice)
         {
-            JSONObject jin = jarr.getJSONObject(i);
-            String fname = jin.getString("firstname");
-            String wprof = jin.getString("idikotita");
-            String wID = jin.getString("ID");
-            String lname = jin.getString("lastname");
-            String mO = jin.getString("oxi");
-            String vO = jin.getString("vardiaO");
-            Workers work = new Workers(fname,lname,wID,wprof,mO,vO);
+            database = FirebaseDatabase.getInstance().getReference().child("employee");
+            database.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-            workerslist.add(work);
+                    int i=0;
+                    for (DataSnapshot ds: snapshot.getChildren())
+                    {
+                        String fname = snapshot.child(String.valueOf(i)).child("firstName").getValue().toString();
+                        String wprof = snapshot.child(String.valueOf(i)).child("workersProf").getValue().toString();
+                        String lname = snapshot.child(String.valueOf(i)).child("lastName").getValue().toString();
+                        String meraO = snapshot.child(String.valueOf(i)).child("meraO").getValue().toString();
+                        String vardiaO = snapshot.child(String.valueOf(i)).child("vardiaO").getValue().toString();
+                        String wID = snapshot.child(String.valueOf(i)).child("workersID").getValue().toString();
+                        i++;
+                        Workers work = new Workers(fname,lname,wID,wprof,meraO,vardiaO);
+
+                        workerslist.add(work);
+                    }
+
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
         }
+        else if(!dbchoice)
+        {
+            JSONObject obj = new JSONObject(loadJSONFromAsset("Workers.json"));
+            JSONArray jarr = (JSONArray) obj.get("employee");
+            for(int i=0;i<jarr.length();i++)
+            {
+                JSONObject jin = jarr.getJSONObject(i);
+                String fname = jin.getString("firstname");
+                String wprof = jin.getString("idikotita");
+                String wID = jin.getString("ID");
+                String lname = jin.getString("lastname");
+                String mO = jin.getString("oxi");
+                String vO = jin.getString("vardiaO");
+                Workers work = new Workers(fname,lname,wID,wprof,mO,vO);
+
+                workerslist.add(work);
+            }
+        }
+
         return workerslist;
         //Log.d("Λίστα Employee",workerslist.toString());
-    }*/
+    }
 
     public ArrayList<Workers> parseWorkers2() throws JSONException
     {
         database = FirebaseDatabase.getInstance().getReference().child("employee");
-       // database = FirebaseDatabase.getInstance().getReference().child("employee").child("ID");
         database.addValueEventListener(new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -112,18 +146,12 @@ public class ParseJ
             int i=0;
         for (DataSnapshot ds: snapshot.getChildren())
         {
-                String fname = snapshot.child(String.valueOf(i)).child("firstname").getValue().toString();
-                String wprof = snapshot.child(String.valueOf(i)).child("idikotita").getValue().toString();
-                String lname = snapshot.child(String.valueOf(i)).child("lastname").getValue().toString();
-                String meraO = snapshot.child(String.valueOf(i)).child("oxi").getValue().toString();
+                String fname = snapshot.child(String.valueOf(i)).child("firstName").getValue().toString();
+                String wprof = snapshot.child(String.valueOf(i)).child("workersProf").getValue().toString();
+                String lname = snapshot.child(String.valueOf(i)).child("lastName").getValue().toString();
+                String meraO = snapshot.child(String.valueOf(i)).child("meraO").getValue().toString();
                 String vardiaO = snapshot.child(String.valueOf(i)).child("vardiaO").getValue().toString();
-                String wID = snapshot.child(String.valueOf(i)).child("ID").getValue().toString();
-                Log.d("1Test1:",fname);
-                Log.d("1Test2:",wprof);
-                Log.d("1Test3:",lname);
-            Log.d("1Test5:",meraO);
-            Log.d("1Test6:",vardiaO);
-                Log.d("1Test7:",wID);
+                String wID = snapshot.child(String.valueOf(i)).child("workersID").getValue().toString();
                 i++;
             Workers work = new Workers(fname,lname,wID,wprof,meraO,vardiaO);
 

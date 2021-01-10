@@ -18,6 +18,9 @@ import org.json.JSONException;
 
 import java.util.ArrayList;
 
+import static com.example.shiftplanner.Employee.EmployeeLogin.loggedInEmployee;
+import static com.example.shiftplanner.Manager.ManagerLogin.loggedInManager;
+
 public class MainActivity extends AppCompatActivity {
 
     Button btnManager, btnEmployee;
@@ -60,16 +63,32 @@ public class MainActivity extends AppCompatActivity {
         btnManager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ManagerLogin.class);
-                startActivity(intent);
+                if(loggedInManager)
+                {
+                    Intent intent = new Intent(MainActivity.this, ManagerLayout.class);
+                    startActivity(intent);
+                }
+                else if(!loggedInManager)
+                {
+                    Intent intent = new Intent(MainActivity.this, ManagerLogin.class);
+                    startActivity(intent);
+                }
             }
         });
 
         btnEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, EmployeeLogin.class);
-                startActivity(intent);
+                if(loggedInEmployee)
+                {
+                    Intent intent = new Intent(MainActivity.this, EmployeeLayout.class);
+                    startActivity(intent);
+                }
+                else if(!loggedInEmployee)
+                {
+                    Intent intent = new Intent(MainActivity.this, EmployeeLogin.class);
+                    startActivity(intent);
+                }
             }
         });
     }
