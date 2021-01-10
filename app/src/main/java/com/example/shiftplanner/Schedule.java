@@ -371,7 +371,7 @@ public class Schedule
             String workerlname = lista.get(i).getLastName();
             String workerid = lista.get(i).getWorkersID();
             String workerprof = lista.get(i).getWorkersProf();
-            String oneworker = workerid + " " + workerfname +" "+ workerlname;
+            String oneworker = workerid + " " + workerfname +" "+ workerlname + " " +workerprof;
             list.add(oneworker);
         }
         return list;
