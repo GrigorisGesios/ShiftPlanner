@@ -112,12 +112,12 @@
         android:layout_below="@id/numshifts"
         android:layout_marginTop="75dp"
         android:id="@+id/show"
-        android:background="@drawable/btn1"
+        android:background="@android:color/transparent"
         android:drawableLeft="@drawable/ic_date"/>
 
     <Button
         android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
+        android:layout_width="210dp"
         android:layout_height="wrap_content"
         android:text="Save"
         android:textColor="@color/white"
@@ -125,6 +125,8 @@
         android:layout_below="@id/show"
         android:layout_marginTop="75dp"
         android:id="@+id/save"
-        android:background="@drawable/btn1"/>
+        android:background="@drawable/btn1"
+        android:drawableLeft="@drawable/ic_save"
+        android:drawablePadding="10dp"/>
 
 </RelativeLayout>

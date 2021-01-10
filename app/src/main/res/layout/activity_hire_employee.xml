@@ -17,7 +17,9 @@
         android:inputType="textPersonName"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
-        android:layout_below="@+id/edTextGiveName"/>
+        android:layout_below="@+id/edTextGiveName"
+        android:drawableLeft="@drawable/ic_employee"
+        android:drawablePadding="10dp"/>
 
     <EditText
         android:id="@+id/edTextGiveId"
@@ -28,7 +30,9 @@
         android:inputType="textPersonName"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
-        android:layout_below="@+id/edTextGiveLastName" />
+        android:layout_below="@+id/edTextGiveLastName"
+        android:drawableLeft="@drawable/ic_id"
+        android:drawablePadding="10dp"/>
 
     <EditText
         android:id="@+id/edTextGiveProf"
@@ -39,7 +43,9 @@
         android:inputType="textPersonName"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
-        android:layout_below="@+id/edTextGiveId"/>
+        android:layout_below="@+id/edTextGiveId"
+        android:drawableLeft="@drawable/ic_eidikothta"
+        android:drawablePadding="10dp"/>
 
     <EditText
         android:id="@+id/edTextGiveName"
@@ -50,7 +56,9 @@
         android:inputType="textPersonName"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="135dp"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:drawableLeft="@drawable/ic_name"
+        android:drawablePadding="10dp"/>
 
     <Button
         android:id="@+id/btnConfirmHireEmployee"
