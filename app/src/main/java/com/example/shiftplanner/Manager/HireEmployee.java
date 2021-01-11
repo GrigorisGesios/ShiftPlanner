@@ -35,15 +35,16 @@ public class HireEmployee extends AppCompatActivity {
         btnConfirmHireEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String firstname = edTextGiveName.getText().toString();
-                String lastname = edTextGiveLastName.getText().toString();
+                String firstName = edTextGiveName.getText().toString();
+                String lastName = edTextGiveLastName.getText().toString();
                 String ID = edTextGiveId.getText().toString();
-                String idikotita = edTextGiveProf.getText().toString();
+                String workersProf = edTextGiveProf.getText().toString();
 
-                Workers worker = new Workers(firstname, lastname, ID, idikotita);
+                    Workers worker = new Workers(firstName, lastName, ID, workersProf,"0","0","0");
+                int tableNum = Integer.parseInt(edTextGiveId.getText().toString())-1;
 
                 database = FirebaseDatabase.getInstance().getReference();
-                database.child("employers").child(ID).setValue(worker);
+                database.child("employee").child(String.valueOf(tableNum)).setValue(worker);
 
             }
         });
