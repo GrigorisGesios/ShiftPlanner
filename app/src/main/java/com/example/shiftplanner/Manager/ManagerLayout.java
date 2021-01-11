@@ -42,7 +42,7 @@ public class ManagerLayout extends AppCompatActivity {
         btnPlanFinalSchedule = (Button) findViewById(R.id.btnPlanFinalSchedule);
         btnHireEmployee = (Button) findViewById(R.id.btnHireEmployee);
         btnFireEmployee = (Button) findViewById(R.id.btnFireEmployee);
-        btnViewFinalSchedule = (Button) findViewById(R.id.btnViewFinalSchedule2);
+        btnViewFinalSchedule = (Button) findViewById(R.id.btnViewFinalSchedule);
 
         btnGiveRestrictions.setOnClickListener(new View.OnClickListener() {
             @Override

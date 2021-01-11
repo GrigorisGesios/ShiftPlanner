@@ -15,8 +15,7 @@
         android:text="Give Restrictions"
         android:textColor="@color/white"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/btnReviewRequirements"
-        android:layout_marginBottom="80dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/btn1"
         android:drawableLeft="@drawable/ic_give"/>
 
@@ -26,8 +25,8 @@
         android:layout_height="wrap_content"
         android:text="Review Requirements"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/btnPlanFinalSchedule"
-        android:layout_marginBottom="80dp"
+        android:layout_below="@+id/btnGiveRestrictions"
+        android:layout_marginTop="65dp"
         android:background="@drawable/btn1"
         android:textColor="@color/white"
         android:drawableLeft="@drawable/ic_review"/>
@@ -37,10 +36,24 @@
         android:layout_width="245dp"
         android:layout_height="wrap_content"
         android:text="Plan Final Schedule"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/btnReviewRequirements"
+        android:layout_marginTop="65dp"
         android:textColor="@color/white"
-        android:layout_centerInParent="true"
         android:background="@drawable/btn1"
         android:drawableLeft="@drawable/ic_schedule"/>
+
+    <Button
+        android:id="@+id/btnViewFinalSchedule"
+        android:layout_width="245dp"
+        android:layout_height="wrap_content"
+        android:text="Hire Employee"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/btnPlanFinalSchedule"
+        android:layout_marginTop="65dp"
+        android:background="@drawable/btn1"
+        android:drawableLeft="@drawable/ic_hire"/>
 
     <Button
         android:id="@+id/btnHireEmployee"
@@ -49,8 +62,8 @@
         android:text="Hire Employee"
         android:textColor="@color/white"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/btnPlanFinalSchedule"
-        android:layout_marginTop="80dp"
+        android:layout_below="@+id/btnViewFinalSchedule"
+        android:layout_marginTop="65dp"
         android:background="@drawable/btn1"
         android:drawableLeft="@drawable/ic_hire"/>
 
@@ -62,7 +75,7 @@
         android:textColor="@color/white"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/btnHireEmployee"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="65dp"
         android:background="@drawable/btn1"
         android:drawableLeft="@drawable/ic_fire"/>
 

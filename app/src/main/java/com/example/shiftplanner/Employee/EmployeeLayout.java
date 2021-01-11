@@ -36,16 +36,8 @@ public class EmployeeLayout extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_layout);
         btnViewFinalSchedule = (Button) findViewById(R.id.btnViewFinalSchedule);
-        btnGiveRequirements = (Button) findViewById(R.id.btnGiveRequirements);
         btnviewdaysoff = (Button) findViewById(R.id.days_off_btn);
 
-        btnGiveRequirements.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(EmployeeLayout.this, GiveRequirements.class);
-                startActivity(intent);
-            }
-        });
 
         btnViewFinalSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
