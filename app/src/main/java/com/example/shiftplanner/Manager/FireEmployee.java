@@ -19,6 +19,7 @@ public class FireEmployee extends AppCompatActivity {
 
     private DatabaseReference database;
 
+
     Button btnShowEmployee;
     Button btnConfirmFireEmployee;
     TextView edTextGiveName, edTextGiveProf, edTextGiveId,edTextGiveLastName;
@@ -36,13 +37,13 @@ public class FireEmployee extends AppCompatActivity {
         edTextGiveLastName = (TextView) findViewById(R.id.edTextGiveLastName);
         btnShowEmployee = (Button) findViewById(R.id.btnShowEmployee);
 
-        database = FirebaseDatabase.getInstance().getReference().child("employers");
+
 
         btnConfirmFireEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int childNum = Integer.parseInt(edTextGiveId.getText().toString());
-                database = FirebaseDatabase.getInstance().getReference().child("employers").child(String.valueOf(childNum));
+                int childNum = Integer.parseInt(edTextGiveId.getText().toString())-1;
+                database = FirebaseDatabase.getInstance().getReference().child("employee").child(String.valueOf(childNum));
                 database.removeValue();
             }
         });
@@ -52,18 +53,18 @@ public class FireEmployee extends AppCompatActivity {
             public void onClick(View v) {
                 int childNum = Integer.parseInt(edTextGiveId.getText().toString())-1;
 
-                database = FirebaseDatabase.getInstance().getReference().child("employers").child(String.valueOf(childNum));
+                database = FirebaseDatabase.getInstance().getReference().child("employee").child(String.valueOf(childNum));
                 database.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        int childNum = Integer.parseInt(edTextGiveId.getText().toString())-1;
-                        String firstname = snapshot.child("employers").child(String.valueOf(childNum)).child("firstname").getValue().toString();
-                        String idikotita = snapshot.child("employers").child(String.valueOf(childNum)).child("idikotita").getValue().toString();
-                        String lastname = snapshot.child("employers").child(String.valueOf(childNum)).child("lastname").getValue().toString();
-                        String ID = snapshot.child("employers").child("ID").getValue().toString();
-                        edTextGiveName.setText(firstname);
-                        edTextGiveProf.setText(idikotita);
-                        edTextGiveLastName.setText(lastname);
+
+                        String firstName = snapshot.child("firstName").getValue().toString();
+                        String workersProf = snapshot.child("workersProf").getValue().toString();
+                        String lastName = snapshot.child("lastName").getValue().toString();
+                        String ID = snapshot.child("workersID").getValue().toString();
+                        edTextGiveName.setText(firstName);
+                        edTextGiveProf.setText(workersProf);
+                        edTextGiveLastName.setText(lastName);
                         edTextGiveId.setText(ID);
                     }
 

@@ -1,0 +1,264 @@
+{
+  "employee": [
+    {
+      "workersProf": "ergatis",
+      "inShift": "true",
+      "firstName": "Alexandros",
+      "workersID": "1",
+      "lastName": "Fournaris",
+      "vardiaP": "2",
+      "meraO": "Deutera",
+      "vardiaO": "1"
+    },
+    {
+      "firstName": "Nikos",
+      "inShift": "true",
+      "workersProf": "ergatis",
+      "workersID": "2",
+      "lastName": "Papanikolaou",
+      "vardiaP": "2",
+      "meraO": "Kyriakh",
+      "vardiaO": "1"
+    },
+    {
+      "firstName": "Nefeli",
+      "inShift": "true",
+      "workersProf": "ergatis",
+      "workersID": "3",
+      "lastName": "Aslanidou",
+      "vardiaP": "1",
+      "meraO": "Trith",
+      "vardiaO": "1"
+    },
+    {
+      "firstName": "Orestis",
+      "inShift": "true",
+      "workersProf": "ergatis",
+      "workersID": "4",
+      "lastName": "Papanikolaou",
+      "vardiaP": "1",
+      "meraO": "Pempth",
+      "vardiaO": "1"
+    },
+    {
+      "firstName": "Alexandros",
+      "inShift": "true",
+      "workersProf": "ergatis",
+      "workersID": "5",
+      "lastName": "Koulelis",
+      "vardiaP": "2",
+      "meraO": "Trith",
+      "vardiaO": "2"
+    },
+    {
+      "firstName": "Grigoris",
+      "inShift": "true",
+      "workersProf": "ergatis",
+      "workersID": "6",
+      "lastName": "Gesios",
+      "vardiaP": "3",
+      "meraO": "Sabbato",
+      "vardiaO": "2"
+    },
+    {
+      "firstName": "Xristos",
+      "inShift": "true",
+      "workersProf": "ergatis",
+      "workersID": "7",
+      "lastName": "Karagiavouridis",
+      "vardiaP": "1",
+      "meraO": "Paraskeuh",
+      "vardiaO": "1"
+    },
+    {
+      "firstName": "Giannhs",
+      "inShift": "true",
+      "workersProf": "ergatis",
+      "workersID": "8",
+      "lastName": "Papadopoulou",
+      "vardiaP": "1",
+      "meraO": "Tetarth",
+      "vardiaO": "3"
+    },
+    {
+      "firstName": "Sofia",
+      "inShift": "true",
+      "workersProf": "ergatis",
+      "workersID": "9",
+      "lastName": "Kouleli",
+      "vardiaP": "1",
+      "meraO": "Pempth",
+      "vardiaO": "3"
+    },
+    {
+      "firstName": "Lefteris",
+      "inShift": "true",
+      "workersProf": "ergatis",
+      "workersID": "10",
+      "lastName": "Kendros",
+      "vardiaP": "1",
+      "meraO": "Tetarth",
+      "vardiaO": "2"
+    },
+    {
+      "firstName": "Mpampis",
+      "inShift": "true",
+      "workersProf": "ergatis",
+      "workersID": "11",
+      "lastName": "Papaioannou",
+      "vardiaP": "1",
+      "meraO": "Deutera",
+      "vardiaO": "2"
+    },
+    {
+      "firstName": "Panagiwta",
+      "inShift": "true",
+      "workersProf": "ergatis",
+      "workersID": "12",
+      "lastName": "Fournari",
+      "vardiaP": "1",
+      "meraO": "Kyriakh",
+      "vardiaO": "3"
+    }
+  ],
+  "login": [
+    {
+      "workersID": "1",
+      "idikotita": "ergatis",
+      "username": "orespapa",
+      "password": "papaores"
+    },
+    {
+      "workersID": "2",
+      "idikotita": "ergatis",
+      "username": "nikopapa",
+      "password": "papaniko"
+    },
+    {
+      "workersID": "3",
+      "idikotita": "ergatis",
+      "username": "nefeaslan",
+      "password": "alsanefe"
+    },
+    {
+      "workersID": "4",
+      "idikotita": "ergatis",
+      "username": "alexkoul",
+      "password": "koulalex"
+    },
+    {
+      "workersID": "5",
+      "idikotita": "ergatis",
+      "username": "alexfour",
+      "password": "fourakex"
+    },
+    {
+      "workersID": "6",
+      "idikotita": "ergatis",
+      "username": "griggesi",
+      "password": "gesigrig"
+    },
+    {
+      "workersID": "7",
+      "idikotita": "ergatis",
+      "username": "xriskara",
+      "password": "karaxris"
+    },
+    {
+      "ID": "a",
+      "idikotita": "ergodotis",
+      "username": "maripapa",
+      "password": "papamari"
+    },
+    {
+      "ID": "b",
+      "idikotita": "ergodotis",
+      "username": "antodimo",
+      "password": "dimoanto"
+    }
+  ],
+  "employer": [
+    {
+      "firstname": "Marios",
+      "idikotita": "ergodotis",
+      "ID": "a",
+      "lastname": "Papapavlou"
+    },
+    {
+      "firstname": "Antonis",
+      "idikotita": "ergodotis",
+      "ID": "b",
+      "lastname": "Dimou"
+    }
+  ],
+  "restriction": {
+    "ar_week": "3",
+    "ar_days": "5",
+    "d_year": "2021",
+    "d_month": "January",
+    "d_day": "4",
+    "ar_vard": "6",
+    "vardia1": "2",
+    "vardia2": "2",
+    "vardia3": "1",
+    "vardia4": "2",
+    "vardia5": "1",
+    "vardia6": "1",
+    "sunol_pros": "12",
+    "sunol_pros_hmeras": "5",
+    "sun_wres": "8",
+    "wres_evd": "64",
+    "max_adeia": "2"
+  },
+  "requirement": [
+    {
+      "ID": "1",
+      "protimisi": "Deutera",
+      "vardiaP": "1",
+      "meraO": "Paraskeuh",
+      "vardiaO": "3"
+    },
+    {
+      "ID": "2",
+      "protimisi": "Tetarth",
+      "vardiaP": "2",
+      "meraO": "Kuriakh",
+      "vardiaO": "1"
+    },
+    {
+      "ID": "3",
+      "protimisi": "Savvato",
+      "vardiaP": "1",
+      "meraO": "Trith",
+      "vardiaO": "1"
+    },
+    {
+      "ID": "4",
+      "protimisi": "Trith",
+      "vardiaP": "3",
+      "meraO": "Deutera",
+      "vardiaO": "2"
+    },
+    {
+      "ID": "5",
+      "protimisi": "Kuriakh",
+      "vardiaP": "2",
+      "meraO": "Pempth",
+      "vardiaO": "2"
+    },
+    {
+      "ID": "6",
+      "protimisi": "Pempth",
+      "vardiaP": "3",
+      "meraO": "Savvato",
+      "vardiaO": "2"
+    },
+    {
+      "ID": "7",
+      "protimisi": "Paraskeuh",
+      "vardiaP": "1",
+      "meraO": "Paraskeuh",
+      "vardiaO": "3"
+    }
+  ]
+}
