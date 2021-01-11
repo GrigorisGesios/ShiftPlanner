@@ -53,6 +53,12 @@
   "idikotita": "ergodotis",
   "username": "antodimo",
   "password": "dimoanto"
+ },
+ {
+  "ID": "c",
+  "idikotita": "ergodotis",
+  "username": "admin",
+  "password": "123456"
  }
 ]
 }
