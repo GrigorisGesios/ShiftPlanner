@@ -53,7 +53,7 @@
         android:layout_below="@+id/btnPlanFinalSchedule"
         android:layout_marginTop="65dp"
         android:background="@drawable/btn1"
-        android:drawableLeft="@drawable/ic_hire"/>
+        android:drawableLeft="@drawable/ic_final"/>
 
     <Button
         android:id="@+id/btnHireEmployee"
