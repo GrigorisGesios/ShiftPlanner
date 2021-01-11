@@ -11,7 +11,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.example.shiftplanner.Employee.EmployeeLogin;
 import com.example.shiftplanner.R;
 
 import org.json.JSONArray;
@@ -27,7 +29,8 @@ public class GiveRestrictions extends AppCompatActivity implements OnDateSetList
 
     private Spinner numweek, numshift, numday;
     Button Save;
-    String mera, minas, xronos;
+    public static String textW, textS, textD, mera, minas, xronos;
+    public static Boolean ischanged = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,10 +71,12 @@ public class GiveRestrictions extends AppCompatActivity implements OnDateSetList
 
 
 
-                try {
-                    String textW = numweek.getSelectedItem().toString();
-                    String textS = numshift.getSelectedItem().toString();
-                    String textD = numshift.getSelectedItem().toString();
+                    textW = numweek.getSelectedItem().toString();
+                    textS = numshift.getSelectedItem().toString();
+                    textD = numshift.getSelectedItem().toString();
+                    ischanged = true;
+                    Toast.makeText(GiveRestrictions.this, "Saved!", Toast.LENGTH_SHORT).show();
+                    /*
                     JSONObject obj = new JSONObject(loadJSONFromAsset("Restrictions.json"));
                     JSONArray jarr = (JSONArray) obj.get("restriction");
                     String week = null;
@@ -128,9 +133,8 @@ public class GiveRestrictions extends AppCompatActivity implements OnDateSetList
                     }
                     final String json = obj.toString();
                     Log.d("JSONCHECK5:",json);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+
+                     */
 
 
 
