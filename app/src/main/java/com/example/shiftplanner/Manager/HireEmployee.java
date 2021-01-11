@@ -40,7 +40,7 @@ public class HireEmployee extends AppCompatActivity {
                 String ID = edTextGiveId.getText().toString();
                 String workersProf = edTextGiveProf.getText().toString();
 
-                    Workers worker = new Workers(firstName, lastName, ID, workersProf,"0","0","0");
+                    Workers worker = new Workers(firstName, lastName, ID, workersProf,"0","0");
                 int tableNum = Integer.parseInt(edTextGiveId.getText().toString())-1;
 
                 database = FirebaseDatabase.getInstance().getReference();
