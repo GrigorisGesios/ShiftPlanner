@@ -24,7 +24,7 @@ public class Workers
 
     }
 
-    public Workers(String firstname, String lastname, String id, String idikotita) {
+    public Workers(String firstname, String lastname, String id, String idikotita,String Vardiap,String mera0,String vardia0) {
     }
 
     public String getFirstName() {
