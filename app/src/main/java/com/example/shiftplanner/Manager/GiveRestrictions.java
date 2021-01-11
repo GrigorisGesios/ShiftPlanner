@@ -22,14 +22,14 @@ import org.json.JSONObject;
 
 import java.io.FileReader;
 import java.util.Calendar;
-
+import static com.example.shiftplanner.Manager.ManagerLayout.schedulecreated;
 import static com.example.shiftplanner.ParseJ.loadJSONFromAsset;
 
 public class GiveRestrictions extends AppCompatActivity implements OnDateSetListener {
 
     private Spinner numweek, numshift, numday;
     Button Save;
-    public static String textW, textS, textD, mera, minas, xronos;
+    public static String textW, textS, textD, mera ="18" , minas="0", xronos="2021";
     public static Boolean ischanged = false;
 
     @Override
@@ -73,9 +73,16 @@ public class GiveRestrictions extends AppCompatActivity implements OnDateSetList
 
                     textW = numweek.getSelectedItem().toString();
                     textS = numshift.getSelectedItem().toString();
-                    textD = numshift.getSelectedItem().toString();
+                    textD = numday.getSelectedItem().toString();
                     ischanged = true;
+                    schedulecreated = false;
                     Toast.makeText(GiveRestrictions.this, "Saved!", Toast.LENGTH_SHORT).show();
+                    Log.d("WEEK:",textW);
+                    Log.d("SHIFT:",textS);
+                    Log.d("DAY:",textD);
+                    Log.d("MERA:",mera);
+                    Log.d("MHNAS:",minas);
+                    Log.d("XRONOS:",xronos);
                     /*
                     JSONObject obj = new JSONObject(loadJSONFromAsset("Restrictions.json"));
                     JSONArray jarr = (JSONArray) obj.get("restriction");

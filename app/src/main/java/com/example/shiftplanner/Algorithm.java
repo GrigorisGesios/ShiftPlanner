@@ -8,6 +8,14 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 
+import static com.example.shiftplanner.Manager.GiveRestrictions.ischanged;
+import static com.example.shiftplanner.Manager.GiveRestrictions.mera;
+import static com.example.shiftplanner.Manager.GiveRestrictions.minas;
+import static com.example.shiftplanner.Manager.GiveRestrictions.textD;
+import static com.example.shiftplanner.Manager.GiveRestrictions.textS;
+import static com.example.shiftplanner.Manager.GiveRestrictions.textW;
+import static com.example.shiftplanner.Manager.GiveRestrictions.xronos;
+
 public class Algorithm
 {
     public static ParseJ parseobj = new ParseJ();
@@ -22,10 +30,12 @@ public class Algorithm
     }
 
     Calendar date = Calendar.getInstance();
-    int numofweeks = parseobj.getRestriction("ar_week");
-    int date_year = parseobj.getRestriction("d_year");
-    int date_month = parseobj.getMonth();
-    int date_day   = parseobj.getRestriction("d_day");
+    int numofweeks = 0;
+    int numberofshifts = 0;
+    int numberofdays = 0;
+    int date_year = 0;
+    int date_month = 0;
+    int date_day   = 0;
     int v1 = parseobj.getRestriction("vardia1");
     int v2 = parseobj.getRestriction("vardia2");
     int v3 = parseobj.getRestriction("vardia3");
@@ -38,8 +48,8 @@ public class Algorithm
 
     public ArrayList<Day> createWeek() throws JSONException {
         ArrayList<Workers> dayworkerslist = new ArrayList<>();
-        int numberofshifts = parseobj.getRestriction("ar_vard");
-        int numberofdays = parseobj.getRestriction("ar_days");
+        //numberofshifts = parseobj.getRestriction("ar_vard");
+        //numberofdays = parseobj.getRestriction("ar_days");
         int maximumhoursperweek = parseobj.getRestriction("wres_evd");
         int workhours = parseobj.getRestriction("sun_wres");
         TruthTable table[] = new TruthTable[masterworkerslist.size()];   //Πίνακας αληθείας
@@ -119,6 +129,24 @@ public class Algorithm
 
     public ArrayList<Week> createSchedule() throws JSONException {
         ArrayList<Week> finallist = new ArrayList<>();
+        if(ischanged)
+        {
+            numofweeks = Integer.parseInt(textW);
+            numberofshifts = Integer.parseInt(textS);
+            numberofdays = Integer.parseInt(textD);
+            date_year = Integer.parseInt(xronos);
+            date_month = Integer.parseInt(minas);
+            date_day   = Integer.parseInt(mera);
+        }
+        else if(!ischanged)
+        {
+             numofweeks = parseobj.getRestriction("ar_week");
+             numberofshifts = parseobj.getRestriction("ar_vard");
+             numberofdays = parseobj.getRestriction("ar_days");
+             date_year = parseobj.getRestriction("d_year");
+             date_month = parseobj.getMonth();
+             date_day   = parseobj.getRestriction("d_day");
+        }
         for(int i=0;i<numofweeks;i++)
         {
             date.set(date_year,date_month,date_day,0,0);

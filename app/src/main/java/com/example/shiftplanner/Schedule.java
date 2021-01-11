@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+import static com.example.shiftplanner.Manager.GiveRestrictions.ischanged;
+import static com.example.shiftplanner.Manager.GiveRestrictions.textS;
 import static com.example.shiftplanner.ParseJ.loadJSONFromAsset;
 
 public class Schedule
@@ -31,7 +33,15 @@ public class Schedule
         Calendar dateofalg = Calendar.getInstance();
         date.set(year,month,day,0,0); // Μέρα που πατήθηκε απο τον χρήστη
         ParseJ parseobj = new ParseJ();
-        int numberofshifts = parseobj.getRestriction("ar_vard");
+        int numberofshifts = 0;
+        if(ischanged)
+        {
+            numberofshifts = Integer.parseInt(textS);
+        }
+        else if(!ischanged)
+        {
+            numberofshifts = parseobj.getRestriction("ar_vard");
+        }
         ArrayList<String> workerslist1 = new ArrayList<>();
         ArrayList<String> workerslist2 = new ArrayList<>();
         ArrayList<String> workerslist3 = new ArrayList<>();
