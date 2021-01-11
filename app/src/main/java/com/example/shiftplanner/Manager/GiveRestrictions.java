@@ -27,6 +27,7 @@ public class GiveRestrictions extends AppCompatActivity implements OnDateSetList
 
     private Spinner numweek, numshift, numday;
     Button Save;
+    String mera, minas, xronos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,7 @@ public class GiveRestrictions extends AppCompatActivity implements OnDateSetList
         Spinner numshift = (Spinner) findViewById(R.id.numshifts);
         Spinner numday = (Spinner) findViewById(R.id.numdays);
         Save = (Button) findViewById(R.id.save);
+
 
         findViewById(R.id.show).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,11 +77,17 @@ public class GiveRestrictions extends AppCompatActivity implements OnDateSetList
                     String week = null;
                     String day = null;
                     String vard = null;
+                    String b_day = null;
+                    String b_month = null;
+                    String b_year = null;
 
-                        JSONObject jin = jarr.getJSONObject(0);
-                        week = jin.getString("ar_week");
-                        day = jin.getString("ar_days");
-                        vard = jin.getString("ar_vard");
+                    JSONObject jin = jarr.getJSONObject(0);
+                    week = jin.getString("ar_week");
+                    day = jin.getString("ar_days");
+                    vard = jin.getString("ar_vard");
+                    b_day = jin.getString("d_day");
+                    b_month = jin.getString("d_month");
+                    b_year = jin.getString("d_year");
 
 
                     if(!(textW.equals(week))){
@@ -88,7 +96,6 @@ public class GiveRestrictions extends AppCompatActivity implements OnDateSetList
                         obj.remove("restriction");
                         obj.put("restriction",ar_week);
                     }
-
                     if(!(textS.equals(vard))){
                         JSONObject ar_vard = jarr.getJSONObject(0);
                         ar_vard.put("ar_vard", textS);
@@ -101,11 +108,32 @@ public class GiveRestrictions extends AppCompatActivity implements OnDateSetList
                         obj.remove("restriction");
                         obj.put("restriction",ar_days);
                     }
+                    if( !(b_day.equals(mera))){
+                        JSONObject d_day = jarr.getJSONObject(0);
+                        d_day.put("d_day", mera);
+                        obj.remove("restriction");
+                        obj.put("restriction",d_day);
+                    }
+                    if( !(b_month.equals(minas))){
+                        JSONObject d_month = jarr.getJSONObject(0);
+                        d_month.put("d_month", minas);
+                        obj.remove("restriction");
+                        obj.put("restriction",d_month);
+                    }
+                    if( !(b_year.equals(xronos))){
+                        JSONObject d_year = jarr.getJSONObject(0);
+                        d_year.put("d_year", xronos);
+                        obj.remove("restriction");
+                        obj.put("restriction",d_year);
+                    }
                     final String json = obj.toString();
                     Log.d("JSONCHECK5:",json);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+
+
+
             }
         });
     }
@@ -116,8 +144,9 @@ public class GiveRestrictions extends AppCompatActivity implements OnDateSetList
         datePickerDialog.show();
     }
 
-    @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-        String date = month + "/" + dayOfMonth + "/" + year;
+        mera = String.valueOf(dayOfMonth);
+        minas = String.valueOf(month);
+        xronos = String.valueOf(year);
     }
 }
