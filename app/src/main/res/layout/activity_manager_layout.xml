@@ -47,7 +47,7 @@
         android:id="@+id/btnViewFinalSchedule"
         android:layout_width="245dp"
         android:layout_height="wrap_content"
-        android:text="Hire Employee"
+        android:text="View Final Schedule"
         android:textColor="@color/white"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/btnPlanFinalSchedule"
