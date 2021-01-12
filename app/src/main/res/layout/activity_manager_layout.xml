@@ -12,71 +12,59 @@
         android:id="@+id/btnGiveRestrictions"
         android:layout_width="245dp"
         android:layout_height="wrap_content"
-        android:text="Give Restrictions"
-        android:textColor="@color/white"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
         android:background="@drawable/btn1"
-        android:drawableLeft="@drawable/ic_give"/>
-
-    <Button
-        android:id="@+id/btnReviewRequirements"
-        android:layout_width="245dp"
-        android:layout_height="wrap_content"
-        android:text="Review Requirements"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/btnGiveRestrictions"
-        android:layout_marginTop="65dp"
-        android:background="@drawable/btn1"
-        android:textColor="@color/white"
-        android:drawableLeft="@drawable/ic_review"/>
-
-    <Button
-        android:id="@+id/btnPlanFinalSchedule"
-        android:layout_width="245dp"
-        android:layout_height="wrap_content"
-        android:text="Plan Final Schedule"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/btnReviewRequirements"
-        android:layout_marginTop="65dp"
-        android:textColor="@color/white"
-        android:background="@drawable/btn1"
-        android:drawableLeft="@drawable/ic_schedule"/>
+        android:drawableLeft="@drawable/ic_give"
+        android:text="Give Restrictions"
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/btnViewFinalSchedule"
         android:layout_width="245dp"
         android:layout_height="wrap_content"
-        android:text="View Final Schedule"
-        android:textColor="@color/white"
-        android:layout_centerHorizontal="true"
         android:layout_below="@+id/btnPlanFinalSchedule"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="65dp"
         android:background="@drawable/btn1"
-        android:drawableLeft="@drawable/ic_final"/>
+        android:drawableLeft="@drawable/ic_final"
+        android:text="View Final Schedule"
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/btnHireEmployee"
         android:layout_width="245dp"
         android:layout_height="wrap_content"
-        android:text="Hire Employee"
-        android:textColor="@color/white"
-        android:layout_centerHorizontal="true"
         android:layout_below="@+id/btnViewFinalSchedule"
-        android:layout_marginTop="65dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="66dp"
         android:background="@drawable/btn1"
-        android:drawableLeft="@drawable/ic_hire"/>
+        android:drawableLeft="@drawable/ic_hire"
+        android:text="Hire Employee"
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/btnFireEmployee"
         android:layout_width="245dp"
         android:layout_height="wrap_content"
-        android:text="Fire Employee"
-        android:textColor="@color/white"
-        android:layout_centerHorizontal="true"
         android:layout_below="@+id/btnHireEmployee"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="65dp"
         android:background="@drawable/btn1"
-        android:drawableLeft="@drawable/ic_fire"/>
+        android:drawableLeft="@drawable/ic_fire"
+        android:text="Fire Employee"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/btnPlanFinalSchedule"
+        android:layout_width="245dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnGiveRestrictions"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="65dp"
+        android:background="@drawable/btn1"
+        android:drawableLeft="@drawable/ic_schedule"
+        android:text="Plan Final Schedule"
+        android:textColor="@color/white" />
 
 </RelativeLayout>

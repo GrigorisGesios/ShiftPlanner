@@ -38,7 +38,7 @@ public class ManagerLayout extends AppCompatActivity {
         setContentView(R.layout.activity_manager_layout);
 
         btnGiveRestrictions = (Button) findViewById(R.id.btnGiveRestrictions);
-        btnReviewRequirements = (Button) findViewById(R.id.btnReviewRequirements);
+        //btnReviewRequirements = (Button) findViewById(R.id.btnReviewRequirements);
         btnPlanFinalSchedule = (Button) findViewById(R.id.btnPlanFinalSchedule);
         btnHireEmployee = (Button) findViewById(R.id.btnHireEmployee);
         btnFireEmployee = (Button) findViewById(R.id.btnFireEmployee);
@@ -62,13 +62,13 @@ public class ManagerLayout extends AppCompatActivity {
             }
         });
 
-        btnReviewRequirements.setOnClickListener(new View.OnClickListener() {
+        /*btnReviewRequirements.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ManagerLayout.this, ReviewRequirements.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
         /*btnPlanFinalSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
