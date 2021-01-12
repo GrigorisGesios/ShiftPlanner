@@ -47,8 +47,18 @@ public class ManagerLayout extends AppCompatActivity {
         btnGiveRestrictions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ManagerLayout.this, GiveRestrictions.class);
-                startActivity(intent);
+                if(!schedulecreated)
+                {
+                    Intent intent = new Intent(ManagerLayout.this, GiveRestrictions.class);
+                    startActivity(intent);
+                }
+                else if(schedulecreated)
+                {
+                    Toast.makeText(ManagerLayout.this,"Έχει ήδη δημιουργηθεί πρόγραμμα!",Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(ManagerLayout.this, ManagerLayout.class);
+                    startActivity(intent);
+                }
+
             }
         });
 

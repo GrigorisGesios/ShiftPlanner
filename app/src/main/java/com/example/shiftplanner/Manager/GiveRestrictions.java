@@ -75,7 +75,7 @@ public class GiveRestrictions extends AppCompatActivity implements OnDateSetList
                     textS = numshift.getSelectedItem().toString();
                     textD = numday.getSelectedItem().toString();
                     ischanged = true;
-                    schedulecreated = false;
+                    //schedulecreated = false;
                     Toast.makeText(GiveRestrictions.this, "Saved!", Toast.LENGTH_SHORT).show();
                     Log.d("WEEK:",textW);
                     Log.d("SHIFT:",textS);
